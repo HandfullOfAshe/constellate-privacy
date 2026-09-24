@@ -50,7 +50,7 @@ connector/creative-bridge/                  Creative Bridge MCP connector (DONE,
 | 03-music-system.md | written and committed |
 | 04-visual-design-system.md | written and committed |
 | 05-monetization-and-app-store.md | written and committed |
-| suno-library/ (README.md, suno-library.md, suno-library.json) | writer was still running |
+| suno-library/ (README.md, suno-library.md, suno-library.json) | written and committed (57 entries, JSON validated) |
 | 06-technical-architecture-and-build-plan.md | writer was still running |
 | 07-legal-ip-and-rights-checklist.md | written and committed |
 
