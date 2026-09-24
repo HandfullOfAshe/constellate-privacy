@@ -52,7 +52,7 @@ connector/creative-bridge/                  Creative Bridge MCP connector (DONE,
 | 05-monetization-and-app-store.md | written and committed |
 | suno-library/ (README.md, suno-library.md, suno-library.json) | writer was still running |
 | 06-technical-architecture-and-build-plan.md | writer was still running |
-| 07-legal-ip-and-rights-checklist.md | writer was still running |
+| 07-legal-ip-and-rights-checklist.md | written and committed |
 
 **Check the file list.** Any document above that is missing on disk was not finished before the previous session ended; regenerate it from its brief in `concepts/doorhorn/_briefs/` (the briefs reference only files that exist in this repo). None of the documents has had a cross-document consistency review yet; that review is the first open task after the package is complete (section 6).
 
