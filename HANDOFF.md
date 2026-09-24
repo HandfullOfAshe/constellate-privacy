@@ -77,7 +77,12 @@ Never ask the owner to paste tokens, keys or passwords into chat; they go into N
 ## 6. Open tasks, in order
 
 1. **Finish the package.** For each missing document, run its brief (`concepts/doorhorn/_briefs/`) with a subagent; regenerate `concepts/tournament/digest/` first if it is missing (`node concepts/tournament/extract-digests.mjs`).
-2. **Consistency review across all documents.** Check: cast names and phases match WINNER.md; the section-map schema in 03 and 06 is identical; tempos and durations agree between 03, 06 and the Suno library; the free/paid boundary matches between 01 and 05; the name shortlist in 05 respects 07's clearance results; every factual claim has a source URL. Fix and commit.
+2. **Consistency review across all documents.** Check: cast names and phases match WINNER.md; the section-map schema in 03 and 06 is identical; tempos and durations agree between 03, 06 and the Suno library; the free/paid boundary matches between 01 and 05; the name shortlist in 05 respects 07's clearance results; every factual claim has a source URL. Known items already flagged by the writers:
+   - 02 proposes a musical lane for Lionel that WINNER.md does not define, and its syllables-per-bar table assumes tempos; 03 owns the tempos, so reconcile 02 to 03.
+   - 04 reserves red for Scrub and defines the crew colors without red; the prototype (`prototype/index.html`) still uses red for Pilot and different fonts (Bungee, Nunito, IBM Plex Mono) from 04's picks (Anton, Fredoka, Space Mono). Align the prototype to 04 or record the deviation.
+   - 04 adds a derived "Dress Blue" sky step not in WINNER.md; keep it only if 03 and 06 agree on the phase list.
+   - 01 proposes a "docked start versus pocket start" model to reconcile the 30-second alarm-sound cap with "you don't need to open the app", plus a 14-day free mission-log window; 06 must confirm both against verified platform facts.
+   Fix and commit.
 3. **Owner review of the concept.** Confirm the name, the tone (4+/9+, warm, never blaming the household), the price, and the v1 scope (launches, Re-entry, manifest and Hold item, Scrub, mission log, three Request Line songs, Test Fire, paywall).
 4. **Then build.** Document 06 carries the 16-week v1 plan; the prototype shows the loop; the Suno library and music pipeline produce the audio.
 
