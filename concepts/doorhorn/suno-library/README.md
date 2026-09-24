@@ -70,3 +70,7 @@ Do not prompt with artist names, band names or "in the style of" (none appear in
 ## 8. Controls the digest does not confirm
 
 Test these on the first session rather than assuming them: whether Covers keep tempo and key; whether Extend keeps tempo; whether the model honours a requested key at all (check with a tuner); whether Sounds mode can make a six-second musical fanfare or foley such as a clothespin; the Sounds credit cost and whether Sounds output counts as a download; whether a music-free spoken-word generation (entry 52) is possible; the exact Persona menu wording; and what v6-wild changes. Where an entry depends on one of these, its tips give a fallback.
+
+## Regenerating the library files
+
+`suno-library.md` and `suno-library.json` are generated. Edit the entry files in `src/` and run `node src/build.js` from this folder; both outputs are rewritten together so they cannot drift.
