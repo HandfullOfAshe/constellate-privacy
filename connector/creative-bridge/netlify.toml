@@ -1,0 +1,9 @@
+# Creative Bridge MCP connector.
+# In the Netlify UI set "Base directory" to connector/creative-bridge when linking the repository.
+[build]
+  publish = "public"
+  command = "echo 'functions only, nothing to build'"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
