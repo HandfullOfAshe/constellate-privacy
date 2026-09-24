@@ -81,6 +81,7 @@ Never ask the owner to paste tokens, keys or passwords into chat; they go into N
    - 02 proposes a musical lane for Lionel that WINNER.md does not define, and its syllables-per-bar table assumes tempos; 03 owns the tempos, so reconcile 02 to 03.
    - 04 reserves red for Scrub and defines the crew colors without red; the prototype (`prototype/index.html`) still uses red for Pilot and different fonts (Bungee, Nunito, IBM Plex Mono) from 04's picks (Anton, Fredoka, Space Mono). Align the prototype to 04 or record the deviation.
    - 04 adds a derived "Dress Blue" sky step not in WINNER.md; keep it only if 03 and 06 agree on the phase list.
+   - 03 locks 128 BPM for launches and the Request Line (16 bars per 30 seconds), Re-entry as six segments 80→60 BPM totalling 1,200 s, End Credits at 96 BPM, a G house key for runtime-assembled sung lines, and one 208-bar master per flavor. The Suno library, 06 and 02's syllable table must use these numbers; the prototype runs at 120 BPM and should be relabeled or retuned to 128.
    - 01 proposes a "docked start versus pocket start" model to reconcile the 30-second alarm-sound cap with "you don't need to open the app", plus a 14-day free mission-log window; 06 must confirm both against verified platform facts.
    Fix and commit.
 3. **Owner review of the concept.** Confirm the name, the tone (4+/9+, warm, never blaming the household), the price, and the v1 scope (launches, Re-entry, manifest and Hold item, Scrub, mission log, three Request Line songs, Test Fire, paywall).

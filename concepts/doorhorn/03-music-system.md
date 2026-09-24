@@ -8,11 +8,11 @@ Status: draft 1, 24 September 2026. Source of truth for product decisions is `co
 
 ## 1. Principles
 
-1. **Music is the schedule.** A launch has no countdown other than the music itself; the phase changes, the manifest and the door are positions in a score. The parent's Live Activity may show a countdown, but it is derived from playback position, never from the wall clock.
-2. **The audio is a replaceable layer.** Lyrics, spoken scripts, section maps, character designs and code are human-authored and copyrightable; the Suno renders beneath them are not (US Copyright Office Part 2 report, 29 Jan 2025; Thaler cert denied 2 Mar 2026). Every design decision below keeps the protectable value in data and words, and makes re-rendering the audio a mechanical job.
+1. **Music is the schedule.** The phase changes, the manifest and the door are positions in a score. The parent's Live Activity may show a countdown, derived from playback position, never from the wall clock.
+2. **The audio is a replaceable layer.** Lyrics, scripts, section maps, characters and code are human-authored and copyrightable; the Suno renders beneath them are not (US Copyright Office Part 2 report, 29 Jan 2025; Thaler cert denied 2 Mar 2026). Every decision below keeps the protectable value in data and words and makes re-rendering the audio mechanical.
 3. **No clock on screen.** Nothing in the household-facing UI shows digits. The job ends when the song ends.
 4. **The tap is the downbeat.** Every phase change, roll-call confirm and Scrub press is quantized to the next bar boundary on the audio engine's sample clock. Nothing signature ever lands between beats, and the mission log records events in bars.
-5. **One asset set, many mornings.** Five launch durations and daily variation are arrangements of one stem set per flavor, never separate downloads, so a flavor costs one Suno song plus its stems and the arrangement grammar does the rest.
+5. **One asset set, many mornings.** Five launch durations and daily variation are arrangements of one stem set per flavor, never separate downloads.
 
 ---
 
@@ -80,7 +80,7 @@ Fixed anchors that the household learns: the horn entry is always the downbeat o
 
 ## 3. The section map
 
-Every shipped track carries a JSON map validated against `sectionmap.schema.json`. The engineering document consumes the same schema. Units are fixed: bars are 1-based integers, beats are 1–4, `ms` is integer milliseconds from track start (t = 0 is T-minus the launch duration), and `samples` are at 48,000 Hz. Anything derivable (`startMs`, `barSamples`) is still written out so the engine never recomputes with floating point.
+Every shipped track carries a JSON map validated against `sectionmap.schema.json`, which the engineering document also consumes. Units: bars are 1-based integers, beats 1–4, `ms` integer milliseconds from track start (t = 0 is T-minus the launch duration), samples at 48,000 Hz. Derivable values (`startMs`, `barSamples`) are still written out so the engine never recomputes with floating point.
 
 ### 3.1 Schema (`sectionmap.schema.json`)
 
@@ -186,7 +186,7 @@ Every shipped track carries a JSON map validated against `sectionmap.schema.json
 
 ### 3.2 Worked example: the 12-minute launch, marching-band flavor
 
-Bar numbers are for the arrangement; `source.fromBar` points into the 208-bar master stems. Sung cue bars carry both the designed `ms` and the `measuredMs` from the take. Manifest and roll-call slots are expressed as slot specs rather than 20 separate entries.
+Bar numbers are the arrangement's; `source.fromBar` points into the 208-bar master stems. Sung cues carry the designed `ms` and the take's `measuredMs`. Manifest and roll-call slots are slot specs rather than separate entries.
 
 ```json
 {
@@ -283,15 +283,15 @@ Intensity is a layer state (calm = L_CALM; medium = L_CALM + L_MED; intense = al
 
 ### 4.2 Producing the stems from Suno
 
-1. Generate the master song (section 11) and, from the same clip, run stem separation. Suno offers three modes: **Auto Split** (up to 12 stems for 50 credits, a true separation whose stems sum back to the mix), **Split from Mix** (Pro, 10 credits per stem) and **Advanced Split** (Premier only, pick from nearly 100 instruments at 20 credits per stem, which *regenerates* the stem rather than slicing the mix) (https://help.suno.com/en/articles/12702337).
-2. Use **Advanced Split** for the four role stems, since it isolates named instruments (drum kit, bass, brass section, choir) cleanly and the roll call needs them clean. Because Advanced Split regenerates rather than slices, each role stem must be checked against the master for grid alignment (section 13) and, if it drifts, replaced by the corresponding Auto Split slice.
+1. Generate the master song (section 11) and split the same clip. Suno offers **Auto Split** (up to 12 stems, 50 credits, a true separation that sums back to the mix), **Split from Mix** (Pro, 10 credits per stem) and **Advanced Split** (Premier, nearly 100 instruments, 20 credits per stem, which *regenerates* the stem rather than slicing the mix) (https://help.suno.com/en/articles/12702337).
+2. Use **Advanced Split** for the four role stems, which the roll call needs clean. Because it regenerates rather than slices, each role stem is checked against the master for grid alignment (section 13) and, if it drifts, replaced by the Auto Split slice.
 3. Use **Auto Split** for everything else, grouping its slices into L_CALM, L_MED, L_HOT and V_LEAD as buses in Suno Studio, and removing the role instruments from those buses so nothing is doubled.
-4. Export from Studio as multitrack WAV; Studio exports are WAV and, on Premier, do not count against the monthly download cap (https://help.suno.com/en/articles/8128193; https://help.suno.com/en/articles/13614785). All stems of a song are part of that song's single download when downloaded from the library (same FAQ).
-5. Verify the sum: mix the eight exported stems at unity and null-test against the master export. Role stems from Advanced Split will not null; the test then checks alignment, not identity.
+4. Export multitrack WAV from Studio; Studio exports are WAV and, on Premier, do not count against the monthly cap, and all stems of a song are part of that song's single library download (https://help.suno.com/en/articles/8128193; https://help.suno.com/en/articles/13614785).
+5. Null-test the eight stems at unity against the master; regenerated role stems will not null, so for them the test checks alignment, not identity.
 
 ### 4.3 Trimming to bar boundaries
 
-Tempo drift is normal in Suno output ("just like live music", https://help.suno.com/en/articles/8363457); the documented fix is Studio's Project Tempo → Manual BPM before exporting. After export, the bar-1 downbeat sample `S0` is located once on R_DRUMS (kick onset) and the same `S0` and length (208 × 90,000 = 18,720,000 samples) are applied to all eight stems, so they stay sample-aligned to each other (commands in section 11.4). A master whose bars drift more than ±15 ms from the grid by bar 208 after Manual BPM is regenerated; it is not time-stretched, because stretching eight stems separately introduces artefacts that are audible at punch-ins.
+Tempo drift is normal in Suno output ("just like live music", https://help.suno.com/en/articles/8363457); the documented fix is Studio's Project Tempo → Manual BPM before export. The bar-1 downbeat sample `S0` is then located once on R_DRUMS and the same `S0` and length (208 × 90,000 = 18,720,000 samples) are applied to all eight stems (section 11.4). A master still drifting more than ±15 ms by bar 208 is regenerated, never time-stretched, because stretching eight stems separately is audible at punch-ins.
 
 ### 4.4 How the Stem Roll Call punches in
 
@@ -305,10 +305,10 @@ The library: 2:00 teeth (quadrant switches every 16 bars), 1:00, 1:30, 3:00, 5:0
 
 **Getting an exact length out of Suno.** Suno's own v6 interface has no exact-length control: the v6 release notes list section editing, mashups and multi-modal inputs but no length or tempo setting (https://suno.com/release-notes/introducing-v6), and the v5.5 Duration slider workflow is described as legacy (https://jackrighteous.com/en-us/blogs/guides-using-suno-ai-music-creation/suno-duration-slider-control-song-length-in-v5-5). A third-party wrapper advertises a 10 s–6 min length field, and even there dense arrangements overrun because "Suno finishes the musical phrase it started" (https://kolbo.ai/blog/suno-v6-launch); it is not used, because commercial rights attach to permitted downloads from Suno's own service. Length is controlled by writing, not by a slider:
 
-1. Write the lyric to the bar count: 4 lines of 2 bars per 8-bar phrase, a `[Chorus]`/`[Verse]` tag per 16-bar quadrant, and `[Outro]` then `[End]` immediately after the last cue so the model closes rather than jams (meta-tag practice: https://blakecrosley.com/guides/suno; hints are probabilistic, not commands).
-2. Front-load the style prompt with "128 BPM", the genre and the instrumentation; explicit BPM numbers are more reliable than words but "Suno isn't always accurate" (https://hookgenius.app/learn/suno-tempo-bpm-guide/). Generate two takes per song (one generation yields two clips).
-3. Lock Manual BPM in Studio if the take drifts, export WAV, locate the bar-1 downbeat, and trim to exactly N body bars plus one release bar: for teeth, 64 bars of body (5,760,000 samples) ending on the downbeat of bar 65, where the final "done" hit lands, then 1 bar of ring with a 200 ms fade. The map's `durationBars` is 64 and the wait ends at the downbeat of bar 65; the file is 65 bars long. The job ends when the song ends.
-4. Verify: `ffprobe` sample count equals `(N + 1) × 90,000`; each sung cue's onset is within ±1 beat (469 ms) of its designed bar (measured with an onset detector or by ear against a click); the map stores `measuredMs`. A cue more than a beat late is fixed with Replace Section (Pro/Premier, 10–30 s windows, per the release notes) or the take is dropped.
+1. Write the lyric to the bar count: four 2-bar lines per 8-bar phrase, a section tag per 16-bar quadrant, and `[Outro]` then `[End]` right after the last cue so the model closes rather than jams (tags are probabilistic hints: https://blakecrosley.com/guides/suno).
+2. Front-load the style prompt with "128 BPM", genre and instrumentation; explicit numbers beat words, but "Suno isn't always accurate" (https://hookgenius.app/learn/suno-tempo-bpm-guide/). One generation yields two clips; keep the better.
+3. Lock Manual BPM in Studio if the take drifts, export WAV, locate the bar-1 downbeat, and trim to N body bars plus one release bar: for teeth, 64 bars (5,760,000 samples) ending on the downbeat of bar 65, where the final "done" hit lands, then one bar of ring with a 200 ms fade. `durationBars` is 64, the wait ends on bar 65's downbeat, the file is 65 bars long.
+4. Verify: the `ffprobe` sample count equals `(N + 1) × 90,000`, and each sung cue's onset is within ±1 beat (469 ms) of its bar; the map stores `measuredMs`. A cue further out is fixed with Replace Section (Pro/Premier, 10–30 s windows, per the release notes) or the take is dropped.
 
 If a take's sung cues land one bar late throughout, the map moves, not the audio: quadrant cues may sit at bar 17 ± 1 as long as all four agree.
 
@@ -318,7 +318,7 @@ If a take's sung cues land one bar late throughout, the map moves, not the audio
 
 Twenty minutes, 80 → 60 BPM, phase grammar reversed (TIDY, TEETH, BOOK, LIGHTS), a buzzer on the final downbeat, Bunny's late-night voice on spoken cues.
 
-**Why segmented.** Suno "doesn't reliably support tempo changes within a single generation"; the recommended approach is to "generate sections separately at different BPMs and splice them" (https://hookgenius.app/learn/suno-tempo-bpm-guide/). Nothing in Suno's v6 release notes or help centre documents a tempo ramp. Re-entry is therefore six generations, all in G major, lullaby lane, same Persona, same style prompt with only the BPM number changed (the one-setting-at-a-time rule from https://moelueker.com/blog/suno-v6-guide):
+**Why segmented.** Suno "doesn't reliably support tempo changes within a single generation"; the advice is to "generate sections separately at different BPMs and splice them" (https://hookgenius.app/learn/suno-tempo-bpm-guide/), and nothing in Suno's v6 release notes or help centre documents a tempo ramp. Re-entry is six generations in G major, lullaby lane, same Persona, same style prompt with only the BPM changed (https://moelueker.com/blog/suno-v6-guide):
 
 | Segment | Phase | Tempo | Window | Bars | Seconds |
 |---|---|---|---|---|---|
@@ -330,19 +330,19 @@ Twenty minutes, 80 → 60 BPM, phase grammar reversed (TIDY, TEETH, BOOK, LIGHTS
 | RE6 | LIGHTS | 60 | 18:00–20:00 | 30 | 120 |
 | buzzer | — | — | 20:00.000 | — | 1.5 s one-shot |
 
-Every segment is a whole number of bars at its tempo, so the total is 365 bars and exactly 1,200.000 s. Each segment file is its body bars plus a 2,000 ms tail (`tailSamples` = 96,000). Joins are not equal-power crossfades, which smear two tempos: the engine starts segment N+1 on the exact sample where segment N's body ends and lets N's tail ring over N+1's first bar. Each segment is written to open on a downbeat chord in the same lead instrument, so the tempo step reads as the music settling, not as an edit. The last bar of RE6 is cut hard at 20:00.000 (no fade) and the buzzer one-shot (Sounds mode, key G, 60 BPM) fires on that sample; two seconds of silence follow before End Credits. Each segment is loudness-matched to the same target and then attenuated by a fixed −1 dB per step (RE1 at target, RE6 at −5 dB) so the house gets quieter as it slows.
+The total is 365 bars and exactly 1,200.000 s. Each segment file is its body bars plus a 2,000 ms tail (`tailSamples` = 96,000). Joins are not equal-power crossfades, which smear two tempos: the engine starts segment N+1 on the exact sample where N's body ends and lets N's tail ring over N+1's first bar, and every segment opens on a downbeat chord in the same lead instrument so the step reads as the music settling. RE6's last bar is cut hard at 20:00.000 and the buzzer one-shot (Sounds mode, G, 60 BPM) fires on that sample; two seconds of silence follow before End Credits. Segments are loudness-matched, then stepped down 1 dB each (RE1 at target, RE6 at −5 dB), so the house gets quieter as it slows.
 
 ---
 
 ## 7. End Credits
 
-Sixty seconds at 96 BPM in G major: a template bed of 24 bars, a modular bank of sung lines in Bunny's lane, assembled at runtime from the day's real manifest and scrub log. Billing order is computed from carried load, delivered as a joke, never a number.
+Sixty seconds at 96 BPM in G major: a 24-bar template bed plus a modular bank of sung lines in Bunny's lane, assembled at runtime from the day's real manifest and scrub log. Billing order is computed from carried load and delivered as a joke, never a number.
 
 **Slot plan (24 bars).** Intro 2 bars (bed only, sung sting "tonight's launch was brought to you by"); top billing 4 bars (role line 2 + carried-item line 2); three further billings at 4 bars each (12); guest star and joke line 4 bars; outro 2 bars ("splashdown confirmed"). Names are never sung; a billing line names the role ("the Navigator, who remembered the photo money") and the card shows the household name in text.
 
-**The line bank.** Three banks, all generated in Bunny's lane at 96 BPM in G with identical style prompts: role billing lines (4 roles × 3 phrasings × 2 positions), manifest item lines (the same vocabulary as Gus's morning bank, ~150 items plus "and one more thing, it's on the list" for items outside the bank), and joke lines (~40, written by the developer). Each bank is produced as list songs: a lyric of items one per 2-bar phrase, `[Verse]` tags every 8 bars, one download per song, then the Auto Split vocal stem is sliced by bar into per-line files with `preRollSamples` covering any pickup and a half-bar `tailSamples`. Lines that land more than a beat off their bar are discarded, not stretched.
+**The line bank.** Three banks in Bunny's lane at 96 BPM in G with identical style prompts: role billing lines (4 roles × 3 phrasings × 2 positions), manifest item lines (the same ~150-item vocabulary as Gus's morning bank, plus "and one more thing, it's on the list" for anything outside it) and about 40 developer-written joke lines. Each bank is produced as list songs, one item per 2-bar phrase with `[Verse]` tags every 8 bars, one download per song; the Auto Split vocal stem is sliced by bar into per-line files with `preRollSamples` covering any pickup and a half-bar tail. Lines more than a beat off their bar are discarded, not stretched.
 
-**Runtime assembly rules.** Bed and lines are on different buses; the bed is continuous. A line is scheduled at `slotStart − preRollSamples` and gated by a 20 ms equal-power fade at both ends on the `vocalLine` bus; two lines never overlap by more than their tails. Every line is normalized to the same short-term loudness (section 10) so the bed sits at a fixed −6 dB under the vocal bus. If the manifest has fewer than four billable roles, empty billing slots are filled with 4-bar instrumental reads of the bed (source bars 7–10). The same key, tempo and bar length across bank and bed is the entire assembly contract; a line in the wrong key fails QA and is never shipped.
+**Runtime assembly rules.** The bed is continuous on its own bus. A line is scheduled at `slotStart − preRollSamples` with a 20 ms equal-power fade at both ends on the `vocalLine` bus; lines never overlap beyond their tails. Every line is normalized to one short-term loudness (section 10) so the bed sits a fixed 6 dB under the vocal bus. Empty billing slots (fewer than four billable roles) become 4-bar instrumental reads of the bed. Same key, tempo and bar length across bank and bed is the whole contract; a line in the wrong key never ships.
 
 Gus's morning manifest bank follows the same rules at 128 BPM in G (lines of 2 bars, Hold lines of 4 bars including "day N, still on the manifest" for N = 1–30) and is the only runtime-assembled vocal inside a launch.
 
@@ -370,7 +370,7 @@ Lane prompts contain genre, instrumentation, mood, tempo and key only. No artist
 | Walk-up cues | 2 bars each, 3.75 s | 8 short instrumental songs (mariachi, surf, marching band, and five more lanes) | Household picks one per member |
 | Roll-call confirm tick, phase whoosh, manifest ding, Scrub button, patch tap, card flip, clothesline peg, plus four more | 0.2–1.0 s each | Sounds one-shots, 12 total | Delivered as a "sting reel": several one-shots separated by silence in one clip, then sliced |
 
-Sounds mode creates One Shot samples and seamless Loops with a chosen key and tempo and requires Pro or Premier (https://suno.com/release-notes/make-loops-and-samples-from-scratch-with-sounds). Whether Sounds output is counted under the download caps is not stated in Suno's primary documents (digest open item); the budget in section 10.4 counts every Sounds clip as a download to be safe, which is why micro sounds are batched into reels. Quiet mode plays spoken cues and stings only, at the same loudness targets; it is never a silent session.
+Sounds mode creates One Shot samples and seamless Loops at a chosen key and tempo and requires Pro or Premier (https://suno.com/release-notes/make-loops-and-samples-from-scratch-with-sounds). Whether Sounds output counts against download caps is not stated in Suno's primary documents; section 10.4 counts every Sounds clip as a download to be safe, which is why micro sounds are batched into reels. Quiet mode plays spoken cues and stings only, at the same targets; it is never a silent session.
 
 ---
 
@@ -386,11 +386,11 @@ Sounds mode creates One Shot samples and seamless Loops with a chosen key and te
 | Stings (fanfare, klaxon, buzzer) | −14 LUFS momentary max | ≤ −1.0 dBTP | 2 LU above the bed, by design |
 | Micro sounds | −20 LUFS momentary | ≤ −3.0 dBTP | Never compete with music |
 
-Stems are never normalized individually. The eight-stem sum is measured, one gain is computed, and that same gain is written into every stem's `gainDb` and baked into the files, so the sum lands on target and relative balance is untouched. If the sum's true peak would exceed −1 dBTP at target, the target for that flavor drops, and then every other flavor is matched to the lowest, so flavors always level-match within ±0.5 LU.
+Stems are never normalized individually: the eight-stem sum is measured, one gain is computed and baked into every stem (and written to `gainDb`), so balance is untouched. If the sum's true peak would exceed −1 dBTP at target, that flavor's target drops and every other flavor is matched to it, so flavors level-match within ±0.5 LU.
 
 ### 10.2 Sample rate, bit depth, containers
 
-Everything ships at 48 kHz (integer bars at 128, 96, 80, 75, 72, 64 and 60 BPM; matches iOS hardware rates). Masters are kept at 24-bit WAV. Shipped files are CAF containers (WINNER.md: "stems ship as bar-trimmed CAF") with one of three payloads:
+Everything ships at 48 kHz (integer bars at every locked tempo; the iOS hardware rate). Masters stay 24-bit WAV. Shipped files are CAF containers (WINNER.md: "stems ship as bar-trimmed CAF") with one of three payloads:
 
 | Payload | Used for | Why |
 |---|---|---|
@@ -414,7 +414,7 @@ The AAC choice rests on one engineering gate (section 13): the decoded frame cou
 | PCM stings and micro sounds (~30 assets) | 90 | 17 MB | — | PCM: **17 MB** |
 | **Whole set** | | **5.5 GB** | **3.2 GB** | **≈ 466 MB** |
 
-The free bundle (one flavor, three Request Line songs, one Re-entry, the banks, all stings) is about 130 MB and stays under the App Store's 200 MB cellular auto-download threshold; the remaining five flavors and the rest of the Request Line ship as On-Demand Resources fetched at unlock. Runtime memory stays small because stems stream from file through `scheduleSegment`; nothing is decoded whole into RAM.
+The free bundle (one flavor, three Request Line songs, one Re-entry, the banks, all stings) is about 130 MB, under the App Store's 200 MB cellular threshold; the other five flavors and the rest of the Request Line are On-Demand Resources fetched at unlock. Stems stream from file through `scheduleSegment`; nothing is decoded whole into RAM.
 
 ### 10.4 Download budget on Suno
 
@@ -449,13 +449,13 @@ That is one Premier month for beta and two for launch (60 each), consistent with
 ### 11.2 One melody, six flavors
 
 1. Write the launch lyric and section plan (208 bars, section 2.3) and generate the marching-band master at 128 BPM in F with the DRESS modulation to G written into the lyric tags (`[Verse: key change up]`). Keep the best of two clips; if the structure is off by a section, use Replace Section (10–30 s) or regenerate.
-2. **Covers** render the other five flavors: Covers keep "the melody and adapt the track to a different style", accept a fully produced track as source, and cost 10 credits after the complimentary allowance; Suno notes a cover "might return the original clip without adapting it" in some cases (https://suno.com/blog/covers, 12 Sept 2024; Covers is available to Pro and Premier). For each cover the style prompt is the new lane plus "128 BPM, F major modulating to G". Each cover is a new song and one download.
-3. Verify each cover's tempo (Manual BPM in Studio, then onset check), key (extract MIDI from the bass stem, 10 credits, https://help.suno.com/en/articles/8128193, or a key detector), the modulation bar, and the section lengths. A cover that lost the modulation or drifted a section is regenerated; it is not conformed by pitch-shifting.
+2. **Covers** render the other five flavors: a Cover keeps "the melody and adapts the track to a different style", accepts a fully produced track as source, costs 10 credits after the complimentary allowance, and "might return the original clip without adapting it" in some cases (https://suno.com/blog/covers, 12 Sept 2024; Pro and Premier). Each cover's style prompt is the new lane plus "128 BPM, F major modulating to G"; each is a new song and one download.
+3. Verify each cover's tempo (Manual BPM, then onset check), key (MIDI from the bass stem, 10 credits, https://help.suno.com/en/articles/8128193, or a key detector), modulation bar and section lengths. A cover that lost the modulation or a section is regenerated, not pitch-shifted.
 4. Split (section 4.2), bus in Studio, export multitrack WAV, and download the song once from the library.
 
 ### 11.3 File naming and folder layout
 
-`{family}_{flavor}_{asset}_{bars}b_{bpm}_{key}_v{n}.{ext}` — for example `launch_march_R-BRASS_208b_128_F-G_v1.caf`, `requestline_teeth_surf_64b_128_D_v2.caf`, `reentry_lullaby_RE3_75b_75_G_v1.caf`, `credits_bunny_line-item-lunchbox_2b_96_G_v1.caf`, `sting_fanfare_4b_128_G_v1.caf`. Bars are body bars; pre-roll and tail are in the map, not the name. Versions increment on any re-render; a map references files by exact name and hash.
+`{family}_{flavor}_{asset}_{bars}b_{bpm}_{key}_v{n}.{ext}` — for example `launch_march_R-BRASS_208b_128_F-G_v1.caf`, `requestline_teeth_surf_64b_128_D_v2.caf`, `reentry_lullaby_RE3_75b_75_G_v1.caf`, `credits_bunny_line-item-lunchbox_2b_96_G_v1.caf`. Bars are body bars; pre-roll and tail live in the map. Versions increment on any re-render; maps reference files by exact name and hash.
 
 ```
 concepts/doorhorn/suno-library/          # repository folder; audio itself lives in the off-repo archive
@@ -564,17 +564,17 @@ The hash of each file is copied into its map's `stems[].sha256`; the app refuses
 
 ## 12. Rights and records procedure
 
-**Before generating.** Subscribe to Premier and save, with dates: the checkout receipt, the plan page as PDF, and the Terms of Service in force (effective 3 Sept 2026, last revised 10 Aug 2026: https://suno.com/terms-of-service). The controlling grant is that for Pro and Premier subscribers Suno "assigns to you all of its right, title and interest in and to any Output", and commercial exploitation requires "a permitted download of that Output" under the tier's download allocation (same source). Rights persist after the subscription ends; the test is whether you were subscribed when the song was made and downloaded (https://help.suno.com/en/articles/2416769; https://help.suno.com/en/articles/9601665).
+**Before generating.** Subscribe to Premier and save, dated: the checkout receipt, the plan page as PDF, and the Terms in force (effective 3 Sept 2026, revised 10 Aug 2026: https://suno.com/terms-of-service). The controlling grant: for Pro and Premier subscribers Suno "assigns to you all of its right, title and interest in and to any Output", and commercial exploitation requires "a permitted download of that Output" within the tier's allocation. Rights persist after the subscription ends; the test is whether you were subscribed when the song was made and downloaded (https://help.suno.com/en/articles/2416769; https://help.suno.com/en/articles/9601665).
 
-**During.** One prompt log per clip (`prompts/`): date, model (v6), style prompt, lyrics, settings, Persona, credits spent, clip id, which take was kept. No artist names, song titles or "in the style of"; no Remix; no uploaded third-party audio; no Voice Model of anyone but the developer (https://suno.com/terms-of-service). The download log (`receipts/downloads.csv`) records every library download with date, clip id, tier and the monthly counter, so the "permitted download" status of every shipped song is provable.
+**During.** One prompt log per clip (`prompts/`): date, model, style prompt, lyrics, settings, Persona, credits, clip id, take kept. No artist names, song titles or "in the style of"; no Remix; no third-party audio; no Voice Model of anyone but the developer (https://suno.com/terms-of-service). `receipts/downloads.csv` records every library download with date, clip id, tier and the monthly counter, so each shipped song's permitted-download status is provable.
 
 **After.** Keep unmodified originals exactly as downloaded, hashed, beside the CAF derivatives; never "remove, alter, obscure or circumvent any fingerprint, watermark or metadata Suno appends" (https://suno.com/terms-of-service). Trimming and loudness work on Studio WAV exports and are ordinary post-production, not watermark removal; if Suno's fingerprint is later documented as fragile to processing, revisit. Archive `originals/`, `prompts/`, `receipts/`, `lyrics/` and `maps/` off-platform (encrypted drive plus a second copy): Suno changed terms once in 2026 and suffered a large data breach (https://www.musicbusinessworldwide.com/suno-hit-with-class-action-lawsuit-over-data-breach-reportedly-affecting-55m-users/).
 
-**Registration.** Every lyric and script is written by the developer and registered with the US Copyright Office as an unpublished literary collection, with the section maps and character bible deposited as part of the same collection where the Office permits; the audio is excluded from the claim. Purely AI-generated audio is not copyrightable (Copyright Office Part 2, 29 Jan 2025: https://copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf; Thaler cert denied 2 Mar 2026: https://www.scotusblog.com/cases/thaler-v-perlmutter/), and Suno itself says lyrics you wrote are yours and may be registered separately (https://help.suno.com/en/articles/2746945).
+**Registration.** Every lyric and script is developer-written and registered with the US Copyright Office as an unpublished literary collection, with section maps and the character bible deposited alongside where the Office permits; the audio is excluded from the claim, since purely AI-generated audio is not copyrightable (Part 2 report: https://copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf; Thaler: https://www.scotusblog.com/cases/thaler-v-perlmutter/). Suno itself says lyrics you wrote are yours and may be registered separately (https://help.suno.com/en/articles/2746945).
 
-**Human re-recording, year one.** The station ID, the liftoff fanfare and the launch melody (the 208-bar master's lead line and chord chart, exported as MIDI from Studio and notated) are re-recorded with a human musician before the first anniversary, under a written work-for-hire or assignment, so the brand owns at least one defensible audio asset. The section maps make the swap a file replacement.
+**Human re-recording, year one.** The station ID, liftoff fanfare and launch melody (the master's lead line and chord chart, exported as MIDI from Studio and notated) are re-recorded with a human musician before the first anniversary under a written assignment, so the brand owns at least one defensible audio asset; the maps make the swap a file replacement.
 
-**App Review notes and disclosure.** Apple has no rule on AI-generated bundled audio; 5.2.1 and 5.2.2 require holding the rights and complying with the third party's terms, with authorization "provided upon request" (https://developer.apple.com/app-store/review/guidelines/). The notes state: "All lyrics and scripts are original works by the developer. Music was produced with Suno under a Premier subscription with commercial rights; receipts, download logs and prompt logs are available on request." The About screen carries, verbatim: **"Every line written by a person. Songs produced with Suno from those lyrics."** Attribution is not required on paid plans (https://help.suno.com/en/articles/2410177), and Suno reserves the right to identify Output as AI-generated (https://suno.com/terms-of-service); the disclosure is consistent with both.
+**App Review notes and disclosure.** Apple has no rule on AI-generated bundled audio; 5.2.1 and 5.2.2 require holding the rights and complying with the third party's terms, with authorization "provided upon request" (https://developer.apple.com/app-store/review/guidelines/). The notes say: "All lyrics and scripts are original works by the developer. Music was produced with Suno under a Premier subscription with commercial rights; receipts, download logs and prompt logs are available on request." The About screen carries, verbatim: **"Every line written by a person. Songs produced with Suno from those lyrics."** Attribution is optional on paid plans (https://help.suno.com/en/articles/2410177) and Suno may identify Output as AI-generated (https://suno.com/terms-of-service); the disclosure is consistent with both.
 
 **Contingency: a Suno model or service is withdrawn.** Downloaded outputs keep their contractual grant, so a retirement alone pulls nothing. The live risks are litigation: Sony and UMG's second suit (18–19 Sept 2026, D. Mass., up to $9B over 60,202 recordings, arguing v6 is "fruit of the poisoned tree": https://www.engadget.com/2262978/sony-music-and-udio-say-sunos-new-models-still-violates-their-copyright.html) and the Munich GEMA judgment (31 July 2026, not final: https://www.twobirds.com/en/insights/2026/germany/munich-district-court-rules-on-ai-generated-music-gema-v-suno). The plan: (1) maps, lyrics and lane specs are provider-neutral, so a full re-render (12 launch songs, 24 Request Line songs, 6 Re-entry segments, the banks) is about three weeks on any licensed provider or with session musicians; (2) the human-recorded station ID, fanfare and melody are the fallback identity; (3) a point update swaps the audio bundle without touching maps or code; (4) if an injunction ever reached distributed outputs, the app ships the human-recorded assets and a reduced library while the rest is re-rendered. Territory availability is reviewed if the GEMA ruling is upheld.
 
