@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Doorhorn Test Fire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@500;700&family=Nunito:wght@400;600;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --sky: #14163A; --sky-2: #1E2468;
+    --bunker: #101233; --panel: #1B1D45; --panel-2: #23265C; --line: #33377A;
+    --ink: #F6F1FF; --ink-dim: #B9B4DA; --ink-on-warm: #1A1230;
+    --gold: #F2B84B; --gold-2: #F7D27A; --orange: #FF6A3D; --orange-2: #FF9A5C; --flash: #FFF6E5;
+    --dusk: #3B2A5C; --lamp: #FFB868; --grey: #3A3B4A; --grey-2: #55576A; --off: #05060F;
+    --pilot: #FF4F5E; --nav: #35D0E8; --cargo: #B7F04D; --ground: #FF6BD6;
+    --ok: #7FF0A5; --bad: #FF7A90;
+    --r: 18px;
+    --display: "Bungee", "Fredoka", system-ui, sans-serif;
+    --head: "Fredoka", "Nunito", system-ui, sans-serif;
+    --body: "Nunito", system-ui, -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bunker); color: var(--ink); font: 16px/1.5 var(--body); }
+  .app { max-width: 520px; margin: 0 auto; padding-block: 12px 48px; padding-inline: 16px; display: grid; gap: 14px; }
+  h2 { font: 700 1.05rem/1.2 var(--head); margin: 0; letter-spacing: .01em; text-wrap: balance; }
+  p { margin: 0; }
+  button { font: 800 1rem/1 var(--body); border: 0; border-radius: 14px; padding: .9rem 1rem; cursor: pointer; color: var(--ink); background: var(--panel-2); }
+  button:focus-visible, input:focus-visible { outline: 3px solid var(--nav); outline-offset: 2px; }
+  button[disabled] { opacity: .45; cursor: default; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: grid; gap: 10px; }
+  .hint { color: var(--ink-dim); font-size: .9rem; }
+
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 4px 2px; }
+  .station { font: 700 .72rem/1 var(--head); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); display: flex; align-items: center; gap: 8px; }
+  .station .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--bad); box-shadow: 0 0 10px var(--bad); }
+  .station .dot.live { background: var(--ok); box-shadow: 0 0 10px var(--ok); }
+  .status { font: 500 .78rem/1 var(--mono); letter-spacing: .12em; padding: .45rem .7rem; border-radius: 999px; background: var(--panel-2); border: 1px solid var(--line); }
+
+  .sky { position: relative; border-radius: var(--r); overflow: hidden; min-height: 330px; padding: 18px 18px 16px; display: grid; grid-template-rows: auto 1fr auto; gap: 8px;
+    background: linear-gradient(180deg, var(--sky) 0%, var(--sky-2) 100%); color: var(--ink); transition: background 1.2s ease, color .6s ease; isolation: isolate; }
+  .sky[data-phase="WAKE"]     { --sky: #1B2670; --sky-2: #2A3D9C; }
+  .sky[data-phase="DRESS"]    { --sky: #2A4A9E; --sky-2: #3E74C9; }
+  .sky[data-phase="MANIFEST"] { --sky: #F2B84B; --sky-2: #F7D27A; color: var(--ink-on-warm); }
+  .sky[data-phase="DOOR"]     { --sky: #FF6A3D; --sky-2: #FF9A5C; color: var(--ink-on-warm); }
+  .sky[data-phase="LIFTOFF"]  { --sky: #FFD98A; --sky-2: #FFF6E5; color: var(--ink-on-warm); }
+  .sky[data-phase="SCRUBBED"] { --sky: #3A3B4A; --sky-2: #55576A; }
+  .sky[data-phase="TIDY"], .sky[data-phase="TEETH"] { --sky: #3B2A5C; --sky-2: #5A3E7A; }
+  .sky[data-phase="BOOK"], .sky[data-phase="LIGHTS"] { --sky: #2E1F4A; --sky-2: #7A4A2E; }
+  .sky[data-phase="SPLASHDOWN"] { --sky: #05060F; --sky-2: #0B0C1E; }
+  .sky[data-phase="REQUEST"]  { --sky: #1B2670; --sky-2: #2B6E8F; }
+  .tower { position: absolute; left: 0; right: 0; bottom: 5.4rem; width: 100%; height: 50%; z-index: 0; }
+  .tower .rocket { transition: transform 1.4s cubic-bezier(.2,.7,.2,1); }
+  .sky[data-phase="LIFTOFF"] .tower .rocket { transform: translateY(-140px); }
+  .tower .window { fill: #101233; transition: fill .6s; }
+  .sky[data-phase="BOOK"] .tower .window, .sky[data-phase="LIGHTS"] .tower .window, .sky[data-phase="TIDY"] .tower .window, .sky[data-phase="TEETH"] .tower .window { fill: var(--lamp); }
+  .sky-top { display: flex; justify-content: space-between; align-items: baseline; z-index: 1; }
+  .phase-word { font: 400 clamp(2rem, 11vw, 3.2rem)/1 var(--display); letter-spacing: .02em; text-wrap: balance; z-index: 1; }
+  .tminus { font: 500 .85rem/1 var(--mono); letter-spacing: .1em; opacity: .9; z-index: 1; }
+  .line { z-index: 1; align-self: end; font: 500 1.15rem/1.3 var(--head); min-height: 3.2rem; text-wrap: balance;
+    background: color-mix(in srgb, var(--bunker) 60%, transparent); color: var(--ink); padding: 10px 12px; border-radius: 12px; backdrop-filter: blur(6px); }
+  .line .who { display: block; font: 700 .68rem/1 var(--head); letter-spacing: .14em; text-transform: uppercase; opacity: .8; margin-bottom: 4px; }
+  .flash { position: absolute; inset: 0; background: var(--flash); opacity: 0; pointer-events: none; z-index: 2; transition: opacity .25s; }
+  .flash.on { opacity: 1; transition: none; }
+
+  .score-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .bpm { font: 500 .72rem/1 var(--mono); color: var(--ink-dim); letter-spacing: .08em; }
+  .score svg { width: 100%; height: auto; display: block; border-radius: 10px; background: var(--panel-2); }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: .78rem; color: var(--ink-dim); }
+  .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; background: var(--c); }
+
+  .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .controls .primary { grid-column: 1 / -1; background: var(--gold); color: var(--ink-on-warm); font-size: 1.1rem; padding: 1.05rem; }
+  .controls .scrub { grid-column: 1 / -1; background: var(--bad); color: var(--ink-on-warm); font: 400 1.4rem/1 var(--display); padding: 1rem; }
+  .toggle { grid-column: 1 / -1; display: flex; gap: 8px; align-items: center; color: var(--ink-dim); font-size: .9rem; }
+  .toggle input { width: 18px; height: 18px; accent-color: var(--gold); }
+
+  .patches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .patch { display: grid; gap: 6px; justify-items: center; padding: 10px 6px 8px; border-radius: 14px; background: var(--panel-2); border: 2px solid transparent; color: var(--ink); }
+  .patch .badge { width: 46px; height: 46px; border-radius: 50%; background: var(--c); display: grid; place-items: center; font: 700 .75rem/1 var(--head); color: var(--ink-on-warm); border: 3px solid color-mix(in srgb, var(--c) 60%, #000); }
+  .patch .role { font: 700 .66rem/1 var(--head); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-dim); }
+  .patch .state { font: 500 .62rem/1 var(--mono); letter-spacing: .08em; color: var(--ink-dim); }
+  .patch.armed { border-color: var(--c); }
+  .patch.in { border-color: var(--c); background: color-mix(in srgb, var(--c) 22%, var(--panel-2)); }
+  .patch.in .state { color: var(--ok); }
+  .names { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .names input { width: 100%; min-width: 0; font: 600 .85rem/1 var(--body); padding: .5rem .5rem; border-radius: 10px; border: 1px solid var(--line); background: var(--bunker); color: var(--ink); }
+
+  ul.items { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  ul.items li { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; background: var(--panel-2); }
+  ul.items li .meta { color: var(--ink-dim); font-size: .8rem; }
+  ul.items li button { padding: .4rem .6rem; font-size: .8rem; background: var(--bunker); }
+  form.add { display: flex; gap: 8px; }
+  form.add input { flex: 1; min-width: 0; font: 600 .95rem/1 var(--body); padding: .7rem .8rem; border-radius: 12px; border: 1px solid var(--line); background: var(--bunker); color: var(--ink); }
+  form.add button { background: var(--nav); color: var(--ink-on-warm); }
+  .hold { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; padding: 10px; border-radius: 12px; background: color-mix(in srgb, var(--gold) 14%, var(--panel-2)); border: 1px dashed var(--gold); }
+  .hold label { font: 700 .68rem/1 var(--head); letter-spacing: .12em; text-transform: uppercase; color: var(--gold); grid-column: 1 / -1; }
+  .hold input { min-width: 0; font: 600 .95rem/1 var(--body); padding: .6rem .7rem; border-radius: 10px; border: 1px solid var(--line); background: var(--bunker); color: var(--ink); }
+  .hold .days { font: 500 .8rem/1 var(--mono); color: var(--ink-dim); }
+  .hold button { background: var(--gold); color: var(--ink-on-warm); padding: .6rem .8rem; font-size: .85rem; }
+
+  ul.log { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font: 500 .82rem/1.4 var(--mono); }
+  ul.log li { padding: 6px 10px; border-left: 3px solid var(--line); background: var(--panel-2); border-radius: 0 10px 10px 0; }
+  ul.log li.ok { border-left-color: var(--ok); } ul.log li.scrub { border-left-color: var(--grey-2); color: var(--ink-dim); } ul.log li.gold { border-left-color: var(--gold); }
+  .rating { font: 500 .8rem/1 var(--mono); color: var(--ink-dim); }
+
+  .credits-card { border-radius: 16px; padding: 18px 16px 14px; background: linear-gradient(180deg, #14163A, #221B4F); border: 1px solid var(--line); position: relative; overflow: hidden; display: grid; gap: 10px; }
+  .credits-card .tower-mini { position: absolute; right: -8px; bottom: -6px; width: 120px; height: 120px; opacity: .9; }
+  .credits-card .title { font: 400 1.35rem/1 var(--display); color: var(--gold); }
+  .credits-card .row { display: grid; gap: 2px; padding-right: 96px; }
+  .credits-card .k { font: 700 .62rem/1 var(--head); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); }
+  .credits-card .v { font: 700 1rem/1.25 var(--head); }
+  .credits-card .joke { font: 500 .92rem/1.4 var(--body); color: var(--ink-dim); padding-right: 96px; }
+  .clothesline { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; padding-top: 10px; border-top: 2px solid var(--line); }
+  .peg { aspect-ratio: 3 / 4; border-radius: 6px; background: var(--grey); display: grid; place-items: end center; font: 500 .6rem/1 var(--mono); color: var(--ink-dim); padding-bottom: 4px; }
+  .peg.launch { background: linear-gradient(180deg, #F2B84B, #FF6A3D); color: var(--ink-on-warm); }
+  .peg.scrub { background: var(--grey-2); }
+
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .tile { display: grid; gap: 4px; justify-items: start; padding: 12px; border-radius: 14px; background: var(--panel-2); text-align: left; }
+  .tile .len { font: 500 .8rem/1 var(--mono); color: var(--gold); }
+  .tile .name { font: 700 1rem/1.1 var(--head); }
+  .tile .who { font-size: .72rem; color: var(--ink-dim); }
+  footer { color: var(--ink-dim); font-size: .8rem; text-align: center; padding-top: 8px; }
+  @media (max-width: 400px) { .patches, .names { grid-template-columns: repeat(2, 1fr); } .tiles { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .sky, .tower .rocket, .flash, .tower .window { transition: none; } }
+</style>
+
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="station"><span class="dot" id="dot"></span>Cul-de-Sac Mission Control</div>
+    <div class="status" id="status">SCHEDULED</div>
+  </header>
+
+  <section class="sky" id="sky" data-phase="idle" aria-label="Launch view">
+    <svg class="tower" viewBox="0 0 320 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+      <rect x="0" y="176" width="320" height="24" fill="#101233"></rect>
+      <rect x="0" y="170" width="320" height="8" fill="#2B2D66"></rect>
+      <g fill="#2E3170">
+        <rect x="216" y="30" width="14" height="142"></rect>
+        <rect x="200" y="60" width="46" height="5"></rect><rect x="200" y="95" width="46" height="5"></rect><rect x="200" y="130" width="46" height="5"></rect>
+        <rect x="150" y="80" width="70" height="6"></rect>
+      </g>
+      <g class="rocket">
+        <path d="M170 60 q0 -40 30 -40 q30 0 30 40 v90 h-60 z" fill="#F6F1FF"></path>
+        <path d="M170 60 q0 -40 30 -40 v130 h-30 z" fill="#E4DDFB"></path>
+        <rect x="170" y="150" width="60" height="20" fill="#FF4F5E"></rect>
+        <path d="M170 120 l-22 40 h22 z" fill="#FF4F5E"></path><path d="M230 120 l22 40 h-22 z" fill="#FF4F5E"></path>
+        <circle class="window" cx="200" cy="72" r="10"></circle>
+        <circle cx="200" cy="72" r="13" fill="none" stroke="#35D0E8" stroke-width="3"></circle>
+      </g>
+      <g fill="#2E3170"><rect x="60" y="120" width="70" height="52" rx="6"></rect><rect x="68" y="128" width="18" height="12" fill="#F2B84B"></rect><rect x="92" y="128" width="30" height="12" fill="#35D0E8"></rect></g>
+    </svg>
+    <div class="sky-top"><div class="tminus" id="tminus">T-MINUS —</div><div class="tminus" id="barCount">BAR 0 / 0</div></div>
+    <div class="phase-word" id="phaseWord">DOORHORN</div>
+    <p class="line" id="line" aria-live="polite"><span class="who" id="who">Working title</span><span id="lineText">A launch you can hear. Press Test fire.</span></p>
+    <div class="flash" id="flash"></div>
+  </section>
+
+  <section class="card score">
+    <div class="score-head"><h2>Annotated score</h2><span class="bpm" id="bpmLabel">120 BPM · 2 s per bar</span></div>
+    <svg id="scoreSvg" viewBox="0 0 600 130" role="img" aria-label="Score with phase bands, role cue markers and the horn entry"></svg>
+    <div class="legend">
+      <span style="--c:#3E74C9">Wake</span><span style="--c:#5B8DE0">Dress</span><span style="--c:#F2B84B">Manifest</span><span style="--c:#FF6A3D">Door</span><span style="--c:#FFF6E5">Liftoff</span><span style="--c:#FF4F5E">Horn entry = shoes and door</span>
+    </div>
+  </section>
+
+  <section class="controls" aria-label="Launch controls">
+    <button id="btnTest" class="primary">Test fire (60 seconds)</button>
+    <button id="btnFull">Three-minute launch</button>
+    <button id="btnStop">Stop</button>
+    <button id="btnScrub" class="scrub" hidden>SCRUB</button>
+    <label class="toggle"><input type="checkbox" id="voice" checked> Spoken lines with the browser voice (when available)</label>
+  </section>
+
+  <section class="card crew">
+    <h2>Crew roll call</h2>
+    <p class="hint">Roll call opens in the manifest bridge. Tap your patch and your stem punches in on the next bar. Anyone still out is covered at the horn.</p>
+    <div class="patches" id="patches"></div>
+    <div class="names" id="names"></div>
+  </section>
+
+  <section class="card manifest">
+    <h2>Tonight's manifest</h2>
+    <p class="hint">Gus sings this in the bridge, one item per bar, with the last-seen memory.</p>
+    <ul class="items" id="manifestList"></ul>
+    <form class="add" id="addForm"><input id="addItem" placeholder="Add an item, e.g. library book" maxlength="40" autocomplete="off"><button type="submit">Add</button></form>
+    <div class="hold">
+      <label for="holdItem">Hold item (aged, never judged)</label>
+      <input id="holdItem" maxlength="40" value="Dentist call">
+      <span class="days" id="holdDays">day 23</span>
+      <button type="button" id="clearHold" style="grid-column: 1 / -1">Mark it cleared</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Mission log</h2>
+    <p class="rating" id="rating">ON TIME 0 OF 0 LAUNCHES</p>
+    <ul class="log" id="log"></ul>
+    <button id="btnReentry" hidden>Run Re-entry (40 seconds)</button>
+  </section>
+
+  <section class="card" id="creditsWrap" hidden>
+    <h2>End credits</h2>
+    <div class="credits-card" id="creditsCard"></div>
+    <div class="clothesline" id="clothesline"></div>
+  </section>
+
+  <section class="card requestline">
+    <h2>Request line</h2>
+    <p class="hint">Songs exactly as long as the wait, cues sung in. No clock; the job ends when the song ends.</p>
+    <div class="tiles">
+      <button class="tile" data-song="teeth"><span class="len">2:00</span><span class="name">Teeth</span><span class="who">quadrant cues</span></button>
+      <button class="tile" data-song="microwave"><span class="len">1:30</span><span class="name">Microwave</span><span class="who">Dr. Farrago forecasts</span></button>
+      <button class="tile" data-song="kettle"><span class="len">3:00</span><span class="name">Kettle</span><span class="who">Lionel, on comms</span></button>
+    </div>
+    <label class="toggle"><input type="checkbox" id="quick" checked> Quick demo (one sixth of the real length)</label>
+  </section>
+
+  <footer>Prototype. The score is synthesized in the browser; shipping tracks come from the Suno library. Every line is written by a person.</footer>
+</div>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const BPM = 120, BAR = 240 / BPM; // seconds per 4/4 bar
+  const CREW = [
+    { role: "Pilot", key: "pilot", color: "var(--pilot)", stem: "drums", def: "Sam" },
+    { role: "Navigator", key: "nav", color: "var(--nav)", stem: "bass", def: "Riley" },
+    { role: "Cargo", key: "cargo", color: "var(--cargo)", stem: "brass", def: "Jo" },
+    { role: "Ground crew", key: "ground", color: "var(--ground)", stem: "choir", def: "You" },
+  ];
+  const CHORDS = [[60,64,67],[55,59,62],[57,60,64],[53,57,60]]; // C G Am F
+  const ROOTS = [36,31,33,29];
+  const JOKES = [
+    "The keys were exactly where they were last seen, which surprised everyone including the keys.",
+    "Dr. Farrago's forecast was wrong in a new way, preserving a record she describes as historic.",
+    "The Department of Five More Minutes issued a permit nobody applied for. It was declined at the door.",
+    "Lionel said copy. He was not asked. He will say it again tomorrow.",
+    "The good water bottle made the manifest. The other water bottle is aware.",
+    "Scrub stood by all morning with one big button and was not needed. Scrub considers this a win.",
+  ];
+
+  // ---------- state ----------
+  const state = {
+    manifest: [
+      { name: "Lunchbox", seen: "fridge, top shelf" },
+      { name: "Library book", seen: "due Thursday" },
+      { name: "The good water bottle", seen: "dish rack" },
+      { name: "Keys", seen: "last seen kitchen counter" },
+    ],
+    hold: { name: "Dentist call", day: 23, clearedToday: false },
+    crew: CREW.map((c) => ({ ...c, name: c.def, in: false, armed: false, inBar: null })),
+    log: [],
+    history: [],
+    launches: 0, onTime: 0,
+    lastResult: null,
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem("doorhorn-proto") || "null");
+    if (saved) {
+      if (Array.isArray(saved.manifest)) state.manifest = saved.manifest;
+      if (saved.hold) state.hold = { ...state.hold, ...saved.hold, clearedToday: false };
+      if (Array.isArray(saved.names)) state.crew.forEach((c, i) => { if (saved.names[i]) c.name = saved.names[i]; });
+      if (Array.isArray(saved.history)) state.history = saved.history;
+      if (typeof saved.launches === "number") { state.launches = saved.launches; state.onTime = saved.onTime || 0; }
+    }
+  } catch {}
+  function persist() {
+    try {
+      localStorage.setItem("doorhorn-proto", JSON.stringify({ manifest: state.manifest, hold: { name: state.hold.name, day: state.hold.day }, names: state.crew.map((c) => c.name), history: state.history.slice(-7), launches: state.launches, onTime: state.onTime }));
+    } catch {}
+  }
+
+  // ---------- audio ----------
+  let ctx = null, master = null, noiseBuf = null;
+  const stems = { drums: { on: false, g: null }, bass: { on: false, g: null }, brass: { on: false, g: null }, choir: { on: false, g: null } };
+  let bedGain = null;
+  function ensureAudio() {
+    if (!ctx) {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return false;
+      ctx = new AC();
+      master = ctx.createGain(); master.gain.value = 0.55; master.connect(ctx.destination);
+      bedGain = ctx.createGain(); bedGain.gain.value = 1; bedGain.connect(master);
+      for (const k of Object.keys(stems)) { stems[k].g = ctx.createGain(); stems[k].g.gain.value = 1; stems[k].g.connect(master); }
+      noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 1, ctx.sampleRate);
+      const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    }
+    if (ctx.state === "suspended") ctx.resume();
+    return true;
+  }
+  const mtof = (m) => 440 * Math.pow(2, (m - 69) / 12);
+  function env(g, t, a, peak, d, sus, r, len) {
+    g.gain.cancelScheduledValues(t); g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(peak, t + a);
+    g.gain.exponentialRampToValueAtTime(Math.max(sus, 0.0001), t + a + d);
+    g.gain.setValueAtTime(Math.max(sus, 0.0001), t + len);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + len + r);
+  }
+  function osc(type, freq, t, len, out, opts = {}) {
+    const o = ctx.createOscillator(); o.type = type; o.frequency.setValueAtTime(freq, t);
+    if (opts.detune) o.detune.value = opts.detune;
+    if (opts.glide) o.frequency.exponentialRampToValueAtTime(opts.glide, t + len);
+    const g = ctx.createGain(); env(g, t, opts.a ?? 0.01, opts.peak ?? 0.2, opts.d ?? 0.1, opts.sus ?? 0.1, opts.r ?? 0.08, len);
+    let node = o;
+    if (opts.filter) { const f = ctx.createBiquadFilter(); f.type = opts.filter; f.frequency.value = opts.fc || 800; f.Q.value = opts.q || 1; o.connect(f); node = f; }
+    node.connect(g); g.connect(out); o.start(t); o.stop(t + len + (opts.r ?? 0.08) + 0.05);
+  }
+  function noise(t, len, out, fc, type, peak) {
+    const s = ctx.createBufferSource(); s.buffer = noiseBuf;
+    const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = fc;
+    const g = ctx.createGain(); env(g, t, 0.002, peak, len * 0.5, 0.001, 0.02, len);
+    s.connect(f); f.connect(g); g.connect(out); s.start(t); s.stop(t + len + 0.1);
+  }
+  const kick = (t, out, peak = 0.9) => osc("sine", 160, t, 0.18, out, { glide: 45, a: 0.002, peak, d: 0.12, sus: 0.001, r: 0.05 });
+  const snare = (t, out) => { noise(t, 0.16, out, 1800, "bandpass", 0.5); osc("triangle", 190, t, 0.1, out, { a: 0.002, peak: 0.25, d: 0.06, sus: 0.001, r: 0.03 }); };
+  const hat = (t, out, peak = 0.12) => noise(t, 0.05, out, 7000, "highpass", peak);
+  const bassNote = (t, midi, len, out) => osc("sawtooth", mtof(midi), t, len, out, { filter: "lowpass", fc: 420, q: 2, a: 0.01, peak: 0.35, d: 0.15, sus: 0.2, r: 0.06 });
+  function stab(t, chord, len, out, peak = 0.16, fc = 1100) {
+    for (const m of chord) { osc("sawtooth", mtof(m), t, len, out, { filter: "bandpass", fc, q: 0.8, a: 0.02, peak, d: 0.1, sus: 0.12, r: 0.12, detune: 6 }); osc("sawtooth", mtof(m), t, len, out, { filter: "bandpass", fc, q: 0.8, a: 0.02, peak, d: 0.1, sus: 0.12, r: 0.12, detune: -6 }); }
+  }
+  function pad(t, chord, len, out, peak = 0.07) {
+    for (const m of chord) osc("triangle", mtof(m), t, len, out, { a: 0.35, peak, d: 0.2, sus: peak * 0.8, r: 0.5 });
+  }
+  function hornMelody(t, bar, out, spb) {
+    const motifs = [[[67,0,.5],[67,.5,.5],[72,1,1],[74,2,1],[76,3,1]], [[76,0,1],[74,1,.5],[72,1.5,.5],[71,2,1],[67,3,1]]];
+    for (const [m, beat, len] of motifs[bar % 2]) osc("sawtooth", mtof(m), t + beat * spb, len * spb * 0.95, out, { filter: "bandpass", fc: 1400, q: 0.7, a: 0.02, peak: 0.28, d: 0.08, sus: 0.22, r: 0.1, detune: 5 });
+  }
+  function fanfare(t, out) {
+    for (const m of [60,64,67,72,76,79]) osc("sawtooth", mtof(m), t, 2.2, out, { filter: "bandpass", fc: 1500, q: 0.6, a: 0.03, peak: 0.22, d: 0.2, sus: 0.18, r: 0.8, detune: 4 });
+    noise(t, 1.6, out, 3000, "highpass", 0.25); kick(t, out, 1);
+  }
+  function klaxon(t, out) { for (let i = 0; i < 2; i++) osc("square", 520, t + i * 0.7, 0.55, out, { glide: 260, a: 0.01, peak: 0.25, d: 0.1, sus: 0.2, r: 0.1, filter: "lowpass", fc: 2200 }); }
+  function buzzer(t, out) { osc("square", 110, t, 0.8, out, { a: 0.01, peak: 0.3, d: 0.2, sus: 0.25, r: 0.15, filter: "lowpass", fc: 900 }); }
+  function victory(t, out) { [[72,0],[76,.12],[79,.24],[84,.4]].forEach(([m, o]) => osc("triangle", mtof(m), t + o, 0.35, out, { a: 0.005, peak: 0.3, d: 0.1, sus: 0.15, r: 0.2 })); }
+
+  // ---------- speech ----------
+  const VOICES = { Augustine: { pitch: 1.0, rate: 0.95 }, Gus: { pitch: 0.75, rate: 0.9 }, Lionel: { pitch: 1.15, rate: 1.05 }, Bunny: { pitch: 0.7, rate: 0.85 }, Scrub: { pitch: 1.4, rate: 1.0 }, Farrago: { pitch: 1.05, rate: 1.0 } };
+  function speak(who, text) {
+    if (!$("voice").checked || !("speechSynthesis" in window)) return;
+    try {
+      const u = new SpeechSynthesisUtterance(text);
+      const v = VOICES[who] || {}; u.pitch = v.pitch ?? 1; u.rate = v.rate ?? 1; u.volume = 0.9;
+      speechSynthesis.speak(u);
+    } catch {}
+  }
+  function stopSpeech() { try { speechSynthesis.cancel(); } catch {} }
+
+  // ---------- transport ----------
+  const T = { running: false, timer: null, bar: 0, nextBar: 0, barStart: 0, total: 0, barDur: BAR, spec: null, uiTimers: [] };
+  function stopTransport(silent) {
+    if (T.timer) clearInterval(T.timer); T.timer = null; T.running = false;
+    T.uiTimers.forEach(clearTimeout); T.uiTimers = [];
+    if (!silent) stopSpeech();
+    $("dot").classList.remove("live");
+    cancelAnimationFrame(rafId);
+  }
+  function startTransport(spec) {
+    if (!ensureAudio()) { setLine("System", "This browser has no audio; the visuals still run."); }
+    stopTransport(true);
+    T.spec = spec; T.total = spec.bars; T.bar = 0; T.nextBar = 0; T.running = true;
+    T.barStart = (ctx ? ctx.currentTime : performance.now() / 1000) + 0.15;
+    T.barDur = 240 / (spec.bpmFor ? spec.bpmFor(0) : spec.bpm);
+    $("dot").classList.add("live");
+    const tick = () => {
+      const now = ctx ? ctx.currentTime : performance.now() / 1000;
+      while (T.running && T.nextBar < T.total && T.barStart < now + 0.15) {
+        const b = T.nextBar, t = T.barStart, bpm = spec.bpmFor ? spec.bpmFor(b) : spec.bpm, dur = 240 / bpm;
+        if (ctx) spec.audio(b, t, dur / 4);
+        const delay = Math.max(0, (t - now) * 1000);
+        T.uiTimers.push(setTimeout(() => { T.bar = b; spec.onBar(b); }, delay));
+        T.barStart = t + dur; T.nextBar++;
+        if (T.nextBar >= T.total) { T.uiTimers.push(setTimeout(() => { T.running = false; spec.onEnd && spec.onEnd(); $("dot").classList.remove("live"); }, Math.max(0, (T.barStart - now) * 1000))); }
+      }
+    };
+    tick(); T.timer = setInterval(tick, 40);
+    rafLoop();
+  }
+  let rafId = 0;
+  function rafLoop() {
+    cancelAnimationFrame(rafId);
+    const step = () => { if (!T.running) return; drawPlayhead(); rafId = requestAnimationFrame(step); };
+    rafId = requestAnimationFrame(step);
+  }
+  function progress() {
+    if (!T.running || !T.spec) return 0;
+    const now = ctx ? ctx.currentTime : performance.now() / 1000;
+    const bpm = T.spec.bpmFor ? T.spec.bpmFor(T.bar) : T.spec.bpm, dur = 240 / bpm;
+    const barStartForCurrent = T.barStart - dur * (T.nextBar - T.bar);
+    return Math.min(T.total, T.bar + Math.max(0, Math.min(1, (now - barStartForCurrent) / dur)));
+  }
+
+  // ---------- launch plan ----------
+  function launchPlan(bars) {
+    const p = bars === 30
+      ? { WAKE: [0, 8], DRESS: [8, 14], MANIFEST: [14, 22], DOOR: [22, 28], LIFTOFF: [28, 30] }
+      : { WAKE: [0, 24], DRESS: [24, 42], MANIFEST: [42, 66], DOOR: [66, 86], LIFTOFF: [86, 90] };
+    const items = state.manifest.slice(0, 8);
+    const lines = {};
+    const put = (bar, who, text) => { (lines[bar] ||= []).push({ who, text }); };
+    const spread = (range, arr) => { const [a, b] = range; const n = arr.length; arr.forEach((l, i) => put(a + Math.floor(((b - a) * i) / n), l[0], l[1])); };
+    spread(p.WAKE, [["Augustine", bars === 30 ? "T-minus one. Launch window open." : "T-minus three. Launch window open."], ["Augustine", "Feet on the floor."], ["Augustine", "Water on the face."], ["Gus", "Top left. Top right. Switch."], ["Gus", "Bottom left. Bottom right. Spit."], ["Lionel", "Copy."]]);
+    spread(p.DRESS, [["Augustine", "Dress phase."], ["Gus", "Shirt. Pants."], ["Gus", "Socks live in the drawer where socks live."], ["Farrago", "I forecast a coat. I have been wrong before."], ["Augustine", "Jacket by the door."]]);
+    const mfLines = [["Augustine", "Manifest. Roll call is open, crew."]];
+    items.forEach((it) => mfLines.push(["Gus", it.seen ? `${it.name}, ${it.seen}.` : `${it.name}.`]));
+    if (state.hold.name && !state.hold.clearedToday) mfLines.push(["Gus", `${state.hold.name}, day ${state.hold.day}, still on the manifest.`]);
+    if (bars > 30) mfLines.push(["Lionel", "Copy that manifest."], ["Farrago", "Weather is fine. I want that noted, because it will not last."]);
+    spread(p.MANIFEST, mfLines);
+    spread(p.DOOR, [["Augustine", "Horns. Shoes and door."], ["Gus", "Shoes."], ["Gus", "And."], ["Gus", "Door."], ["Lionel", "Copy. Door is open."]]);
+    put(p.LIFTOFF[0], "Augustine", "Liftoff. Clean launch logged.");
+    return { bars, phases: p, lines, hornBar: p.DOOR[0] };
+  }
+  function phaseAt(plan, bar) { for (const [k, [a, b]] of Object.entries(plan.phases)) if (bar >= a && bar < b) return k; return "LIFTOFF"; }
+
+  let scrubArmed = false;
+  function runLaunch(bars) {
+    const plan = launchPlan(bars);
+    state.crew.forEach((c) => { c.in = false; c.armed = false; c.open = false; c.covered = false; c.inBar = null; });
+    for (const k of Object.keys(stems)) stems[k].on = false;
+    scrubArmed = false; state.lastResult = null; state.hold.clearedToday = false;
+    renderCrew(); drawScore(plan); $("btnScrub").hidden = false; $("btnReentry").hidden = true; $("creditsWrap").hidden = true;
+    setStatus("LIVE"); setBpm(120);
+    startTransport({
+      mode: "launch", bars, bpm: BPM,
+      audio: (b, t, spb) => {
+        const ph = phaseAt(plan, b), chord = CHORDS[b % 4], root = ROOTS[b % 4];
+        const bed = bedGain;
+        pad(t, chord, spb * 4, bed, ph === "WAKE" ? 0.06 : 0.05);
+        for (let i = 0; i < 8; i++) hat(t + i * spb / 2, bed, ph === "WAKE" ? (i % 2 ? 0.05 : 0.09) : 0.1);
+        if (ph !== "WAKE") { kick(t, bed, 0.6); kick(t + 2 * spb, bed, 0.5); }
+        if (ph === "DRESS") snare(t + 1 * spb, bed), snare(t + 3 * spb, bed);
+        if (ph === "MANIFEST" || ph === "DOOR" || ph === "LIFTOFF") {
+          for (const k of Object.keys(stems)) if (stems[k].armed) { stems[k].on = true; stems[k].armed = false; markIn(k, b); }
+          if (ph === "DOOR" || ph === "LIFTOFF") for (const k of Object.keys(stems)) if (!stems[k].on) { stems[k].on = true; markIn(k, b, true); }
+        }
+        if (stems.drums.on) { kick(t, stems.drums.g, 1); kick(t + 2 * spb, stems.drums.g, 0.8); snare(t + spb, stems.drums.g); snare(t + 3 * spb, stems.drums.g); }
+        if (stems.bass.on) { bassNote(t, root, spb * 0.9, stems.bass.g); bassNote(t + spb, root + 7, spb * 0.45, stems.bass.g); bassNote(t + 2 * spb, root, spb * 0.9, stems.bass.g); bassNote(t + 3 * spb, root + 12, spb * 0.45, stems.bass.g); }
+        if (stems.brass.on) { stab(t + 0.5 * spb, chord, spb * 0.4, stems.brass.g); stab(t + 2.5 * spb, chord, spb * 0.4, stems.brass.g); }
+        if (stems.choir.on) pad(t, chord.map((m) => m + 12), spb * 4, stems.choir.g, 0.09);
+        if (ph === "DOOR") hornMelody(t, b, stems.brass.g, spb);
+        if (ph === "LIFTOFF" && b === plan.phases.LIFTOFF[0]) fanfare(t, master);
+        if (scrubArmed) { scrubArmed = false; setTimeout(() => doScrub(), Math.max(0, (t - ctx.currentTime) * 1000)); klaxon(t, master); }
+      },
+      onBar: (b) => {
+        const ph = phaseAt(plan, b);
+        setPhase(ph, `T-MINUS ${bars - b} BARS`, `BAR ${b + 1} / ${bars}`);
+        if (ph === "MANIFEST" && !state.crew[0].open) { state.crew.forEach((c) => { c.open = true; }); renderCrew(); }
+        if (ph === "LIFTOFF" && b === plan.phases.LIFTOFF[0]) { $("flash").classList.add("on"); setTimeout(() => $("flash").classList.remove("on"), 120); }
+        for (const l of plan.lines[b] || []) setLine(l.who, l.text);
+        if (b === plan.hornBar) setLine("Augustine", "Horns. Shoes and door.");
+      },
+      onEnd: () => finishLaunch(true),
+    });
+  }
+  function markIn(stemKey, bar, covered) {
+    const c = state.crew.find((x) => x.stem === stemKey);
+    if (c && !c.in) { c.in = true; c.armed = false; c.inBar = bar; c.covered = !!covered; renderCrew(); }
+  }
+  function armStem(c) {
+    if (!T.running || !T.spec || T.spec.mode !== "launch") return;
+    if (c.in || stems[c.stem].on) return;
+    const ph = phaseAt(launchPlan(T.total), T.bar);
+    if (ph !== "MANIFEST" && ph !== "DOOR") { setLine("Augustine", `${c.role}, hold. Roll call opens in the manifest bridge.`); return; }
+    stems[c.stem].armed = true; c.armed = true; renderCrew(); setLine("Lionel", `${c.name || c.role} punching in on the next bar. Copy.`);
+  }
+  function finishLaunch(clean) {
+    stopTransport(true);
+    $("btnScrub").hidden = true;
+    state.launches++; if (clean) state.onTime++;
+    state.lastResult = clean ? "launch" : "scrub";
+    addLog(clean ? `Clean launch logged. Horn at bar ${launchPlan(T.total).hornBar + 1}. Crew: ${state.crew.filter((c) => c.in && !c.covered).map((c) => c.name || c.role).join(", ") || "solo"}.` : "Scrubbed. Official reason: weather. No penalty. Tomorrow offers the next-shorter track.", clean ? "ok" : "scrub");
+    state.history.push({ d: new Date().toISOString().slice(0, 10), r: state.lastResult }); state.history = state.history.slice(-7);
+    setStatus(clean ? "COMPLETE" : "SCRUBBED"); if (!clean) setPhase("SCRUBBED", "T-MINUS —", "WEATHER");
+    $("btnReentry").hidden = false; renderRating(); persist();
+  }
+  function doScrub() {
+    if (!T.running) return;
+    stopTransport(true);
+    setLine("Scrub", "Weather. Scrub declares weather. No penalty filed.");
+    speak("Scrub", "Weather. Scrub declares weather. No penalty filed.");
+    finishLaunch(false);
+  }
+
+  // ---------- re-entry ----------
+  function runReentry() {
+    const segs = [["TIDY", 4, 100], ["TEETH", 4, 90], ["BOOK", 3, 80], ["LIGHTS", 3, 70]];
+    const barsList = []; segs.forEach(([ph, n, bpm]) => { for (let i = 0; i < n; i++) barsList.push({ ph, bpm, first: i === 0 }); });
+    const bunny = { TIDY: "Re-entry. Tidy phase. Ten things off the floor, no more.", TEETH: "Teeth. Same four corners as this morning.", BOOK: "Book. Anything with pages. Splashdown in six bars.", LIGHTS: "Lights. Bunny says good night. Nobody has to say it twice." };
+    $("btnReentry").hidden = true; $("creditsWrap").hidden = true; setStatus("RE-ENTRY");
+    startTransport({
+      mode: "reentry", bars: barsList.length, bpmFor: (b) => barsList[b].bpm,
+      audio: (b, t, spb) => {
+        const chord = CHORDS[(b + 2) % 4].map((m) => m - 12), root = ROOTS[(b + 2) % 4];
+        pad(t, chord, spb * 4, bedGain, 0.09); kick(t, bedGain, 0.35); bassNote(t, root, spb * 1.6, bedGain);
+        if (b % 2) hat(t + 2 * spb, bedGain, 0.05);
+        if (b === barsList.length - 1) buzzer(t + spb * 3.2, master);
+      },
+      onBar: (b) => {
+        const { ph, bpm, first } = barsList[b];
+        setBpm(bpm); setPhase(ph, `SPLASHDOWN IN ${barsList.length - b} BARS`, `BAR ${b + 1} / ${barsList.length}`);
+        if (first) setLine("Bunny", bunny[ph]);
+      },
+      onEnd: () => {
+        setPhase("SPLASHDOWN", "SPLASHDOWN", "DAY CLOSED"); setLine("Bunny", "Splashdown. House is dark. Credits.");
+        setStatus("CREDITS"); setTimeout(showCredits, 1200);
+      },
+    });
+  }
+  function showCredits() {
+    const inOrder = state.crew.filter((c) => c.in && !c.covered).sort((a, b) => a.inBar - b.inBar);
+    const top = inOrder[0] || state.crew[3];
+    const co = inOrder[1] || state.crew.find((c) => c !== top);
+    const guest = inOrder[2] || state.crew.find((c) => c !== top && c !== co);
+    const rows = [
+      ["Top billing", `${top.name || top.role} as ${top.role}`],
+      ["Co-star", `${co.name || co.role} as ${co.role}`],
+      ["Guest star", `${guest.name || guest.role}, who had the best line`],
+      ["With", state.manifest.slice(0, 4).map((i) => i.name).join(", ") || "an empty manifest"],
+    ];
+    if (state.hold.clearedToday) rows.push(["And introducing", `${state.hold.name}, cleared at last`]);
+    else if (state.hold.name) rows.push(["Still on the manifest", `${state.hold.name}, day ${state.hold.day}`]);
+    if (state.lastResult === "scrub") rows.push(["Special appearance", "Scrub, as weather"]);
+    const joke = JOKES[(state.launches + state.manifest.length) % JOKES.length];
+    $("creditsCard").innerHTML = `<div class="title">END CREDITS</div>` + rows.map(([k, v]) => `<div class="row"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></div>`).join("") + `<p class="joke">${esc(joke)}</p>` +
+      `<svg class="tower-mini" viewBox="0 0 120 120" aria-hidden="true"><rect x="52" y="10" width="8" height="100" fill="#2E3170"></rect><rect x="40" y="30" width="32" height="4" fill="#2E3170"></rect><rect x="40" y="60" width="32" height="4" fill="#2E3170"></rect><path d="M66 40 q0 -22 16 -22 q16 0 16 22 v54 h-32 z" fill="#F6F1FF"></path><circle cx="82" cy="46" r="6" fill="#FFB868"></circle><rect x="66" y="94" width="32" height="12" fill="#FF4F5E"></rect><rect x="0" y="106" width="120" height="14" fill="#101233"></rect></svg>`;
+    const pegs = []; const hist = state.history.slice(-7);
+    for (let i = 0; i < 7; i++) { const h = hist[hist.length - 7 + i]; pegs.push(`<div class="peg ${h ? (h.r === "launch" ? "launch" : "scrub") : ""}">${h ? (h.r === "launch" ? "GO" : "WX") : "·"}</div>`); }
+    $("clothesline").innerHTML = pegs.join("");
+    $("creditsWrap").hidden = false; setStatus("SCHEDULED"); persist();
+    $("creditsWrap").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  // ---------- request line ----------
+  const SONGS = {
+    teeth: { len: 120, bpm: 120, cues: [[0, "Gus", "Top left. Go."], [0.25, "Gus", "Top right. Switch."], [0.5, "Gus", "Bottom left. Switch."], [0.75, "Gus", "Bottom right. Last corner."], [0.97, "Gus", "Spit. Rinse. Done."]] },
+    microwave: { len: 90, bpm: 100, cues: [[0, "Farrago", "Ninety seconds. I forecast a small kitchen catastrophe."], [0.5, "Farrago", "Stir it. My forecast is holding, barely."], [0.95, "Farrago", "It is hotter than it looks. I was wrong about the catastrophe. New record."]] },
+    kettle: { len: 180, bpm: 90, cues: [[0, "Lionel", "Kettle is on. Copy."], [0.33, "Lionel", "Cup, spoon, the thing you put in the cup. Copy."], [0.66, "Lionel", "Almost. Copy."], [0.96, "Lionel", "Kettle. Pour. Copy."]] },
+  };
+  function runSong(key) {
+    const s = SONGS[key]; const quick = $("quick").checked; const len = quick ? s.len / 6 : s.len;
+    const bars = Math.max(2, Math.round(len / (240 / s.bpm)));
+    $("btnScrub").hidden = true; setStatus("REQUEST LINE"); setBpm(s.bpm);
+    const cueBars = s.cues.map(([f, who, text]) => [Math.min(bars - 1, Math.floor(f * bars)), who, text]);
+    startTransport({
+      mode: "request", bars, bpm: s.bpm,
+      audio: (b, t, spb) => {
+        const chord = CHORDS[b % 4], root = ROOTS[b % 4];
+        pad(t, chord, spb * 4, bedGain, 0.06); kick(t, bedGain, 0.5); kick(t + 2 * spb, bedGain, 0.4); snare(t + spb, bedGain); snare(t + 3 * spb, bedGain);
+        for (let i = 0; i < 4; i++) hat(t + i * spb + spb / 2, bedGain, 0.08);
+        bassNote(t, root, spb * 0.9, bedGain); bassNote(t + 2 * spb, root + 7, spb * 0.9, bedGain);
+        if (b === bars - 1) stab(t + 3 * spb, chord, spb * 0.9, master, 0.2);
+      },
+      onBar: (b) => {
+        setPhase("REQUEST", `${key.toUpperCase()} · ${bars - b} BARS LEFT`, `BAR ${b + 1} / ${bars}`);
+        for (const [cb, who, text] of cueBars) if (cb === b) setLine(who, text);
+      },
+      onEnd: () => { setStatus("SCHEDULED"); setPhase("idle", "T-MINUS —", "SONG ENDED"); setLine("Augustine", "The job ends when the song ends. It ended."); },
+    });
+  }
+
+  // ---------- rendering ----------
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  function setStatus(s) { $("status").textContent = s; }
+  function setBpm(bpm) { $("bpmLabel").textContent = `${bpm} BPM · ${(240 / bpm).toFixed(bpm === 120 ? 0 : 2)} s per bar`; }
+  function setPhase(ph, tminus, barCount) {
+    $("sky").dataset.phase = ph; $("phaseWord").textContent = ph === "idle" ? "DOORHORN" : ph; $("tminus").textContent = tminus; $("barCount").textContent = barCount;
+  }
+  function setLine(who, text) { $("who").textContent = who; $("lineText").textContent = text; speak(who, text); }
+  function addLog(text, cls) { state.log.unshift({ text, cls }); state.log = state.log.slice(0, 6); $("log").innerHTML = state.log.map((l) => `<li class="${l.cls}">${esc(l.text)}</li>`).join(""); }
+  function renderRating() { $("rating").textContent = `ON TIME ${state.onTime} OF ${state.launches} LAUNCHES · RATINGS, NOT STREAKS`; }
+  function renderCrew() {
+    $("patches").innerHTML = state.crew.map((c, i) => `<button class="patch ${c.in ? "in" : (c.armed || c.open) ? "armed" : ""}" style="--c:${c.color}" data-i="${i}" aria-pressed="${c.in}"><span class="badge">${esc((c.name || c.role).slice(0, 2).toUpperCase())}</span><span class="role">${esc(c.role)}</span><span class="state">${c.in ? (c.covered ? "COVERED" : `IN · BAR ${c.inBar + 1}`) : c.armed ? "NEXT BAR" : c.open ? "TAP IN" : "OUT"}</span></button>`).join("");
+    if (!$("names").children.length) $("names").innerHTML = state.crew.map((c, i) => `<input aria-label="${esc(c.role)} name" data-i="${i}" value="${esc(c.name)}" maxlength="12">`).join("");
+  }
+  function renderManifest() {
+    $("manifestList").innerHTML = state.manifest.map((it, i) => `<li><span>${esc(it.name)} <span class="meta">${esc(it.seen || "")}</span></span><button data-del="${i}" aria-label="Remove ${esc(it.name)}">Remove</button></li>`).join("") || `<li><span class="meta">Empty manifest. Gus will sing "and your keys, wherever they are."</span></li>`;
+    $("holdItem").value = state.hold.name; $("holdDays").textContent = state.hold.clearedToday ? "cleared today" : `day ${state.hold.day}`;
+  }
+  function drawScore(plan) {
+    const W = 600, H = 130, top = 26, bottom = 112, bars = plan.bars, bw = W / bars;
+    const colors = { WAKE: "#3E74C9", DRESS: "#5B8DE0", MANIFEST: "#F2B84B", DOOR: "#FF6A3D", LIFTOFF: "#FFF6E5" };
+    let s = "";
+    for (const [k, [a, b]] of Object.entries(plan.phases)) {
+      s += `<rect x="${a * bw}" y="${top}" width="${(b - a) * bw}" height="${bottom - top}" fill="${colors[k]}" opacity=".28"></rect>`;
+      const endLabel = a * bw > W - 70;
+      s += `<text x="${endLabel ? b * bw - 4 : a * bw + 4}" y="${top - 8}" text-anchor="${endLabel ? "end" : "start"}" font-size="10" font-family="Nunito, sans-serif" font-weight="800" fill="#B9B4DA" letter-spacing="1">${k}</text>`;
+    }
+    let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+    for (let b = 0; b < bars; b++) {
+      const ph = phaseAt(plan, b); const amp = ph === "WAKE" ? 0.35 : ph === "DRESS" ? 0.5 : ph === "MANIFEST" ? 0.6 : ph === "DOOR" ? 0.9 : 1;
+      for (let q = 0; q < 4; q++) { const h = (bottom - top) * amp * (0.35 + rnd() * 0.65); const x = b * bw + q * (bw / 4) + 1; s += `<rect x="${x}" y="${(top + bottom) / 2 - h / 2}" width="${Math.max(1, bw / 4 - 2)}" height="${h}" rx="1" fill="#F6F1FF" opacity=".55"></rect>`; }
+    }
+    const mfA = plan.phases.MANIFEST[0];
+    state.crew.forEach((c, i) => { const x = (mfA + 1 + i * 1.5) * bw; s += `<rect x="${x}" y="${bottom + 4}" width="4" height="10" rx="1" fill="${c.color.replace("var(--pilot)", "#FF4F5E").replace("var(--nav)", "#35D0E8").replace("var(--cargo)", "#B7F04D").replace("var(--ground)", "#FF6BD6")}"></rect>`; });
+    s += `<line x1="${plan.hornBar * bw}" y1="${top - 4}" x2="${plan.hornBar * bw}" y2="${bottom + 14}" stroke="#FF4F5E" stroke-width="3"></line>`;
+    s += `<text x="${Math.min(plan.hornBar * bw + 6, W - 120)}" y="${bottom + 13}" font-size="10" font-family="Nunito, sans-serif" font-weight="800" fill="#FF4F5E">shoes and door</text>`;
+    s += `<line id="playhead" x1="0" y1="${top}" x2="0" y2="${bottom}" stroke="#F6F1FF" stroke-width="2"></line>`;
+    $("scoreSvg").innerHTML = s; $("scoreSvg").dataset.bars = bars;
+  }
+  function drawPlayhead() {
+    const ph = $("playhead"); if (!ph || !T.spec) return;
+    const bars = Number($("scoreSvg").dataset.bars || 0); if (!bars || T.spec.bars !== bars) return;
+    const x = (progress() / bars) * 600; ph.setAttribute("x1", x); ph.setAttribute("x2", x);
+  }
+
+  // ---------- wiring ----------
+  $("btnTest").addEventListener("click", () => runLaunch(30));
+  $("btnFull").addEventListener("click", () => runLaunch(90));
+  $("btnStop").addEventListener("click", () => { if (!T.running) return; stopTransport(); $("btnScrub").hidden = true; setStatus("SCHEDULED"); setPhase("idle", "T-MINUS —", "STOPPED"); setLine("Augustine", "Stopped. Nothing logged."); });
+  $("btnScrub").addEventListener("click", () => { if (T.running) { scrubArmed = true; setLine("Scrub", "Scrub armed. Stopping on the bar."); } });
+  $("btnReentry").addEventListener("click", runReentry);
+  $("patches").addEventListener("click", (e) => { const b = e.target.closest("button[data-i]"); if (b) armStem(state.crew[Number(b.dataset.i)]); });
+  $("names").addEventListener("input", (e) => { const i = Number(e.target.dataset.i); if (!Number.isNaN(i)) { state.crew[i].name = e.target.value.trim(); renderCrew(); persist(); } });
+  $("addForm").addEventListener("submit", (e) => { e.preventDefault(); const v = $("addItem").value.trim(); if (!v || state.manifest.length >= 8) return; state.manifest.push({ name: v, seen: "" }); $("addItem").value = ""; renderManifest(); persist(); });
+  $("manifestList").addEventListener("click", (e) => { const b = e.target.closest("button[data-del]"); if (b) { state.manifest.splice(Number(b.dataset.del), 1); renderManifest(); persist(); } });
+  $("holdItem").addEventListener("input", (e) => { state.hold.name = e.target.value.trim(); persist(); });
+  $("clearHold").addEventListener("click", () => { if (!state.hold.name) return; ensureAudio(); if (ctx) victory(ctx.currentTime + 0.05, master); state.hold.clearedToday = true; $("holdDays").textContent = "cleared today"; setLine("Gus", `${state.hold.name}. Cleared. Day ${state.hold.day} was the last day.`); addLog(`Hold item cleared: ${state.hold.name}.`, "gold"); });
+  document.querySelectorAll(".tile").forEach((t) => t.addEventListener("click", () => runSong(t.dataset.song)));
+  document.addEventListener("visibilitychange", () => { if (document.hidden && T.running) { stopTransport(); setStatus("SCHEDULED"); $("btnScrub").hidden = true; } });
+
+  renderCrew(); renderManifest(); renderRating(); drawScore(launchPlan(30)); setBpm(120);
+  if (window.claude?.hot?.snapshot) window.claude.hot.snapshot(() => ({ manifest: state.manifest, hold: state.hold }));
+})();
+</script>
+</body>
+</html>
