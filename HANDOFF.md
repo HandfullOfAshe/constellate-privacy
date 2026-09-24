@@ -43,7 +43,18 @@ connector/creative-bridge/                  Creative Bridge MCP connector (DONE,
 
 ### Status of the package documents
 
-At the time of writing, three of eight documents had been written by parallel writer agents and committed; five writers were still running. **Check the file list.** Any document listed in `concepts/doorhorn/README.md` that is missing on disk was not finished before the previous session ended; regenerate it from its brief in `concepts/doorhorn/_briefs/` (the briefs reference only files that exist in this repo). Documents that do exist have not yet had a cross-document consistency review; that review is the first open task (section 6).
+| Document | State when this handoff was last updated |
+| --- | --- |
+| 01-product-spec.md | written and committed |
+| 02-world-bible-and-scripts.md | written and committed |
+| 03-music-system.md | written and committed |
+| 04-visual-design-system.md | written and committed |
+| 05-monetization-and-app-store.md | written and committed |
+| suno-library/ (README.md, suno-library.md, suno-library.json) | writer was still running |
+| 06-technical-architecture-and-build-plan.md | writer was still running |
+| 07-legal-ip-and-rights-checklist.md | writer was still running |
+
+**Check the file list.** Any document above that is missing on disk was not finished before the previous session ended; regenerate it from its brief in `concepts/doorhorn/_briefs/` (the briefs reference only files that exist in this repo). None of the documents has had a cross-document consistency review yet; that review is the first open task after the package is complete (section 6).
 
 ## 4. Things that live outside the repo
 
@@ -83,4 +94,4 @@ Never ask the owner to paste tokens, keys or passwords into chat; they go into N
 1. Tournament workflow run (35 agents, ~2 hours); results saved to `concepts/tournament/`.
 2. Creative Bridge connector built, tested locally (20/20), deployed to Netlify, login wall removed, live endpoints verified, committed.
 3. Prototype built and checked headlessly through a full launch, roll call, Scrub, Re-entry, credits and a request-line song; published as an artifact; committed.
-4. Eight writer agents launched for the package documents; three landed and were committed before this handoff was written.
+4. Eight writer agents launched for the package documents; the status table in section 3 records which landed before the session ended.
