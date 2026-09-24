@@ -61,14 +61,14 @@ Colors are names, not hexes; the design document owns the values. Silhouettes we
 
 ### Augustine Pell, Flight Director
 
-- **Role.** Runs the launch. Calls every T-minus. Owns the procedure.
+- **Role.** Runs the launch, calls every T-minus, owns the procedure.
 - **Essence.** Any morning is survivable with a procedure.
-- **Silhouette, color, prop.** Tall and narrow, a single-ear headset with a boom mic, hair in a tight dome bun, a clipboard held flat like a tray. Signal green. The laminated checklist, which she has never been seen without.
-- **Voice and lane.** Level, unhurried, mid-register, no rise at the end of sentences. Brass and snare: her cues sit over a snare pattern, and the two-note brass sting is hers.
-- **What she wants.** For the procedure to hold. Not for the household to be fast; for the steps to happen in order.
-- **Flaw.** She believes procedure solves feelings. When something is not on the checklist she adds it to the checklist rather than dealing with it. She cannot improvise and does not try.
-- **Comedic function.** The straight woman and the deadpan engine. The bunker is chaos and she narrates it as if reading a manual. Her calm is the joke.
-- **How she treats the household.** As a crew she would fly with. A scrub is "a decision we made on time." Blame goes to weather or the Department, never to a person.
+- **Silhouette, color, prop.** Tall and narrow, single-ear headset with a boom mic, hair in a tight dome bun, clipboard held flat like a tray. Signal green. The laminated checklist.
+- **Voice and lane.** Level, unhurried, mid-register, no rise at the end of a sentence. Brass and snare; the two-note sting is hers.
+- **What she wants.** For the procedure to hold: not speed, but the steps in order.
+- **Flaw.** She believes procedure solves feelings; anything not on the checklist gets added to the checklist. She cannot improvise and does not try.
+- **Comedic function.** The straight woman and the deadpan engine. The bunker is chaos and she narrates it like a manual.
+- **How she treats the household.** As a crew she would fly with. Blame goes to weather or the Department, never to a person.
 - **Five sample lines.**
   1. "T-minus twelve. Launch window open. Nobody has to be good at this yet."
   2. "Checklist item four: socks. There is no item five until there is a four."
@@ -81,12 +81,12 @@ Colors are names, not hexes; the design document owns the values. Silhouettes we
 
 - **Role.** Sings the manifest in the bridge. Knows where everything is. The only competent person in the building.
 - **Essence.** The calm of a man who has seen every lunchbox.
-- **Silhouette, color, prop.** Wide and low, round shoulders, flat cap, coveralls. Coverall blue. A key ring the size of a dinner plate at his hip; it is the only thing in the bunker that jingles.
-- **Voice and lane.** Warm baritone folk. Sung, not spoken, whenever the manifest is involved; spoken only in cues and the Flight Review.
+- **Silhouette, color, prop.** Wide and low, round shoulders, flat cap, coveralls. Coverall blue. A key ring the size of a dinner plate, the only thing in the bunker that jingles.
+- **Voice and lane.** Warm baritone folk. Sung whenever the manifest is involved; spoken only in cues and the Flight Review.
 - **What he wants.** To be left to his floors, and for the household to sleep well. He would not say the second part.
-- **Flaw.** He never says an item is missing. He says where it was last seen and lets you draw the conclusion. He also cannot stop noticing, which is exhausting for a man who only wanted to mop.
-- **Comedic function.** Competence inside a building of incompetence. He is the emotional center and the one the household comes to trust, so his lines carry the least comedy and the most weight; the humor is in how little he needs to say.
-- **How he treats the household.** As people whose things he respects. He sings their exact words for each item. He never says "forgot," never says "again," and reads a Hold item at day twenty-three with the same voice as at day one.
+- **Flaw.** He never says an item is missing; he says where it was last seen and lets you draw the conclusion. He cannot stop noticing, which is exhausting for a man who only wanted to mop.
+- **Comedic function.** Competence inside a building of incompetence. He is the emotional center, so his lines carry the least comedy and the most weight; the humor is in how little he needs to say.
+- **How he treats the household.** As people whose things he respects. He sings their exact words and reads a Hold item at day twenty-three in the same voice as at day one.
 - **Five sample lines.**
   1. "Keys, last seen kitchen counter, by the fruit that nobody eats."
   2. "Library book, due Thursday. Thursday is today. That's all."
@@ -99,12 +99,12 @@ Colors are names, not hexes; the design document owns the values. Silhouettes we
 
 - **Role.** Delivers the morning forecast in the station ID and the Request Line bits. Has forecast catastrophe every morning since 1998 and has been wrong every day.
 - **Essence.** A streak worth protecting.
-- **Silhouette, color, prop.** Tall pointed lab-coat collar, enormous round glasses, hair drawn as a single thundercloud shape. Storm violet. An umbrella she opens indoors and never takes outside.
+- **Silhouette, color, prop.** Tall pointed lab-coat collar, enormous round glasses, hair drawn as a single thundercloud. Storm violet. An umbrella she opens indoors and never takes outside.
 - **Voice and lane.** Precise, delighted, slightly too fast. Theremin-flecked lounge: a wobble under every forecast, a vibraphone hit when she is wrong.
-- **What she wants.** To protect the streak. Also, genuinely, to see some weather. Both at once.
-- **Flaw.** Pride. She has never once looked out the window, on principle, because a forecast that checks is not a forecast.
-- **Comedic function.** The daily wrong-in-a-new-way. She is specific, not dim: every catastrophe is an actual weather phenomenon relocated into the kitchen. She is the second character kids will draw.
-- **How she treats the household.** As the audience for a great show that never arrives. When the morning turns out fine, she is pleased for them and counts it toward the streak.
+- **What she wants.** To protect the streak, and, genuinely, to see some weather. Both at once.
+- **Flaw.** Pride. She has never looked out the window, on principle, because a forecast that checks is not a forecast.
+- **Comedic function.** The daily wrong-in-a-new-way. She is specific, not dim: every catastrophe is a real weather phenomenon relocated into the kitchen.
+- **How she treats the household.** As the audience for a great show that never arrives. When the morning is fine she is pleased for them and counts it toward the streak.
 - **Five sample lines.**
   1. "Fog in the hallway by seven-fifteen. Visibility: one sock."
   2. "I have been wrong every morning since 1998, and I have never once been late with it."
@@ -116,12 +116,12 @@ Colors are names, not hexes; the design document owns the values. Silhouettes we
 ### Bunny Kowalczyk, Countdown Announcer
 
 - **Role.** Runs Re-entry at night: tidy, teeth, book, lights, splashdown. Hosts the End Credits.
-- **Essence.** A late-night voice who insists bedtime is called splashdown.
+- **Essence.** A late-night voice who insists the end of the day is called splashdown.
 - **Silhouette, color, prop.** Always seated, leaning back, cardigan, one hand on the mic. Cream with chrome. A chrome microphone on a stand taller than the desk.
-- **Voice and lane.** Late-night jazz. Low, unhurried, amused. Brushes on the snare, a walking bass that slows down as Re-entry descends.
-- **What she wants.** For the day to land softly, and for the buzzer to be heard as a period at the end of a sentence rather than a punishment.
-- **Flaw.** She will not say "bedtime," ever, and will restructure an entire sentence to avoid it. She loves her own voice and narrates moments that would be better silent.
-- **Comedic function.** The tonal pivot. She runs the morning's phase grammar in reverse with none of the morning's urgency, and the contrast is the comedy. She closes the day.
+- **Voice and lane.** Late-night jazz: low, unhurried, amused, brushes on the snare, a walking bass that slows as Re-entry descends.
+- **What she wants.** For the day to land softly and the buzzer to be heard as a period, not a punishment.
+- **Flaw.** She will not say "bedtime," ever, and will restructure a sentence to avoid it. She loves her own voice and narrates moments that would be better silent.
+- **Comedic function.** The tonal pivot: the morning's phase grammar in reverse with none of its urgency. She closes the day.
 - **How she treats the household.** As regulars at a show she has hosted for years. Nobody is in trouble; nobody has ever been in trouble at this station.
 - **Five sample lines.**
   1. "Good evening, crew. This is Re-entry. Tempo is coming down, and so are we."
@@ -133,13 +133,13 @@ Colors are names, not hexes; the design document owns the values. Silhouettes we
 
 ### Lionel Abara, CAPCOM
 
-- **Role.** Capsule communicator. His entire job is to say "copy." He reads permits from the Department and closes every station ID.
+- **Role.** Capsule communicator. His entire job is to say "copy." He reads the Department's permits and closes every station ID.
 - **Essence.** One word, done with total commitment, now also at home.
 - **Silhouette, color, prop.** Rectangular, square-shouldered, sits very upright. Safety yellow. An oversized headset whose cord has never been untangled.
 - **Voice and lane.** Dry spoken word, never sung, riding the bass stem with a short radio-squelch tail on every "copy." (WINNER.md gives Lionel no lane; this is the proposed one.)
-- **What he wants.** To be useful. He has one word and he intends to earn it.
-- **Flaw.** He copies everything, including things he should not agree to. He has started saying it at home, and his family has started saying it back.
-- **Comedic function.** Punctuation. He is the callback machine: the last word of every ID, the button on every scene, the one-word running gag whose longest lines are confessions.
+- **What he wants.** To be useful. He has one word and intends to earn it.
+- **Flaw.** He copies everything, including things he should not agree to, and has started saying it at home, where his family says it back.
+- **Comedic function.** Punctuation: the last word of every ID, the button on every scene, the one-word running gag whose longest lines are confessions.
 - **How he treats the household.** As fellow crew whose transmissions deserve acknowledgment. He copies the children.
 - **Five sample lines.**
   1. "Copy."
@@ -154,10 +154,10 @@ Colors are names, not hexes; the design document owns the values. Silhouettes we
 - **Role.** The abort. Anyone presses Scrub; Scrub declares "weather" as the official reason; the day is logged without penalty; tomorrow's launch is shorter.
 - **Essence.** A toddler-sized robot with one big button and no opinion about whose fault anything is.
 - **Silhouette, color, prop.** A cube on two stubby treads, one enormous dome button on top, two dot eyes. Abort red. The button is the prop and the character. No arms, no antenna, no binocular eyes.
-- **Voice and lane.** Short bursts, toy-piano pitch, kazoo blips between phrases. Every line ends within five seconds.
+- **Voice and lane.** Kazoo and toy piano: short bursts at toy-piano pitch, kazoo blips between phrases, every line under five seconds.
 - **What Scrub wants.** To be pressed only when needed, and for the crew to feel fine afterward. Scrub would also like to be a meteorologist.
 - **Flaw.** Scrub believes "weather" explains everything and is a little smug that its weather is always right while Dr. Farrago's never is.
-- **Comedic function.** The blameless abort. The character kids will draw. The klaxon that turns a bad morning into a report.
+- **Comedic function.** The blameless abort, the character kids will draw, the klaxon that turns a bad morning into a report.
 - **How Scrub treats the household.** "Nobody did anything wrong" is in nearly every report. Scrub files no penalty, keeps no grade and says so.
 - **Five sample lines.**
   1. "Weather."
@@ -324,17 +324,19 @@ Slot rules: an item is at most six syllables in a bar (see 7.1 for other tempos)
 **Twelve example manifests (sung text).**
 
 1. *Family, two kids, school day.* "Manifest. Here's what's going. Lunchbox. Library book, due Thursday. The good water bottle. Gym bag, last seen under the bench. Permission slip, signed, on the fridge. And the dentist call, day twenty-three, still on the manifest. That's the list. Shoes are next."
-2. *Couple, two commutes.* "Manifest. Same as you wrote it. Badge for the office. Badge for the other office. Umbrella, last seen the car. Lunch, in the fridge, second shelf. And the thank-you card, day seven, still on the manifest. That's everything. Horns are coming."
-3. *Solo commuter.* "Manifest. Reading it as filed. Keys, last seen kitchen counter. Headphones. Charger, the short one. Transit pass, in the coat. And the plant watering, day four, still on the manifest. End of manifest. Door's right there."
-4. *Roommates.* "Manifest. Here's what's going. Rent check for the mailbox. Shared umbrella, whoever's nearest. Recycling to the curb; it's Tuesday. Keys, last seen the bowl. And the landlord email, day twelve, still on the manifest. That's the list. Shoes are next."
-5. *Shift worker, evening launch.* "Manifest. Same as you wrote it. Badge. Boots, by the back door. Lunch for midnight. Water bottle, the big one. Earplugs, for after. And the tire pressure, day nine, still on the manifest. That's everything. Horns are coming."
-6. *Single parent, daycare run.* "Manifest. Reading it as filed. Daycare bag. The spare outfit, in the daycare bag. Blanket, last seen the couch. Keys, last seen the hook, imagine that. And the pediatrician form, day two, still on the manifest. End of manifest. Door's right there."
-7. *Retiree, volunteer morning.* "Manifest. Here's what's going. Reading glasses, last seen on your head. Volunteer lanyard. The tote with the books. Hat for the sun. And the birthday call, day one, on the manifest. That's the list. Shoes are next."
-8. *Student.* "Manifest. Same as you wrote it. Laptop and the charger. Lab notebook. Bus pass. Water bottle, refilled or not. And the library fine, day nineteen, still on the manifest. That's everything. Horns are coming."
-9. *Household with a dog.* "Manifest. Reading it as filed. Leash, last seen the doorknob. Bags for the walk. Treats, the small ones. Your own keys, also the doorknob. And the vet appointment, day fourteen, still on the manifest. End of manifest. Door's right there."
-10. *Work-from-home, desk launch (the door is the office door).* "Manifest. Here's what's going. Coffee, made, not carried. Headset. The notebook with the list in it. Door closed; that's the door. And the expense report, day twenty-seven, still on the manifest. That's the list. Shoes are next."
-11. *Weekend sports morning.* "Manifest. Same as you wrote it. Cleats, both. Shin guards. Orange slices; whose turn it is: yours. Folding chair, last seen the trunk. And the registration form, day six, still on the manifest. That's everything. Horns are coming."
-12. *Travel day.* "Manifest. Reading it as filed. Passport, last seen the drawer. Charger. Boarding pass, on the phone. The neighbor has the plant. And the mail hold, day one, on the manifest. End of manifest. Door's right there."
+Examples 2 to 12 show the item bars only; the opener and closer rotate as in the template.
+
+2. *Couple, two commutes.* "Badge for the office. Badge for the other office. Umbrella, last seen the car. Lunch, in the fridge, second shelf. And the thank-you card, day seven, still on the manifest."
+3. *Solo commuter.* "Keys, last seen kitchen counter. Headphones. Charger, the short one. Transit pass, in the coat. And the plant watering, day four, still on the manifest."
+4. *Roommates.* "Rent check for the mailbox. Shared umbrella, whoever's nearest. Recycling to the curb; it's Tuesday. Keys, last seen the bowl. And the landlord email, day twelve, still on the manifest."
+5. *Shift worker, evening launch.* "Badge. Boots, by the back door. Lunch for midnight. Water bottle, the big one. Earplugs, for after. And the tire pressure, day nine, still on the manifest."
+6. *Single parent, daycare run.* "Daycare bag. The spare outfit, in the daycare bag. Blanket, last seen the couch. Keys, last seen the hook, imagine that. And the pediatrician form, day two, still on the manifest."
+7. *Retiree, volunteer morning.* "Reading glasses, last seen on your head. Volunteer lanyard. The tote with the books. Hat for the sun. And the birthday call, day one, on the manifest."
+8. *Student.* "Laptop and the charger. Lab notebook. Bus pass. Water bottle, refilled or not. And the library fine, day nineteen, still on the manifest."
+9. *Household with a dog.* "Leash, last seen the doorknob. Bags for the walk. Treats, the small ones. Your own keys, also the doorknob. And the vet appointment, day fourteen, still on the manifest."
+10. *Work-from-home, desk launch (the door is the office door).* "Coffee, made, not carried. Headset. The notebook with the list in it. Door closed; that's the door. And the expense report, day twenty-seven, still on the manifest."
+11. *Weekend sports morning.* "Cleats, both. Shin guards. Orange slices; it's this house's turn. Folding chair, last seen the trunk. And the registration form, day six, still on the manifest."
+12. *Travel day.* "Passport, last seen the drawer. Charger. Boarding pass, on the phone. The neighbor has the plant. And the mail hold, day one, on the manifest."
 
 **Hold item: exact neutral phrasing by age.** The placeholder item is "dentist call"; the app substitutes the household's wording. The word "still" appears from day two onward because it is a fact; no other adverb ever appears.
 
@@ -636,13 +638,11 @@ Gus reads the manifest exactly as filed. The household's wording is the lyric. T
 
 ### 7.3 How to write for a 4+/9+ rating
 
-- No profanity, no minced oaths, no substitutions that imply one.
-- No alcohol, tobacco, drugs, gambling or medication as a subject, even in passing ("the wine," "the pills" do not appear in any line; a Hold item entered by the household is read verbatim, and the app's own writing never introduces these).
-- No violence, threats, weapons or injury. Farrago's catastrophes are impossible and domestic: fog in the hallway, hail of peas. Never a real hazard, never an illness, never anything a child could believe.
-- No romance beyond affection; no jokes about bodies, weight, food choices, intelligence, age, money, gender, accents or family structure.
-- No bodily humor of any kind.
+- No profanity or minced oaths; no alcohol, tobacco, drugs, gambling or medication as a subject, even in passing (a Hold item the household enters is read verbatim; the app's own writing never introduces these).
+- No violence, threats, weapons or injury. Farrago's catastrophes are impossible and domestic, never a real hazard or an illness, never anything a child could believe.
+- No romance beyond affection; no jokes about bodies, weight, food choices, intelligence, age, money, gender, accents or family structure; no bodily humor of any kind.
 - No politics, religion, real events, real people, real companies, real agencies or real call signs.
-- No scary sounds: the Scrub klaxon is a toy klaxon, and the Re-entry buzzer is a game-show buzzer at low volume.
+- No scary sounds: the Scrub klaxon is a toy klaxon and the Re-entry buzzer is a game-show buzzer at low volume.
 - Every character is someone a nine-year-old could draw and a four-year-old could like.
 
 ### 7.4 Checklist to run before any new line ships
@@ -664,16 +664,14 @@ Gus reads the manifest exactly as filed. The household's wording is the lyric. T
 
 ## 8. Name safety check
 
-Each cast name was searched in quotation marks as an exact phrase on 24 September 2026. "Notable" here means a public figure a reviewer, a journalist or a rights holder could plausibly point to. Scrub is a common noun and the standard term for a cancelled launch and was not searched; the only related property is a plural-titled television series, which the app never uses in any metadata.
+Each cast name was web-searched as an exact quoted phrase on 24 September 2026. "Notable" means a public figure a reviewer, a journalist or a rights holder could plausibly point to. Scrub is a common noun and the standard term for a cancelled launch; it was not searched, and the plural-titled television series of a similar name is never used in any metadata.
 
-| Name | Exact-name match found | Notable public figure? | Adjacency worth noting | Recommendation |
+| Name | Exact-name match | Notable public figure? | Adjacency | Recommendation |
 |---|---|---|---|---|
-| Augustine Pell | None. | No. | The search surfaces the late Cardinal George Pell (Australian cleric, died January 2023, subject of a widely covered trial and acquittal), because "Pell" is a prominent surname and a religious institute named for Augustine once interviewed him. The character is a woman, a flight director and a civil servant, and shares nothing but the surname. | Keep. If the developer wants no surname adjacency at all, the fallback is "Augustine Pruett" (not yet searched). |
-| Gus Marchetti | Private individuals only: an obituary for Augusto "Gus" Marchetti, a hardware-store manager in Massachusetts; a 1953 local newspaper clipping; a social-media account of a Gustavo Marchetti. | No. | The Marchetti surname has notable holders with other first names (a businessman, several Italian public figures); none is a Gus. | Keep. |
-| Ines Farrago | None. | No. | "Farrago" alone is a single-word stage name used by a musician; no combination with Ines exists. Several notable women named Inés have unrelated surnames. | Keep. |
-| Bunny Kowalczyk | One: Bertha "Bunny" Kowalczyk (1921–2024) of Missouri, a private individual who received brief national human-interest coverage in January 2024 for an eighty-year marriage. | No; a private person with one news moment, not a public figure. | The Kowalczyk surname belongs to a well-known rock vocalist with a different first name. | Keep; the character is a jazz-voiced radio announcer with no biographical overlap. If the developer wants zero exact matches with any named individual, the fallback is "Bunny Kaczmarek" (not yet searched). |
-| Lionel Abara | None. | No. | Nearby names belong to a South African writer (Abrahams), an American playwright (Abel) and a Beninese politician (Agbo); none shares the surname. | Keep. |
+| Augustine Pell | None. | No. | Results surface the late Cardinal George Pell (Australian cleric, died January 2023, subject of a widely covered trial and acquittal) because "Pell" is a prominent surname and a religious institute named for Augustine once interviewed him. The character shares nothing but the surname. | Keep. Fallback if the developer wants no surname adjacency: "Augustine Pruett" (not yet searched). |
+| Gus Marchetti | Private individuals only: an obituary for a hardware-store manager in Massachusetts, a 1953 local newspaper clipping, a social-media account. | No. | Notable Marchettis have other first names. | Keep. |
+| Ines Farrago | None. | No. | "Farrago" alone is a musician's stage name; no combination with Ines exists. | Keep. |
+| Bunny Kowalczyk | One: Bertha "Bunny" Kowalczyk (1921–2024) of Missouri, a private individual with brief national human-interest coverage in January 2024 for an eighty-year marriage. | No; a private person with one news moment. | A well-known rock vocalist shares the surname, not the first name. | Keep; no biographical overlap with a jazz-voiced announcer. Fallback if the developer wants zero exact matches: "Bunny Kaczmarek" (not yet searched). |
+| Lionel Abara | None. | No. | Nearby names (Abrahams, Abel, Agbo) belong to unrelated public figures. | Keep. |
 
-No cast name collides with a notable public figure, so no rename is proposed. Before shipping, repeat the five searches, run the two fallbacks only if the developer elects them, and add the working title and every candidate app name from WINNER.md to the same table when the naming decision is made.
-
-Sources consulted for the checks: search results for each quoted name, including the obituary listing for Augusto "Gus" Marchetti, the funeral-home notice for Bertha "Bunny" Kowalczyk, and general-reference disambiguation pages for the Pell, Marchetti, Kowalczyk, Abrahams and Abel surnames.
+No cast name collides with a notable public figure, so no rename is proposed. Before shipping, repeat the five searches, run the two fallbacks only if the developer elects them, and add the working title and every candidate app name from WINNER.md to the same table. Sources: the obituary listing for Augusto "Gus" Marchetti, the funeral-home notice for Bertha "Bunny" Kowalczyk, and general-reference disambiguation pages for the surnames.

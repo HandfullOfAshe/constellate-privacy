@@ -1,0 +1,185 @@
+{
+ "concept": {
+  "name": "Split Level",
+  "type": "app",
+  "one_liner": "A sitcom household that lives in your phone and turns tonight's dinner, today's chores and the invisible mental load into a 90-second musical episode every evening.",
+  "problems_solved": [
+   "Nightly 'what's for dinner' decision fatigue, which meal-planning apps do not solve because they demand a week of planning nobody does.",
+   "Invisible mental load (71% carried by one partner) that stays invisible because logging it in a chore app feels like filing a grievance.",
+   "Partner or roommate disengagement: every household tool dies when the second person 'can't be bothered' to adopt it.",
+   "Chore scoreboards (FairPlay, Nipto) that turn housework into resentment instead of a shared story.",
+   "Family recipes and house rituals that vanish because the only place to keep them is a spreadsheet or a dead group chat."
+  ],
+  "why_no_good_solutions_exist": "Cozi (2.1 Trustpilot after a surprise paywall), FairPlay ('a glorified chore chart') and Paired (goes stale by month 3-6) are all tool-shaped: they need accounts, setup and two engaged adults, and they present the household to itself as a ledger of debts. Nothing treats the household as a comedy with a cast, nothing uses music, and nothing rewards the person who already carries the load without shaming the one who does not. The dinner decision specifically is served by recipe apps that assume you want new recipes, when most families rotate the same 10-15 meals.",
+  "core_daily_loop": "At 5:30 pm (your chosen time) a notification says the cast is already fighting about dinner. You open to the house in cross-section: Dez is championing his stir-fry, Marg wants the leftovers 'cleared from the holding pattern', Councilman the raccoon lobbies for whatever is in the bin. The Dinner Number plays (30 seconds, sung, with a verse specific to whatever the House Menu spinner landed on); you tap Accept or Veto once, and the winner goes to the widget and can be texted to the house. Over the evening you tap chips for what actually happened ('groceries', 'school forms', 'dishes', 'nothing, and that is fine'), and anyone in the household with the app can add theirs. At 9 pm the End Credits roll: a 60-second sung credits sequence that names every task in the order it happened, with a shareable dollhouse card showing which rooms lit up. Sundays open a special 'Reset Heist' episode with a countdown, a roll call and 20-minute Power Hour chore tracks.",
+  "unique_mechanic": "Tonight's Episode: a nightly 90-second sitcom episode assembled from the household's real day, with the dinner decision as the A-plot (settled by a cast argument you can veto once) and the End Credits sung from the actual task log, so invisible labour is performed back to the house as entertainment rather than filed as a complaint. The seed is the House Menu: onboarding asks only 'name five meals you actually make' and the app is already funny within 60 seconds.",
+  "tone_link": "Found-family sitcom energy with a cast that maps to no existing show: Marguerite 'Marg' Oduya (68, retired air-traffic controller who runs the house like a tower and calls unwashed laundry 'three loads in a holding pattern'), her nephew Dez (31, failed food-truck owner who cooks exactly four dishes and defends each like a thesis), Priya Lindqvist (40, basement tenant and professional divorce mediator who mediates every colander dispute in writing), Tobias (15, foster kid who keeps a chore ledger purely for leverage) and Councilman, a raccoon who won legal tenancy through a paperwork error. Small things carry absurd stakes (the Sunday Reset is staged like a heist with a countdown and a roll call), the satire targets domestic labour and generic human foibles rather than real people or companies, and the warmth is that the whole cast shows up for each other at the credits every night.",
+  "why_worth_paying": "Free forever: the nightly Dinner Number and End Credits with a five-meal House Menu. One-time unlock ($9.99, no subscription, no ads, Small Business Program): unlimited House Menu with the Recipe Vault (photo plus method, exportable as a printable keepsake 'for future generations'), the full Season One song library (all 24 meal verses, five cast themes, twelve Power Hour chore tracks), the 90-day Ledger history with Season Recap cards, and household sharing via iCloud. The paid layer is depth and keepsake, which is exactly what one-star reviews of Cozi and the habit-tracker category say they would pay once for.",
+  "vibrant_visual_hook": "The home screen is the split-level house in dollhouse cross-section, three staggered floors in mustard, teal and coral against a paper-grain sky, with the cast walking between floors as the day goes on. Rooms light up as tasks are logged, the raccoon appears in whichever room was neglected, and at night the whole house glows as a lit dollhouse on indigo, which is also the shareable card. Cast are flat-fill, hard-shape figures with distinct silhouettes so five characters are cheap to animate with cutout jitter and squash-and-stretch, never mouth-only limited animation.",
+  "music_role": "Music is the comedy delivery system because a solo developer cannot ship voice acting: the cast speaks in text and sings via Suno. The Dinner Number is one original song with 24 meal-category verses made with Replace Section and Extend; the End Credits is a template song with modular sung lines for each task chip; each cast member has a Persona-locked signature voice and theme; Power Hour chore tracks are BPM-locked 10 and 20 minute pieces from Sounds mode for the 20/10 cleaning rule. Every lyric is written by the developer (the human-authored copyright layer), everything is pre-generated on Premier, exported WAV, shipped as CAF and looped in AVAudioEngine; nothing is generated at runtime.",
+  "broad_appeal_argument": "Everyone eats dinner every night, every household has an uneven ledger, and 'what's for dinner' is the most-repeated question in any home. Musical comedy works for couples, roommates, single parents and multigenerational homes alike, and the app asks for zero setup beyond five meals. It is single-player-complete (the person who carries the load gets a nightly show about it) and gets better, not broken, when a second person joins.",
+  "solo_dev_buildability_1to5": 4,
+  "biggest_risk": "The writing treadmill: the episode templates need several hundred lines and dozens of song variants to stay funny past week three, and household sharing (CloudKit share) is a step up from a local-only app; if the writing is thin it collapses into 'a chore app with a skin' and loses the one thing that makes it different.",
+  "lens": "tone-first: begin from why people love Bob's Burgers, South Park, American Dad and the Infinity War / Endgame films (found family, absurd stakes over small things, satire of daily life, the roll-call moment where everyone shows up), build an ORIGINAL world and cast that produces that feeling every single day, then bolt it to a real, unsolved daily problem so it is entertainment with a job rather than a novelty. Every concept below uses only invented characters, institutions and songs; the borrowed material is tone, structure and colour grammar, none of which is protectable."
+ },
+ "refutation": {
+  "concept_name": "Split Level",
+  "existing_competitors": [
+   {
+    "name": "Bite Club (family meal planner, launched 18 Sep 2026)",
+    "url": "https://getbiteclub.app/",
+    "how_close": "Closest single competitor on the A-plot. iOS-only 'what's for dinner' app with a quirky household tone: family Club with avatars and joke 'superpowers' (Beige Rulez, Salad Dodger), family voting with push notifications, 'House Meals' for the dishes you already cook, and a mascot (Bite Bot). It launched six days before this review, so it will own the 'fun family dinner app' search results Split Level would want.",
+    "why_it_falls_short_or_not": "Still tool-shaped: a 3,000-recipe library, weekly planner, shopping list and an AI sidekick on a $4.99/month subscription. Needs everyone to join and vote. No cast, no episode, no music, no chores or mental-load layer, no end-of-day payoff. It solves 'pick a recipe', not 'settle tonight in 30 seconds and make the household laugh about it'."
+   },
+   {
+    "name": "Family Dinner Picker",
+    "url": "https://apps.apple.com/us/app/family-dinner-picker/id1561592389",
+    "how_close": "Free, no-IAP randomizer that shuffles only the dinners your household typed in, with a shared family group. This is exactly the 'rotate the same 10-15 meals' insight the concept claims nobody serves.",
+    "why_it_falls_short_or_not": "Zero personality or ritual: a list and a shuffle button, Firebase account required, nothing after the pick. Proves the mechanic is not novel; the framing would have to be."
+   },
+   {
+    "name": "Dinners App (Tinder-style recipe voting) plus commodity spinners (Dinner-Spinner, Spin and Dine, Tiny Decisions, SpinMeal)",
+    "url": "https://www.producthunt.com/products/dinners-app",
+    "how_close": "The 'household argues about dinner, app settles it' space is crowded: swipe-to-match voting for families, and a dozen free wheel-spinner apps explicitly marketed as ending the 'I don't know, you decide' fight.",
+    "why_it_falls_short_or_not": "All are one-shot deciders with recipe databases or bare wheels. None has a cast, a veto, a nightly episode or any memory of the household. The dinner spinner alone is a commodity and cannot carry the app."
+   },
+   {
+    "name": "Tody (with 'Dusty' the dust-bunny nemesis)",
+    "url": "https://todyapp.com/",
+    "how_close": "2M+ downloads, 4.8 stars. A character who reacts to neglect ('Dusty grows bolder the longer you look away', gloats, taunts, has snarky quips kids quote), rooms shown as tiles that fill with dirt, a monthly race, a focus timer with mini-challenges, household sharing with 'hero of the month' reports. This is the raccoon-in-the-neglected-room mechanic and the 'rooms light up' visual, already shipped.",
+    "why_it_falls_short_or_not": "Cleaning-only, nemesis framing (shame-adjacent), no dinner, no music, no story, second household member costs $24.99/yr. One-character mascot, not an ensemble; dollhouse visual is tiles, not a cross-section house."
+   },
+   {
+    "name": "Tidywell (Live Sprint, Spin the Wheel, Kids Mode)",
+    "url": "https://tidywell-app.com/blog/sunday-reset-cleaning",
+    "how_close": "Markets a one-hour Sunday reset run as a synced 3-2-1 countdown on every device with tasks vanishing in real time, a 'Spin the Wheel' for where to start, an end-of-sprint summary, shame-free 'nothing turns red' design, and effort-weighted fairness. That is the Reset Heist minus the heist dressing.",
+    "why_it_falls_short_or_not": "No cast, no music, no dinner, no narrative; it is a fair-split chore app with a timer. The 'heist' staging and roll call are still unclaimed, but the countdown-sprint mechanic is not."
+   },
+   {
+    "name": "Roomsy",
+    "url": "https://www.producthunt.com/products/roomsy",
+    "how_close": "Chore tracker where 'a sweet virtual pet lives in a tiny version of your home', custom rooms, badges per check-off. Closest existing version of the 'character walks around a little house that reflects your chores' visual hook.",
+    "why_it_falls_short_or_not": "Single cute pet, cozy/kids tone, subscription; a Product Hunt commenter asked 'how long the novelty lasts', which is the exact risk the concept must design against. No ensemble, no comedy, no music, no dinner."
+   },
+   {
+    "name": "Nipto, Sweepy, ChoreUs, Chore Wars, Chorebound, Habitica",
+    "url": "https://apps.apple.com/us/app/nipto-split-chores/id1504877473",
+    "how_close": "Gamified household chores are a saturated category: points and weekly winners (Nipto), room leaderboards (Sweepy), XP/mascot closet (ChoreUs), couples XP with photo proof and chat (Chore Wars), RPG monsters (Chorebound), the original RPG task app (Habitica).",
+    "why_it_falls_short_or_not": "All use scoreboards or fantasy skins; reviewers and Reddit threads repeatedly say the leaderboard 'becomes another argument'. None performs the day back as entertainment; none uses music; none is single-player-complete. They validate the concept's critique but also prove 'gamified chores' is not a differentiator."
+   },
+   {
+    "name": "FairShare: Couples Mental Load (Noticing Score), RemindHer, Fair Play Life, evenus, AlphaMa",
+    "url": "https://apps.apple.com/us/app/fairshare-couples-mental-load/id6765473407",
+    "how_close": "The invisible-labor problem is now a crowded 2026 niche: FairShare measures 'who notices', RemindHer transfers ownership, Fair Play deals 100 cards, evenus has a Fairness Score, AlphaMa hands tasks to a partner over WhatsApp. Several cite the same 71% statistic the concept uses.",
+    "why_it_falls_short_or_not": "All are ledgers, dashboards or card decks that require a willing partner and feel like filing a grievance (an industry blog literally calls chore apps 'visible scorekeeping'). None rewards the load-carrier with entertainment. The problem is well-served by tools; the concept's angle (perform it, don't file it) remains open."
+   },
+   {
+    "name": "Music Diary - Emotion Notes (Melodiary)",
+    "url": "https://apps.apple.com/us/app/music-diary-emotion-notes/id6758213577",
+    "how_close": "Turns daily feelings plus keywords into AI-generated songs with vocals and lyrics, album art, and a weekly diary-to-song format. Closest existing 'your day, sung back to you' product; deardiary.ai does the same on web.",
+    "why_it_falls_short_or_not": "Solo journaling, runtime generation, generic AI voice, no household, no characters, no tasks. Shows the appetite for sung recaps exists but nobody has pointed it at the household."
+   },
+   {
+    "name": "Unfilth Your Habitat",
+    "url": "https://www.bestapp.com/best-household-chore-apps/",
+    "how_close": "Long-running 'edgy, irreverent' cleaning app for adults with 20/10 timed challenges and profanity-laced motivation; the closest precedent for comedic voice plus Power Hour.",
+    "why_it_falls_short_or_not": "A single snarky narrator with timers, no cast, no music, no household sync, no dinner. Proves irreverence sells in this category but leaves 'ensemble sitcom' untouched."
+   },
+   {
+    "name": "Pocket Sitcom (Propaganda3)",
+    "url": "https://apps.apple.com/us/app/pocket-sitcom/id335374050",
+    "how_close": "'The soundtrack for the sitcom of your life': laugh tracks and applause soundboard, briefly featured on Parks and Recreation.",
+    "why_it_falls_short_or_not": "A soundboard toy with a 2.0 rating. Confirms nobody has built an actual sitcom-of-your-household product; the name space 'sitcom app' is empty."
+   },
+   {
+    "name": "Fictional / Talkie / SeaArt Family AI Chat",
+    "url": "https://apps.apple.com/us/app/fictional/id6739802573",
+    "how_close": "AI characters that 'live in your phone', post, react, remember and speak; SeaArt sells an 'AI family' (dad, mom, siblings) that checks in on your day.",
+    "why_it_falls_short_or_not": "Generic LLM companions with no connection to real household tasks, no authored writing, no music, and heavy server/LLM costs. Different product class, but it is where users will mentally file 'characters who react to my day' unless the writing is clearly authored."
+   }
+  ],
+  "underserved_verdict": "partially_served",
+  "uniqueness_after_search_1to10": 7,
+  "ip_or_guideline_red_flags": [
+   "Suno terms changed on 3 Sep 2026: commercial rights now attach to a 'permitted download', not to generation, and downloads are capped (Pro 20/month, Premier 60/month; uncapped only inside Suno Studio for Premier). The plan calls for 24 meal verses, five cast themes, twelve Power Hour tracks, modular credits lines and variants, i.e. well over 100 exports; budget several months of Premier or work in Suno Studio, and keep download receipts plus subscription-window proof for every file shipped.",
+   "Suno ToS forbids removing, altering or obscuring the fingerprint, watermark or metadata it appends. Transcoding WAV to CAF strips file metadata; keep the original permitted downloads archived unmodified and be able to show the chain from download to shipped asset.",
+   "Suno explicitly disclaims that any copyright will vest in Output, and the US Copyright Office does not register purely AI-generated audio. Your human-written lyrics are the only protectable layer; the melodies and recordings cannot be enforced against copycats, and similar outputs may be generated for other users. Also, Suno does not indemnify: if a generated track resembles an existing song, the infringement exposure is yours. Prefer the v6 licensed-catalog models (Warner/BMG/Believe); UMG and Sony litigation against Suno was still ongoing as of 2026.",
+   "Suno Personas are 'an essence, not a voice lock' (Suno's own framing), require Pro/Premier, and multiple 2025-26 reports say they cannot be combined with Extend/Cover reliably and drift between model versions. The plan's 'Persona-locked signature voice' plus 'Replace Section and Extend' for 24 verses is a workflow conflict; expect voice drift across a cast of five. Voice Models may only be made from your own voice, so no cloning a hired actor.",
+   "App Store 5.2.1 / 2.3 metadata: never mention Bob's Burgers, South Park, American Dad, Avengers, Marvel, Disney or Paramount in the App Store name, subtitle, keywords, description or screenshots, and keep them out of press copy; trademark terms in metadata are a stated rejection reason. 'Fair Play' is a registered mark (Eve Rodsky's system, and Apple's FairPlay DRM), so do not name it in marketing.",
+   "Character likeness risk: a wisecracking raccoon on an Avengers-inspired ensemble invites the Rocket Raccoon comparison (Marvel) and, as a non-human housemate with quasi-legal standing, echoes Roger from American Dad. Keep Councilman's silhouette, wardrobe and gags far from both (no jumpsuit/weapons/cyborg cues, no disguise-persona gags). 'Marg', a 68-year-old matriarch running a sitcom household, reads as Marge Simpson; rename her nickname (e.g. 'Tower').",
+   "Style-homage risk: 'cutout jitter' is South Park's signature construction-paper look and a sung End Credits over daily minutiae is Bob's Burgers' signature closing; a pun-named nightly dinner special would read as Bob's 'Burger of the Day'. Style is not protectable, but stacking three recognizable homages will get the app described as a knock-off in reviews and press. Use hard-shape flat fill without paper texture, and avoid pun-of-the-day boards.",
+   "App Store 1.1.1: satire is tolerated but the 'professional humorists' exemption is narrow; keep jokes on domestic labor and generic foibles, never on religion, race, gender, ethnicity or other protected groups, and keep raccoon/bin humor mild enough for a 9+ or 12+ rating.",
+   "App Store 1.2 (UGC): once household members can add free-text task chips, recipe photos and names that other members see, a reviewer may ask for report/block/filter mechanisms even though sharing is private via CloudKit. Low risk, but design a way to remove a member and delete shared content.",
+   "App Store 4.5.4 and 5.1.1: the 5:30 pm 'cast is fighting' alert must be a local notification that is optional; the episode must play without it. No account should be required (CloudKit sharing rides on the Apple ID), and any exported keepsake must not require sign-up.",
+   "Naming: 'Split Level' has no App Store conflict (an iTunes search returns only bubble-level utilities), but it is a descriptive architectural term, hard to register as a strong mark, and its search intent is floor plans and spirit levels, so ASO will be weak. A USPTO clearance search could not be run from here; do one before filing.",
+   "Cozi/FairPlay/Paired critiques in the brief are unverified marketing claims (e.g. the 2.1 Trustpilot figure); do not repeat competitor ratings in App Store copy or press without a dated source."
+  ],
+  "sharpening_suggestion": "Every component has a shipping competitor: Bite Club owns quirky family dinner voting with 'House Meals' as of six days ago, Family Dinner Picker already shuffles your own rotation, Tody's Dusty already reacts to neglected rooms, Tidywell already runs a synced Sunday-reset countdown, Roomsy already puts a character in a tiny version of your home, Melodiary already sings your day, and the mental-load ledger niche is full. The one thing nobody has is the combination that the concept buries in paragraph four: a nightly 90-second musical episode assembled from the household's real log, with the End Credits sung from what actually happened. Reposition around that and treat everything else as supporting cast. Concretely: (1) Lead the store listing and the first-run experience with 'Tonight's Episode', not with dinner or chores; the category is household entertainment, and the words chore, tracker, planner and meal should not appear in the title or subtitle. (2) Make the End Credits the shareable daily artifact (a 15-second sung clip over the lit dollhouse card, exported as a video), because a sung, personal, once-a-day card is the only loop here no competitor can copy without a writers' room; the dollhouse cross-section is your Wordle grid. (3) Draw an explicit line against Bite Club: 'we will never suggest a recipe'; the House Menu is only what you already cook, the argument is settled by one veto rather than a vote, and there is no subscription. (4) Invert Tody's nemesis: Councilman should not punish neglect, he should lobby on behalf of whoever carried the most load that day, which is the anti-shame thesis in character form; the Reset Heist should be role-based co-op (Marg runs the tower, Dez the kitchen, Tobias keeps the ledger) rather than a timer, so it is not a re-skin of Tidywell's Live Sprint. (5) Because Personas preserve an 'essence, not a lock', give each cast member a musical genre lane (air-traffic big band, food-truck cumbia, deadpan bossa nova, mumbled bedroom emo, jug-band kazoo) so vocal drift never breaks character, and pre-write the 24 meal verses as full standalone songs rather than Extend/Persona chains. (6) Frame the writing treadmill as the moat: ship 'Season One' as 12 weeks of dated episode templates with a season finale and recap, and sell future seasons as the paid layer; a competitor can clone a spinner in a weekend but not 300 authored lines and 40 songs. (7) Rename 'Marg' and reconsider 'Split Level' for something invented and searchable, and keep the raccoon visually far from Rocket."
+ },
+ "judges": [
+  {
+   "judge": "indie-publisher: veteran publisher of 30 paid iOS apps judging commercial reality only — will people pay a one-time price, will it retain past week three, can one local-first developer ship it in under a year, and will App Review (4.3(b), 5.2.1, 1.4.1, 1.2) pass. Name collisions that only require a rename are noted in rationales; the fatal_flaws list holds only concept-killers as pitched. Two concepts share the name Dead Air and are labeled by premise.",
+   "score": {
+    "concept_name": "Split Level",
+    "uniqueness": 7,
+    "problem_severity": 6,
+    "daily_pull": 7,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 5,
+    "buildability": 5,
+    "vibrancy": 9,
+    "total": 52,
+    "rationale": "Of the household-entertainment concepts this is the one I would fund: single-player-complete, zero setup (name five meals), a nightly artifact nobody can copy without a writers' room (End Credits sung from the actual task log), and the strongest visual identity in the dossier, a lit dollhouse cross-section that doubles as the share card. The dinner utility is a commodity and the mental-load niche is crowded, but the app is positioned as a show rather than a tool, which is the right category for a $9.99 one-time unlock plus a keepsake recipe vault. The IP notes are cheap fixes (rename Marg, redesign the raccoon away from Rocket and Roger, drop cutout jitter and pun-of-the-day boards, pick a searchable coined name). Buildability is the concern: 24 meal verses, a modular credits song, hundreds of authored lines and optional CloudKit sharing is close to a year of authoring for one person, and if the writing thins it becomes a chore app with a skin."
+   }
+  },
+  {
+   "judge": "everyday-user: a panel of five ordinary people (a nurse on rotating shifts, a college student, a parent of three, a retiree living with a spouse, a barista with 5am opens). We judged each concept on whether we would actually download it, open it every day without being nagged, tell a friend about it unprompted, and pay for it once. We were deliberately hard on anything that felt like a utility wearing a costume, anything that only works if other people install it, and anything that adds a new ritual to a day instead of hijacking time we already spend. Ties in total were broken by who on the panel could use the app alone, today, with zero setup.",
+   "score": {
+    "concept_name": "Split Level",
+    "uniqueness": 6,
+    "problem_severity": 7,
+    "daily_pull": 7,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 5,
+    "buildability": 6,
+    "vibrancy": 9,
+    "total": 53,
+    "rationale": "The dollhouse cross-section with rooms lighting up as the day happens is the most beautiful screen in the dossier, and every panelist wanted to see their own house glow at night. Two rituals (5:30 dinner number, 9pm sung credits) is a load we would actually carry, lighter than Cold Open. The parent said credits sung from what actually happened would make her feel seen; the nurse said the raccoon lobbying for whoever did the most is the first chore character she has not wanted to strangle. It is weakest for the retiree, who does not need a spinner, and it is funniest with a household. Risks we noticed even as laypeople: 'Marg' reads as a famous cartoon mom, the wisecracking raccoon reads as a famous space raccoon, and the writing has to keep up for months. Rename the matriarch, keep the house."
+   }
+  },
+  {
+   "judge": "Comedy-showrunner lens. I read each concept as a pilot pitch: is there an ensemble with distinct wants that a small writers' room could write for years, does the comedy come from character rather than from a skin, is there warmth (the cast never blames the user), is there a daily 'everyone shows up' beat, and can the world add institutions, seasons and guest stars without touching Bob's Burgers, South Park, American Dad or Marvel. I scored the eight criteria on the dossier's own evidence (competitor hunts, red flags), so live name collisions and Apple 4.3(b) exposure hit ip_safety and buildability hard, and 'the pieces all exist elsewhere' capped uniqueness. Two cross-cutting rulings. First, the register must be Bob's Burgers warmth at a 9+ rating, not South Park edge, or the 'anyone can use it' promise and any family editorial die; every cast below is scored on the assumption that the satire stays on invented institutions. Second, three concepts (Dreadlines, Pull It Off, Caper) share one logline, 'an original crew shows up for the thing you have been avoiding'. A showrunner does not greenlight three pilots with the same premise, so I treat them as one show and did not hand the avoidance lane all three top slots even though they hold the three highest totals. My top 3 is therefore one greenlight per lane: Dreadlines (absorbing Pull It Off's bar-quantised score and Caper's script library and bail rule), Split Level (the best sitcom cast in the dossier, once its homage stack is fixed), and Launch Window (the highest-pain daily problem attached to a real mission-control ensemble). Every concept needs a rename; that is the price of admission, not a tiebreaker. Music was judged on whether it does structural work a writer would miss if it were gone: Pull It Off, Dreadlines, Launch Window, Houseband and Crew Call pass that test cleanly.",
+   "score": {
+    "concept_name": "Split Level",
+    "uniqueness": 7,
+    "problem_severity": 7,
+    "daily_pull": 8,
+    "broad_appeal": 8,
+    "willingness_to_pay": 6,
+    "ip_safety": 5,
+    "buildability": 6,
+    "vibrancy": 9,
+    "total": 56,
+    "rationale": "This is the best pilot cast in the dossier: a retired air-traffic controller who runs the house like a tower and calls laundry 'three loads in a holding pattern', a failed food-truck nephew who defends four dishes like a thesis, a divorce-mediator tenant who mediates colander disputes in writing, a foster kid who keeps a chore ledger purely for leverage, and Councilman, a raccoon who won legal tenancy through a paperwork error. That is found family with absurd stakes over small things, and the nightly 90-second musical episode with End Credits sung from the real task log is the most 'show' any concept gets; the lit dollhouse cross-section is the Wordle grid. Councilman lobbying for whoever carried the most load is the anti-shame thesis in one character, and Season One as 12 weeks of dated templates is a real moat. The risk is exactly what the hunt flagged: sung end credits over daily minutiae, cutout jitter, a wisecracking non-human housemate and a matriarch called Marg stack into a recognisable homage even though nothing is legally infringing. Rename Marg, keep the raccoon far from any cyborg or shape-shifter, drop paper texture and pun boards, and it is safe. Household sync is the buildability tax."
+   }
+  },
+  {
+   "judge": "product-strategist (defensibility-first: post-hunt uniqueness, clarity of the problem set, habit and network effects, and whether music is a mechanic or a gimmick)",
+   "score": {
+    "concept_name": "Split Level",
+    "uniqueness": 6,
+    "problem_severity": 6,
+    "daily_pull": 7,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 5,
+    "buildability": 6,
+    "vibrancy": 9,
+    "total": 52,
+    "rationale": "Each component has a shipping competitor (Bite Club on quirky family dinner voting with House Meals, Family Dinner Picker on shuffling your own rotation, Tody's Dusty on reacting to neglected rooms, Tidywell on the synced Sunday reset, Roomsy on a character in a tiny version of your home, Melodiary on singing your day), but nobody assembles a nightly 90-second musical episode from the household's real log with sung end credits, and that is the one loop a competitor cannot clone without a writers' room and forty songs. Onboarding is the best in the dossier ('name five meals you actually make' and it is funny within sixty seconds), it is single-player complete, and it gets better rather than broken when a second person joins, which is the right adoption shape. Music is the comedy delivery system and therefore structural, though sung credits assembled from modular lines is technically fragile on Suno (voice drift across a five-member cast) and needs the genre-lane fix. The dollhouse cross-section that lights up is the strongest visual hook here and doubles as the shareable card. Watch the homage stacking (a wisecracking raccoon housemate, 'Marg', cutout jitter plus sung credits) and the descriptive, ASO-weak name."
+   }
+  }
+ ]
+}

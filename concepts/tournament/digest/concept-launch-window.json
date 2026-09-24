@@ -1,0 +1,184 @@
+{
+ "concept": {
+  "name": "Launch Window",
+  "type": "app",
+  "one_liner": "A rocket-launch morning and a soft re-entry night for your whole household, where the song is the schedule: when the horns come in, shoes go on, and nobody has to say it twice.",
+  "problems_solved": [
+   "Morning chaos runs on one adult acting as the human clock, repeating instructions and absorbing the resentment; no product moves the nagging off the parent.",
+   "Transitions (stop screens, start shoes, get in the car) are the hardest moments for kids and for neurodivergent adults, and silent timers and checklists do not carry people through them.",
+   "Getting out the door requires a manifest (lunch, permission slip, gym bag, keys) that lives only in one person's head.",
+   "Bedtime has the same problem in reverse and no shared wind-down cue exists that is not a lecture.",
+   "Routine apps (Tiimo, Brili, Routinery) are clinical or childish checklists on subscriptions, single-user, and phone-centric; they do not work for a room of people.",
+   "Solo people have the same problem with nobody to nag them: 'get moving before your brain' mission alarms are the one thing users say works, and they are limited to alarm apps."
+  ],
+  "why_no_good_solutions_exist": "Every routine app is a per-person list with a timer, which means it must be looked at, tapped and policed, so it becomes one more thing the organized adult manages. Alarmy proved that music and missions get people moving, but only at wake-up and only for one person. Household smart speakers can play a playlist but know nothing about the phases of leaving the house. Nobody has built a shared, listen-only routine where an annotated piece of music carries the whole room through phases, and where the cue comes from the song, not from a person or a notification. Music-as-schedule is only possible with a library of exact-length, section-mapped original tracks, which is what a Suno-generated catalog makes affordable for a solo developer.",
+  "core_daily_loop": "6:55 a.m., one tap on the Launch button (or an automatic start via the alarm): Flight Director Augustine Pell announces 'T-minus twelve, launch window open' over a Live Activity showing the countdown and the current phase, and the phone or a HomePod/AirPlay speaker plays the day's launch track. The track is the plan: verse one is 'wake and wash,' the first key change is 'get dressed,' the bridge is 'manifest check' where Gus the janitor, the only one who knows where anything is, reads out today's manifest ('lunchbox, library book, the good water bottle, keys last seen kitchen counter'), and the final chorus with the horns is 'shoes and door.' Each household member has a crew role (Pilot, Navigator, Cargo, Ground Crew) that gets a two-second personal cue in the bridge. At T-0 everyone is out the door to a liftoff fanfare and the app logs a clean launch; if it goes badly, anyone can press Scrub, a toddler-sized abort robot who declares 'weather,' and the day is logged as a scrub with no penalty. Weekend and holiday mornings run a 'no launch' lounge track. 8:15 p.m., Re-entry: a slow, dimming 20-minute track with the same phase structure in reverse (tidy, teeth, book, lights), narrated by Bunny Kowalczyk, the countdown announcer with a late-night jazz voice. Mission log shows 'on time 42 of 50 launches' and you can correct yesterday.",
+  "unique_mechanic": "Song-as-schedule: every launch and re-entry track ships with a developer-authored section map (timestamps for each phase, cue points for role callouts, the horn entry that means 'door'), so the music itself is the timer and the cue. Households choose a duration (8, 10, 12, 15, 20 minutes) and a flavor, and the app aligns phases to the section map, drives the Live Activity and StandBy countdown from it, and plays personal role cues from the same track. One phone and a speaker serve the whole house with no accounts and no sync; a CloudKit-shared manifest and roles are optional for households that want each phone to show its own role. Scrub (abort with no shame) and 'weather' as the official reason for every bad morning are the forgiveness layer.",
+  "tone_link": "Mission-control workplace comedy for the most mundane launch on Earth: a bunker of original characters (Augustine Pell, unflappable flight director who speaks only in checklists; Weather, a doom-prone meteorologist who is usually wrong; Bunny Kowalczyk, the announcer; Gus the janitor; Scrub, the abort robot the kids will love) treat your commute like a planetary mission, with the deadpan, escalating stakes of a blockbuster finale and the dry adult-animation humor of a workplace where nobody is competent except the janitor. Satire targets bureaucracy and the melodrama of countdowns, never real agencies or people; the characters are cutout silhouettes with one strong shape each and no resemblance to any existing ensemble.",
+  "why_worth_paying": "Free: one 12-minute launch track, one re-entry track, the manifest and Scrub, enough to prove in the first morning that the house moves differently when the song does the nagging. One-time unlock ($9.99, optional $4.99/year): the full launch library (five durations times eight flavors, plus seasonal drops), all re-entry tracks, crew roles with personal cues, household sharing, mission log history, the weekend lounge and Live Activity themes. Parents already pay for routine apps on subscription and hate it; this is the same problem solved with something they will actually hear every morning, sold once, with no server.",
+  "vibrant_visual_hook": "A flat-color launch tower on a sky that changes hue as T-0 approaches (deep indigo at T-12, gold at the bridge, hot orange in the final chorus, a clean white flash at liftoff) with the household's crew patches as bold circular badges in each person's color. The Lock Screen Live Activity and StandBy view show a huge cutout countdown clock and the current phase name in fat rounded type; the layered app icon is a single rocket silhouette that survives tinted and clear icon modes. Re-entry inverts the palette into dusk purples and lamp-glow ambers.",
+  "music_role": "The product cannot exist without the music library because the music is the timer. Each track is generated on Suno at an exact BPM and duration with sectioned lyrics and instrumental cues ([Verse] wake, [Bridge] manifest, final [Chorus] with horns), trimmed at bar boundaries and shipped as CAF/PCM for gapless playback; Advanced Split stems provide calm/medium/intense layers that thicken as the countdown closes; Personas give each crew character a consistent voice for role cues and the flight director's callouts; Covers render the same launch melody in eight flavors (marching band, surf, disco, lullaby for re-entry) so a household can change the vibe without relearning the cues; Sounds mode supplies the liftoff fanfare, the Scrub klaxon and a dozen micro-variants for taps so the app feels physical. Every lyric is developer-written so a human-authored copyright layer sits on top of the generated audio.",
+  "broad_appeal_argument": "Everyone leaves the house and everyone goes to bed; the concept scales from a solo commuter who needs a 'get moving' mission to a family of five, roommates negotiating one bathroom, or a couple with a dog. There is no setup beyond picking a duration, it works with one phone and a speaker, and it removes a chore (being the clock) rather than adding one, which answers the 'too many apps' counter-signal directly. Kids like the robot, adults like the deadpan, and the cue-driven design is a genuine accessibility win for ADHD and autistic users of any age.",
+  "solo_dev_buildability_1to5": 5,
+  "biggest_risk": "Music fatigue and precision: the section maps demand exact-length tracks at scale (five durations times many flavors) and if the catalog feels samey after two weeks the ritual decays, so the launch library must be broad at v1 and refreshed seasonally, with a 'quiet mode' (cues and callouts only) for households that cannot do music at 7 a.m. Secondary risk is category confusion in App Review: position it clearly as a Productivity/Lifestyle routine app with original music, not a soundboard or alarm clone, to stay clear of the strengthened 4.3(b).",
+  "lens": "household-social-first: families, roommates, couples, friend groups. Each concept is fully rewarding for one person, gets funnier when a real household or friend group joins, runs local-first (SwiftData + optional CloudKit share or an iMessage extension, no server), and treats Suno music as the skeleton of a daily ritual rather than a soundtrack. All three names are coined phrases; run a USPTO knock-out search and an App Store search in every localization before committing (web-search budget was exhausted in this session, so no collision check was possible here)."
+ },
+ "refutation": {
+  "concept_name": "Launch Window",
+  "existing_competitors": [
+   {
+    "name": "Lickety Split: Musical Timer (Swirly Studios, iOS since 2011, updated May 2026)",
+    "url": "https://apps.apple.com/us/app/lickety-split/id455790177",
+    "how_close": "Closest match on the core mechanic. The song IS the timer: fixed-length public-domain classical pieces that accelerate toward the end, with built-in timers literally named 'Ready to leave the house in 5 minutes', 'Getting dressed', 'PJs on', 'Brushing teeth (a full two minutes)'. IAP lets you attach any song from your library so its length becomes the timer. 4.9 stars (26 ratings), Made for Ages 0-5, 100K+ Android installs; a music therapist reviewer explains it works because kids 'feel the music in their body'.",
+    "why_it_falls_short_or_not": "It is one task, one child, one fixed piece; there is no multi-phase section map, no verse/bridge/chorus mapped to phases, no role callouts, no household/speaker mode, no bedtime arc, no Live Activity, and no authored lyrics. Reviews since 2012 explicitly beg for exactly what Launch Window proposes ('Getting ready is a series of events... 30 minutes: potty 5 min, then brush 3, then shower 5... so parents don't need to set timers every single time'). It proves the mechanism and the unmet ask, but it is not the product. Its tiny footprint after 15 years is also a warning about discoverability in the 'kids timer' shelf."
+   },
+   {
+    "name": "Brili Routines (Family)",
+    "url": "https://brili.com/",
+    "how_close": "Multi-child accounts, per-child voice prompts, shared-device or per-device Kid Mode, parent real-time monitoring, and dynamic scheduling that recalculates step durations to hit a fixed end time such as 'leave for school'. Subscription $49.99/yr (6 mo $34.99). Recommended by How to ADHD.",
+    "why_it_falls_short_or_not": "Still a per-child checklist with countdown timers that must be looked at and swiped; no music, no room-level audio ritual, kids are handed a device (a con parents cite). The ADHD-dad founder disclosed on Reddit it grosses ~$3K in a good month and it nearly shut down in 2020, which signals both an underserved need and a hard-to-monetize category."
+   },
+   {
+    "name": "Routinery: Routine Planner & Habit Tracker",
+    "url": "https://www.routinery.app/",
+    "how_close": "Market leader for guided routines: 5M+ users, Apple App of the Day, voice alerts that speak the next step aloud, auto-next timers, white noise, 4.7 (18K ratings), free to 2 routines then $36/yr.",
+    "why_it_falls_short_or_not": "Single user, phone-centric, one timer per step; audio is a spoken cue layered over a timer, not music that carries the phase. No household, no shared speaker, no roles. It is the incumbent Launch Window must be 'meaningfully different' from in a 4.3(b) review."
+   },
+   {
+    "name": "Morning Routine: Be On Time (Pouria Assadipour, Mar 2025)",
+    "url": "https://apps.apple.com/us/app/morning-routine-be-on-time/id6759146787",
+    "how_close": "Overlaps the T-0 layer almost exactly: enter departure time, app computes wake time, live buffer countdown on Lock Screen and Dynamic Island, 5-minute warning and 'time to go' alert, a post-routine checklist so you 'walk out with everything' (the manifest), and auto-launch at wake time.",
+    "why_it_falls_short_or_not": "Single user, no audio at all, weekly $2.99/yearly $29.99 subscription, 1 rating (3.0). Shows the Live Activity + departure countdown + manifest combo is already on the store, so those features alone are not the differentiator; the music and the household are."
+   },
+   {
+    "name": "ReadySet: Visual Routine Timer (Botto Studio, Feb 2026)",
+    "url": "https://apps.apple.com/us/app/readyset-visual-routine-timer/id6757413273",
+    "how_close": "Built 'for busy parents to help kids get ready on time... so you can stop nagging': multi-child support, customizable voice and audio cues so you 'hear what's coming next without looking at the screen', real-time sync across iPhone/iPad, sticker rewards. Free, 9 ratings, updated two days ago.",
+    "why_it_falls_short_or_not": "Same checklist+countdown paradigm with TTS on top; no music, no phases mapped to song sections, no roles, no bedtime inversion, no forgiveness layer. A brand-new free entrant crowding the exact 'stop nagging' positioning Launch Window uses in its problem statement."
+   },
+   {
+    "name": "Prep Pal - Daily Routine Timer (Jan 2025)",
+    "url": "https://apps.apple.com/us/app/prep-pal-daily-routine-timer/id6740274295",
+    "how_close": "'Visual routine timer that helps your family get ready... mornings, homework, bedtime', fullscreen family display, countdown and schedule modes, text-to-speech completion cues.",
+    "why_it_falls_short_or_not": "Chimes and TTS, no music or section maps, zero ratings. Another signal the 'family routine timer' shelf is filling with near-identical free apps."
+   },
+   {
+    "name": "Happy Kids Timer: Home Chores",
+    "url": "https://apps.apple.com/us/app/happy-kids-timer-home-chores/id978996118",
+    "how_close": "The category incumbent for kids (1.2K ratings, 120K+ families): 8 morning chores ending in 'Put your shoes on', 7 bedtime chores ending in 'lights off', background music, stars and certificates; reviews from adults with ADHD say 'with the timer and music it's easy to stay on task'.",
+    "why_it_falls_short_or_not": "Child carries the device room to room; music is decoration not the clock; no multi-child support (a top review complaint); no household cue. Confirms demand for an audio-led morning/bedtime arc but does not deliver it."
+   },
+   {
+    "name": "DIY Alexa 'Final Countdown' routine (parent blog, widely shared)",
+    "url": "https://www.mostlyproudparents.com/get-your-kids-to-school-on-time-with-buttrock",
+    "how_close": "Household-level song-as-schedule already exists as a hack: an Echo routine plays Europe's 'The Final Countdown' (almost exactly 5 minutes) every school day; kids must be at the door with shoes on when the song ends; a 10-minute Alexa announcement names each child. A second mom blog describes a 'bus song' and 'bedtime song' the same way.",
+    "why_it_falls_short_or_not": "Proves the exact behavior Launch Window productizes (song ends = door), but it is a licensed pop song, one phase, no manifest, no roles, and requires Alexa fiddling. Smart-speaker routines (Alexa, Google Household Routines) are the real substitute for a music cue, so Launch Window must work through HomePod/AirPlay/Bluetooth speakers and be far easier than a Routines editor."
+   },
+   {
+    "name": "Alarmy - Loud Alarm Clock (Delight Room, 75M users)",
+    "url": "https://apps.apple.com/us/app/alarmy-loud-alarm-clock/id1163786766",
+    "how_close": "The 'mission' brand in this space: photo/barcode/step/squat missions, Wake Up Check, AI-voice 'Time Pressure' reminders at intervals, bedtime reminders with sleep sounds, and 'build your morning routine' features; 4.7 with 1.7M reviews.",
+    "why_it_falls_short_or_not": "Wake-up only, one person, no music-as-schedule, no household. But it owns the word 'mission' in App Store search and has the budget to add a routine track feature if Launch Window shows traction."
+   },
+   {
+    "name": "Goally (dedicated kids routine device) and Cozyla Routie",
+    "url": "https://getgoally.com/",
+    "how_close": "Hardware answer to the same problem: Goally uses sound and lights to start routines, verbalizes steps, gives a half-time auditory reminder, and originally 'plays their favorite song' when a routine is done; Cozyla Routie (2026) uses adaptive light, sound and voice prompts for morning and bedtime with parent voice cloning.",
+    "why_it_falls_short_or_not": "$189-$369 devices, single child, therapy-first positioning, no music-as-timer. Shows there is willingness to pay real money for 'stop being the human clock', which supports a $9.99 one-time price."
+   },
+   {
+    "name": "Music Timer: Perfect Song Time (Ryota Kando, 2026) and TickTune: Timer with Music",
+    "url": "https://apps.apple.com/us/app/music-timer-perfect-song-time/id6773217154",
+    "how_close": "New 2026 apps that pick Apple Music tracks whose length matches the timer you set, or sync a focus timer to music, so 'the song lands right on time' for chores, breaks, Pomodoro.",
+    "why_it_falls_short_or_not": "Song length equals timer, nothing more: no phases, no cues, no routine, adult-focus use case. They show the 'exact-length music as timer' idea is now in the air, so Launch Window's moat must be the section map, characters and household, not the length-matching."
+   },
+   {
+    "name": "Tico Timer and iTouchiLearn Musical Morning Routines (abandoned)",
+    "url": "https://www.commonsensemedia.org/app-reviews/tico-timer-your-fun-timer-for-children",
+    "how_close": "Tico Timer (2014) shipped seven original music tracks composed to play in sync with visual countdowns for getting dressed and brushing teeth; iTouchiLearn (2011) taught the morning routine through a 'Ready for School' song with a choose-your-track option.",
+    "why_it_falls_short_or_not": "Both dead or unmaintained despite loyal reviews ('please update, you've got us hooked'), which is evidence the idea resonates and that solo devs have starved in this shelf on $0.99 pricing."
+   }
+  ],
+  "underserved_verdict": "partially_served",
+  "uniqueness_after_search_1to10": 7,
+  "ip_or_guideline_red_flags": [
+   "NAME COLLISION: 'Launch Window' is a generic aerospace term and is already in use by (a) 'Launch Window', a 2026 Steam early-access space-automation game by gumptiongames (Class 9 downloadable game software, same space theme), (b) Launch Window LLC / launchwindowtech.com, a product-launch-timing platform, and (c) App Store search for the term returns only space-launch trackers (T-Minus, Liftoff, Next Space Launch). USPTO lookups were blocked in this session (uspto.report returned 403), so run a Trademark Center knock-out search in Classes 9 and 42; expect a descriptiveness problem and likelihood-of-confusion risk. Coin a new name.",
+   "APP STORE 4.3(b) (rewritten June 9, 2026): 'simple timers' are now a named saturated category; Apple will reject new submissions that are not 'meaningfully different or improved' AND may remove live apps that are 'not updated, improved, or do not attract customers'. The reviewer will compare against Routinery/Brili/Happy Kids Timer/ReadySet. The song-as-schedule section map and household mode must be the first screen and first screenshot, with metadata leading on original music and household, never on 'timer' or 'alarm'. Cosmetic differentiation (rocket theme) does not clear this bar.",
+   "APP STORE 4.5.3 (added June 2026): Live Activities may not be used for spam, phishing or unsolicited messages. A launch countdown is a legitimate ongoing event, but keep the Live Activity strictly to the countdown/phase/role, no upsell or seasonal-drop promotion inside it. Use AlarmKit (iOS 26+) for the auto-start alarm; it needs user authorization and a Live Activity presentation.",
+   "SUNO LICENSING (Terms revised Mar 26, 2026; download caps effective Sept 3, 2026): commercial rights exist only for tracks generated AND downloaded on Pro/Premier, free-tier tracks can never be upgraded; Suno 'makes no representation or warranty that any copyright will vest in any Output'; you indemnify Suno, not the reverse; the UMG/Sony/Capitol suit is live (61K+ works added May 2026, dispositive motions pushed to 2027, Suno admitted YouTube-sourced training Sept 2026), a Munich court ruled for GEMA against Suno in July 2026, and Jason Isbell and three artists sued Suno in Sept 2026 over identity use. Keep dated Pro receipts, prompts and download logs per track; never prompt in the style of or name a real artist; never build a Persona from a real person's voice; avoid mimicking 'The Final Countdown' or other sound-alikes; budget to re-record or hire a musician for hooks if litigation forces old-model outputs offline; consider Suno Enterprise if indemnification matters.",
+   "COPYRIGHT MOAT IS THIN: because purely AI-generated audio is not copyrightable (Thaler v. Perlmutter; Copyright Office guidance; Suno's own docs), a competitor can generate near-identical tracks. Your registrable layers are the developer-written lyrics, the section-map data set, the characters and scripts, artwork and code. Register the lyrics and scripts; treat the audio as replaceable.",
+   "KIDS CATEGORY / AGE RATING: do not opt into 'Made for Kids' (irreversible once approved, no IAP outside a parental gate, no third-party analytics, tighter review). Position as a parent-owned Productivity or Lifestyle app rated 4+ or 9+. The honest age-rating questionnaire (revised July 2026) means the 'South Park / American Dad' register must stay free of profanity and crude humor or the rating jumps to 13+ and parents' Screen Time filters hide it from family devices. iOS 27 Child Accounts (fall 2026) put free downloads on child devices behind Ask to Buy, another reason the parent's phone must be the primary device.",
+   "NASA / REAL-WORLD IP: 'mission control', 'flight director', 'T-minus', 'scrub', 'weather hold' are generic and safe, but NASA insignia (meatball, worm, 'NASA' name) are restricted under 14 CFR 1221 and Apple 5.2 covers third-party marks; do not use them or Apollo-era flight-director likenesses (Kranz vest, 'failure is not an option'). Also grep character names (Augustine Pell, Bunny Kowalczyk) against real public figures before shipping.",
+   "BACKGROUND AUDIO AND SILENT MODE (2.5.4): the app may only run in the background to play audible content; the proposed 'quiet mode' must still emit real cue audio or rely on AlarmKit/notifications, not a silent audio session. HomePod/AirPlay sync latency also means Live Activity timing must be derived from playback position, not a wall clock.",
+   "MONETIZATION (3.1.1 / 3.1.2): a one-time non-consumable plus an optional auto-renewing subscription is allowed, but the subscription must deliver ongoing value (seasonal drops have to actually ship on a schedule) and the paywall must not blur the two; the concept's own 'sold once, no subscription' pitch is undercut if the seasonal pass is pushed in-app.",
+   "LICENSED-IP TONE CONSTRAINT: no Bob's Burgers/South Park/American Dad/Marvel names, likenesses, catchphrases, or 'assemble' lines; cutout silhouettes must not resemble Belcher/Smith family shapes; a parody defense does not cover a commercial app. This is already stated in the brief but is the single fastest way to a 5.2.1 rejection."
+  ],
+  "sharpening_suggestion": "The mechanic survives: nobody ships an annotated, multi-section piece of music that carries a whole room through phases with role callouts, and the closest app (Lickety Split) has 14 years of reviews asking for exactly the chained, multi-step version. But every adjacent feature (departure countdown with Live Activity and manifest checklist, multi-child voice prompts, end-time dynamic scheduling, song-length timers, TTS family timers) already exists in free or subscription apps released as recently as this week, and Apple now names 'simple timers' as a removable category. Sharpen in five moves. (1) Rename: drop 'Launch Window' (Steam game, LLC, generic search term) for a coined word that says the sound is the schedule, e.g. 'Hornline', 'Doorhorn' or 'Liftoff Choir'; knock-out search in Classes 9 and 42 and in every App Store locale before committing. (2) Make the section map the product, not a feature: the first screenshot and first screen must be the annotated waveform with phase bands, the role-cue markers, and the horn entry labelled 'shoes and door', plus a one-tap 'play it on the kitchen speaker' control; the reviewer and the parent must see in five seconds that this is a score, not a timer. (3) Own 'listen-only': explicitly sell that no child is handed a screen (the top complaint in Brili and Happy Kids Timer reviews), the phone stays in a pocket or on AirPlay, and the only screen is the parent's Live Activity; that is the clean line against Routinery, Brili, ReadySet and Prep Pal. (4) Make the two things no competitor has the marquee moments: the mid-track spoken manifest (household edits the list, Gus reads it in-song, with 'keys last seen' memory) and the Scrub/weather forgiveness log; put them in the free tier so the first morning proves it. (5) De-risk the music layer so the moat is not the audio: human-written lyrics and scripts registered for copyright, section maps stored as versioned data, every track generated and downloaded on Suno Pro with receipts, no artist-style prompts or real-voice Personas, and a plan to re-record signature hooks with a human musician within the first year. Keep the deadpan mission-control comedy but write it to a 4+/9+ rating so it stays on family devices, and lead marketing with roommates, couples and solo commuters as well as families so the app is not shelved with kids' timers."
+ },
+ "judges": [
+  {
+   "judge": "indie-publisher: veteran publisher of 30 paid iOS apps judging commercial reality only — will people pay a one-time price, will it retain past week three, can one local-first developer ship it in under a year, and will App Review (4.3(b), 5.2.1, 1.4.1, 1.2) pass. Name collisions that only require a rename are noted in rationales; the fatal_flaws list holds only concept-killers as pitched. Two concepts share the name Dead Air and are labeled by premise.",
+   "score": {
+    "concept_name": "Launch Window",
+    "uniqueness": 7,
+    "problem_severity": 7,
+    "daily_pull": 8,
+    "broad_appeal": 6,
+    "willingness_to_pay": 7,
+    "ip_safety": 4,
+    "buildability": 7,
+    "vibrancy": 7,
+    "total": 53,
+    "rationale": "The most commercially honest concept here: parents already pay $36-50 a year for routine apps they resent and $189-369 for hardware that plays a song when a routine ends, and Lickety Split has 14 years of reviews begging for exactly the chained multi-phase version. Song-as-schedule with an authored section map and a mid-track spoken manifest is unclaimed, it runs from one phone and a speaker with no accounts or sync, and it is used twice a day inside a routine that already exists, which is the best retention setup a paid app can have. Solo buildability is the highest in the dossier and the free tier proves value on the first morning. Risks are manageable: rename (Steam game, generic aerospace term), lead every screenshot with the annotated score rather than a countdown to clear the rewritten 4.3(b) 'simple timers' rule, hold a 4+/9+ rating, and market to roommates, couples and solo commuters so it is not shelved with kids' timers. Vibrancy is good rather than spectacular."
+   }
+  },
+  {
+   "judge": "everyday-user: a panel of five ordinary people (a nurse on rotating shifts, a college student, a parent of three, a retiree living with a spouse, a barista with 5am opens). We judged each concept on whether we would actually download it, open it every day without being nagged, tell a friend about it unprompted, and pay for it once. We were deliberately hard on anything that felt like a utility wearing a costume, anything that only works if other people install it, and anything that adds a new ritual to a day instead of hijacking time we already spend. Ties in total were broken by who on the panel could use the app alone, today, with zero setup.",
+   "score": {
+    "concept_name": "Launch Window",
+    "uniqueness": 7,
+    "problem_severity": 8,
+    "daily_pull": 8,
+    "broad_appeal": 7,
+    "willingness_to_pay": 7,
+    "ip_safety": 5,
+    "buildability": 8,
+    "vibrancy": 7,
+    "total": 57,
+    "rationale": "The parent of three said 'I am the human clock' before we finished reading the one-liner and asked if she could have it for the school run tomorrow; the barista wants a get-moving song for 5am opens; the nurse wants the re-entry track after nights. The retiree was the only one who did not need it, and even he said he would use the bedtime one. This is the only concept that removes a chore instead of adding a ritual: nobody has to look at a screen, the song does the nagging, and the kids get a robot. It runs twice a day, every day, structurally, without anyone remembering to open it. Parents already pay for routine apps they hate, so $9.99 once is easy. It is also the simplest to build. Concerns: the songs must survive 300 mornings, the name is a Steam game and a generic term, and it has to stay out of the kids' timer shelf. Clear panel winner."
+   }
+  },
+  {
+   "judge": "Comedy-showrunner lens. I read each concept as a pilot pitch: is there an ensemble with distinct wants that a small writers' room could write for years, does the comedy come from character rather than from a skin, is there warmth (the cast never blames the user), is there a daily 'everyone shows up' beat, and can the world add institutions, seasons and guest stars without touching Bob's Burgers, South Park, American Dad or Marvel. I scored the eight criteria on the dossier's own evidence (competitor hunts, red flags), so live name collisions and Apple 4.3(b) exposure hit ip_safety and buildability hard, and 'the pieces all exist elsewhere' capped uniqueness. Two cross-cutting rulings. First, the register must be Bob's Burgers warmth at a 9+ rating, not South Park edge, or the 'anyone can use it' promise and any family editorial die; every cast below is scored on the assumption that the satire stays on invented institutions. Second, three concepts (Dreadlines, Pull It Off, Caper) share one logline, 'an original crew shows up for the thing you have been avoiding'. A showrunner does not greenlight three pilots with the same premise, so I treat them as one show and did not hand the avoidance lane all three top slots even though they hold the three highest totals. My top 3 is therefore one greenlight per lane: Dreadlines (absorbing Pull It Off's bar-quantised score and Caper's script library and bail rule), Split Level (the best sitcom cast in the dossier, once its homage stack is fixed), and Launch Window (the highest-pain daily problem attached to a real mission-control ensemble). Every concept needs a rename; that is the price of admission, not a tiebreaker. Music was judged on whether it does structural work a writer would miss if it were gone: Pull It Off, Dreadlines, Launch Window, Houseband and Crew Call pass that test cleanly.",
+   "score": {
+    "concept_name": "Launch Window",
+    "uniqueness": 7,
+    "problem_severity": 8,
+    "daily_pull": 8,
+    "broad_appeal": 6,
+    "willingness_to_pay": 7,
+    "ip_safety": 6,
+    "buildability": 8,
+    "vibrancy": 7,
+    "total": 57,
+    "rationale": "Mission control where only the janitor is competent is a proper workplace ensemble, and the mid-track manifest read by Gus in-song ('keys last seen kitchen counter') is a daily bit that writes itself from household data; Weather being wrong every morning is a reliable runner, and Scrub the toddler-sized abort robot declaring 'weather' is the warmest forgiveness device in the dossier and the character kids will love. The 'everyone shows up' beat is literal and daily: everyone at the door at T-0 to a liftoff fanfare. It attacks the highest-pain problem here (one adult as the human clock), it is the most buildable (one phone, one speaker, no sync), and parents demonstrably pay for routine tools. Constraints: the comedy runs at 6:55 a.m. when nobody is looking at a screen, so jokes must live in lyrics and short cues; music at dawn is divisive; the audience skews family despite the solo-commuter claim; the name belongs to a Steam game; and Apple now names simple timers as a saturated category, so the annotated section map must be the first screen. The world grows through flavours, seasons and holiday launches."
+   }
+  },
+  {
+   "judge": "product-strategist (defensibility-first: post-hunt uniqueness, clarity of the problem set, habit and network effects, and whether music is a mechanic or a gimmick)",
+   "score": {
+    "concept_name": "Launch Window",
+    "uniqueness": 7,
+    "problem_severity": 7,
+    "daily_pull": 9,
+    "broad_appeal": 6,
+    "willingness_to_pay": 7,
+    "ip_safety": 4,
+    "buildability": 7,
+    "vibrancy": 7,
+    "total": 54,
+    "rationale": "This is the most defensible concept in the dossier because it is the only one where music is literally the product rather than the mood: an annotated, multi-section piece of music that carries a whole room through phases with role callouts, and the closest competitor (Lickety Split) has fourteen years of reviews begging for exactly the chained multi-step version. Every adjacent feature exists (departure countdown with manifest, multi-child voice prompts, song-length timers, TTS family timers), but none combine them and none work listen-only from one phone on a kitchen speaker, which is the clean line against Routinery, Brili, ReadySet and Happy Kids Timer. Habit is the strongest here: it attaches to two unavoidable daily events, needs no partner adoption, and removes a chore (being the human clock) instead of adding one. Willingness to pay is proven by parents paying $50 a year and $189 hardware for this exact problem. The moat is thin on audio (uncopyrightable) but real on the section-map data set, the scripts and the characters. Risks: the name is a Steam game and an LLC, the 'kids timer' shelf will try to swallow it, and Apple's 4.3(b) now names simple timers, so the section map and household mode must be the first screen and first screenshot. Broad appeal is the weak criterion: it is families first, and marketing must lead with roommates, couples and solo commuters to escape the shelf."
+   }
+  }
+ ]
+}

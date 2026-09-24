@@ -1,0 +1,181 @@
+{
+ "concept": {
+  "name": "Caper",
+  "type": "hybrid",
+  "one_liner": "Every task you have been avoiding becomes a heist: name the target, assemble a crew of original specialists, and pull it off to a three-act Suno score where the crew you bring is the mix you hear.",
+  "problems_solved": [
+   "Task avoidance and paralysis (the dentist call, the insurance form, the inbox, the garage) have no product beyond guilt lists and sterile timers.",
+   "Starting is the hardest part, and no mainstream tool is built specifically around the first two minutes of a dreaded task.",
+   "Doing dreaded things alone is miserable, and body-doubling today means video calls with strangers (Focusmate) or nothing at all.",
+   "Focus timers punish or feel childish (dead trees, cartoon birds) and to-do apps grow into infinite backlogs that increase the dread they were meant to cure.",
+   "Bailing on a task is treated as failure, so people stop trying instead of trying smaller."
+  ],
+  "why_no_good_solutions_exist": "Productivity software is built by and for people who already start things; it optimizes lists and timers, not the emotional act of beginning. Body doubling demonstrably works (ADHD communities swear by it), but the only implementations require a live human on camera, which is the exact social cost avoiders refuse to pay. Nobody has combined a fictional crew that 'does it with you', a score whose structure mirrors the psychological arc of a dreaded task (approach, job, getaway), and a design in which bailing shrinks the task instead of shaming the person; meanwhile the wellness-flavored alternatives fail adults for feeling like 'performing wellness' or being too childish.",
+  "core_daily_loop": "The Board holds at most three jobs; you add one by 'casing' it (name the target, guess how bad it is). Once a day you run a caper: choose a job size (Quick Job 5 minutes, Standard 15, Big Score 25 or 45), pick three specialists from the crew, and hit Go. Act 1, The Approach (two minutes): a low groove, Pockets the safecracker tells you the only rule is 'open the thing', and the screen shows nothing but that first step. Act 2, The Job: the main groove kicks in with each chosen specialist's stem layered into the mix, the Wheelman calls time at the halfway mark, and a Live Activity shows the blueprint filling in. Act 3, The Getaway (last 90 seconds): tempo up, crew shouting, countdown. Finish and a Loot card drops into your Vault with the crew's post-job banter. Bail and it is 'Aborted, crew regroups': no streak loss, the job stays on the Board one size smaller. The streak is 'a job a day, any size', grace days are earned with loot rather than bought, yesterday is always editable, and Sunday is reserved for one Big Score.",
+  "unique_mechanic": "Your crew is your mix: each of the six specialists is both a role in the job (first step, scripts for awkward calls and emails, paperwork, physical cleanup, quiet focus, countdown) and a Suno-generated stem; the three you choose are layered live over the base groove with AVAudioEngine, so no two capers sound alike and the score escalates through three acts matched to the task's emotional arc. Bailing never punishes; it automatically shrinks the job for next time.",
+  "tone_link": "Blockbuster stakes on mundane targets ('If the form is not filed by Friday, the tooth wins') delivered by an original ensemble of six specialists: Pockets (jittery safecracker who owns the first two minutes), the Wheelman (counts down as if every second is the last), Sloane the Face (smooth talker who hands you scripts for awkward calls), Ledger (paperwork and money, terrifyingly calm), Kaboom (demolition, for garages and gym bags) and Whisper (the quiet one for inboxes). Their nemesis is an invented institution, the Bureau of Later, whose agents want you to do it tomorrow. The comedy is bickering-crew ensemble energy that also mocks hustle-guru culture; no real companies, no real people, and no likeness, name or lettering from any heist film or animated series.",
+  "why_worth_paying": "Free: two crew members, Quick Jobs, and a 7-day full trial delivered as a 0.00 trial non-consumable. One-time 9.99 unlock: all six specialists, every score and stem, the Vault, Big Scores and the call-and-email script library. Against Focusmate at roughly 10 a month and IAP-riddled focus apps, the pitch is 'pay once, no ads, no subscription, no dead trees', and the review line the design is engineered to earn is 'this made me finally call the dentist'.",
+  "vibrant_visual_hook": "Candy-noir: hot pink, electric teal and mustard on deep navy; the Board is a corkboard with red string; the active caper is a blueprint that draws itself act by act; Loot cards carry foil-style gradients and stack into a Vault wall you can scroll for months; aborted jobs sit in greyscale until regrouped while finished ones blaze in color; specialists are flat, hard-shaped silhouettes with one signature color each, built for a layered app icon that still reads in tinted and clear modes.",
+  "music_role": "The score is the mechanic: 12 base grooves at fixed BPM built in Suno's Sounds mode as seamless loops, each with Approach, Job and Getaway sections made via Extend and Replace Section; six specialist motif stems per act made with Personas and Advanced Split (18 stems); five Loot stings, five Abort regroup stings and a Bureau of Later villain theme. Roughly 100 downloads on Suno Premier over two months, exported as WAV, trimmed at bar boundaries and shipped as CAF for gapless layering, with original lyrics only in the crew's spoken-sung call-outs.",
+  "broad_appeal_argument": "Everyone is avoiding something right now: students, freelancers, parents with a backlog, ADHD adults and ordinary procrastinators all hit the same first-two-minutes wall. It works entirely alone, needs no setup beyond naming one target, positions in Productivity rather than Games (stronger monetization and outside parental game-time caps), and gives a daily reason to return that is a small win rather than another chore.",
+  "solo_dev_buildability_1to5": 4,
+  "biggest_risk": "Being read as 'a Pomodoro timer in a costume': if the crew-stem mixing is not audibly meaningful and the banter runs thin within a month, the theme becomes wallpaper and the app sinks into the crowded focus category with nothing defensible. Mitigation is depth: hundreds of crew lines, script templates that genuinely help with calls and forms, and music that changes noticeably with each crew choice; a name knock-out search is also required because 'Caper' is in use in other classes.",
+  "lens": "problem-first"
+ },
+ "refutation": {
+  "concept_name": "Caper",
+  "existing_competitors": [
+   {
+    "name": "Focus Friend by Hank Green",
+    "url": "https://apps.apple.com/us/app/focus-friend-by-hank-green/id6742278016",
+    "how_close": "Closest overall threat. A fictional companion (a knitting bean) 'does it with you' during a timed session, has personality and puns, ships custom composed music, Live Activity on the lock screen, Deep Focus app blocking, and explicitly positions as guilt-free and ADHD-friendly. 1M+ downloads, hit #1 on the US App Store in Aug 2025, Google Play App of the Year, Apple Editors' Choice. Free with a Pro subscription.",
+    "why_it_falls_short_or_not": "It is a generic Pomodoro about staying off your phone, not about a specific dreaded task: no first-step scripting, no call/email/form help, no bail-shrinks-the-job rule, music is static background rather than a mechanic, and the tone is cozy/passive rather than ensemble comedy. But it occupies the 'character focus timer' shelf at $0, so Caper cannot win by being 'a timer with a character'; it must win on task-specific utility and the audible crew-mix."
+   },
+   {
+    "name": "dubbii: the body doubling app (ADHD Love)",
+    "url": "https://apps.apple.com/us/app/dubbii-the-body-doubling-app/id6450302677",
+    "how_close": "Directly targets 'doing dreaded chores and admin alone is miserable' without strangers on camera: pre-recorded follow-along videos of hosts Rich and Rox doing the task with you, micro-step breakdowns, scheduled nudges, badges, live sessions and quiet focus rooms. 500k+ users, 4.8 stars (719 ratings), about $4.99/mo or $29.99/yr.",
+    "why_it_falls_short_or_not": "Body doubles are real humans on video (production-heavy, library-bound, not scalable to arbitrary targets), it is a subscription, lives in Health & Fitness with heavy ADHD branding, and has no music mechanic. Caper's fictional crew works for any named target and is pay-once, but dubbii already owns the 'someone does the chore with you on your phone' story in the ADHD community."
+   },
+   {
+    "name": "Beside: Body Doubling Focus",
+    "url": "https://apps.apple.com/us/app/beside-body-doubling-focus/id6759262598",
+    "how_close": "Explicitly solves 'body doubling without cameras or strangers': ambient presence scenes (someone typing at the next desk, pages turning), offline, streaks, no account, 100% free with no IAP.",
+    "why_it_falls_short_or_not": "Ambient only: no characters, no task help, no music structure, no bail mechanic. Its main effect on Caper is as a $0 price anchor for the 'presence without people' claim."
+   },
+   {
+    "name": "Doppel - AI Focus Companion",
+    "url": "https://apps.apple.com/jp/app/doppel-ai-focus-companion/id6755030867?l=en-US",
+    "how_close": "AI companions as body doubles who feel 'genuinely present', a PlanMate that breaks an overwhelming task into 5-minute steps, emotional memory, and a companion who is 'a little disappointed' if you cancel. Marketed at 'wanting to do it but can't start'.",
+    "why_it_falls_short_or_not": "Server-dependent AI chat/video companion with a subscription and almost no ratings; no scored session, no ensemble, no music. It shows the 'AI double' idea is already on the store, but Caper's local-first fictional crew is a different, more defensible execution."
+   },
+   {
+    "name": "BrightMind (AI voice companion for task paralysis)",
+    "url": "https://brightmind.club/blog/body-doubling-apps",
+    "how_close": "An AI voice you talk to when stuck; it calms you and breaks 'the thing you're avoiding' into one tiny next step saved to your list. Built for people who freeze before starting. $12.99/mo.",
+    "why_it_falls_short_or_not": "Therapy-flavored, subscription, AI-dependent, no execution session or music; it addresses the first two minutes conceptually but not as a staged, scored event."
+   },
+   {
+    "name": "Goblin Tools (Magic ToDo, Formalizer, Taskmaster)",
+    "url": "https://apps.apple.com/us/app/goblin-tools/id6449003064",
+    "how_close": "The reference tool for 'I don't know the first step': Magic ToDo breaks any task into steps with a spiciness slider, Formalizer rewrites awkward messages (overlaps Sloane's scripts), Taskmaster shows one step at a time. Free/$2.99, no account.",
+    "why_it_falls_short_or_not": "Planning only: reviewers consistently note 'you get the list and you're on your own' (no timer, presence, or follow-through). It is a complement rather than a substitute, but it means Caper's specialist scripts must be better than 'AI-generated steps' to justify a paid unlock."
+   },
+   {
+    "name": "Omix (adaptive stem-layered focus music)",
+    "url": "https://www.omix.app/",
+    "how_close": "Closest on 'music as the mechanic': composed tracks split into stems, and basslines/melodies layer in or fall away in real time as your momentum changes; markets to ADHD; cites a Stanford SHAPE Lab adaptive-audio study.",
+    "why_it_falls_short_or_not": "Mac/Windows only, adaptation is driven by keyboard/app activity rather than a user's crew choice, and there are no characters or task framing. No iOS app does choice-driven stem layering tied to a three-act task arc, which keeps Caper's core audio mechanic unique on the platform."
+   },
+   {
+    "name": "focus.music (successor to Focus@Will)",
+    "url": "https://apps.apple.com/us/app/focus-music/id6758414762",
+    "how_close": "'Name your task, press play': adaptive session system on iOS with timed 25/50/custom sessions, channels each with three intensity levels, 16 years of focus-music research, 640k legacy users. $4.99/mo.",
+    "why_it_falls_short_or_not": "Intensity levels are not narrative acts, there is no crew or comedy, it is a subscription, and it markets 'no AI-generated audio' (a direct counter-pitch to a Suno-scored app)."
+   },
+   {
+    "name": "Habitica / TaskHero / Habit Hunter / Bounty Tasker / MainQuest (RPG task cluster)",
+    "url": "https://apps.apple.com/us/app/taskhero/id1480746112",
+    "how_close": "Tasks reframed as quests or bounties with characters, loot, parties and 'crews' (MainQuest literally says 'team up with your crew'); Habitica has millions of users, TaskHero and Habit Hunter each have 4.6-4.7 star iOS listings.",
+    "why_it_falls_short_or_not": "Fantasy-RPG skins over infinite lists, with XP/loot economies that reward checking things off rather than starting; reviews note the game layer runs out or becomes clutter. 'Crews' are real friends, not fictional specialists. Caper's heist framing is genuinely absent from this cluster, but a reviewer will still file Caper under 'gamified to-do' unless the audio and script utility are front and center."
+   },
+   {
+    "name": "Confident Caller / Callio / KallyAI / Pallie (phone-anxiety tools)",
+    "url": "https://confidentcaller.com/",
+    "how_close": "Confident Caller gives instant scripts for scary calls (dentist, insurance, landlord) plus AI practice; Callio, Pallie and KallyAI make the call for you. All exist because 'call the dentist' avoidance is a recognized, monetizable problem.",
+    "why_it_falls_short_or_not": "Narrow to calls, mostly web or AI-API dependent, no execution timer or presence. They validate Sloane's script library as a real wedge but also mean Caper's scripts must be crafted, offline and specific rather than generic templates."
+   },
+   {
+    "name": "Unforgetful: Never Lose a Task (Overcast Radio)",
+    "url": "https://apps.apple.com/us/app/unforgetful-never-lose-a-task/id6785630295",
+    "how_close": "Ships the exact philosophy in Caper's 'bail is not failure' pillar: 'shame-free, snooze and defer as much as you like, nothing is ever overdue, every day is a fresh start'. 4.7 stars, 152 ratings.",
+    "why_it_falls_short_or_not": "It is a reminder engine on top of Apple Reminders with no session, presence, or music; it proves shame-free is a buying reason but does not tie it to a mechanic that shrinks the task."
+   },
+   {
+    "name": "Numo: Cringe-Free ADHD App",
+    "url": "https://apps.apple.com/us/app/numo-cringe-free-adhd-app/id1628994767",
+    "how_close": "The irreverent-tone competitor: memes, gamified karma tasks, squads, a focus timer that launches a Live Activity, 'Oops streak' restore by explaining what happened, editable yesterday. 100k+ downloads, $7.99/mo.",
+    "why_it_falls_short_or_not": "Community-and-courses product with a subscription; humor is meme-based rather than an authored ensemble, and there is no music or heist arc. Shows 'not childish, not wellness-cringe' is already a stated positioning in the category."
+   }
+  ],
+  "underserved_verdict": "partially_served",
+  "uniqueness_after_search_1to10": 7,
+  "ip_or_guideline_red_flags": [
+   "NAME: 'Caper' is Instacart's CAPER brand (Caper AI, acquired for $350M in 2021; AI-powered smart-cart software with active retail-media and 'Cart Assistant' AI products marketed through 2026), which almost certainly carries registered marks in software classes; there is also an existing App Store app 'Caper - Fun family adventures' (Redtail Adventures Ltd) and the MysteryCaper game series. Apple's 2.3.7 'choose a unique app name' plus a plausible trademark complaint make a rename or a formal knock-out search mandatory before you buy assets.",
+   "SUNO MUSIC RIGHTS: Pro/Premier plans grant a commercial license, but Suno's own docs now say users 'generally are not considered the owner' and cannot guarantee copyright vests; the US Copyright Office treats fully AI-generated audio as uncopyrightable, so a competitor could lift your score with little recourse. Suno gives no indemnification; UMG/Sony litigation continues (Warner settled Nov 2025), a Munich court ruled against Suno in July 2026, and SOCAN sued in Sept 2026 specifically over outputs that reproduce real songs. Practical risk: an output that resembles a known track triggers Content ID or a claim against you. Mitigate with human-in-the-loop arrangement (edit stems in a DAW, write the call-out lyrics yourself, consider human voice actors for crew lines), never prompt with artist names, and keep generation logs. Music generated on a free-tier account can never be used commercially.",
+   "CHARACTER NAMES: 'Wheelman' (2009 film and Midway video game), 'Kaboom' (Atari's Kaboom!, BOOM! Studios' KaBOOM! imprint), 'Ledger' (Ledger hardware wallets, a software-class mark) and 'Whisper' (Whisper social app, OpenAI Whisper). None is likely to fail App Review as an in-app character name, but keep all of them out of the app name, subtitle and keyword field, and consider renaming Kaboom and Ledger to avoid a nuisance claim.",
+   "FREE TRIAL MECHANIC: Guideline 3.1.1 explicitly permits a non-consumable IAP at Price Tier 0 named 'XX-day Trial' for non-subscription apps, provided the app states the trial length, what is lost when it ends, and the full-unlock price before the trial starts; developers report an unpublished 3-day minimum (7 days is fine). Do not combine this with a subscription-style 'introductory offer' or App Review will ask which model you are.",
+   "TONE / 1.1 AND 5.2: satire of 'hustle-guru culture' is fine only while it stays generic; parodying a real named guru or company (even thinly veiled) invites a defamation or IP rejection. The heist framing itself is not a guideline issue (no real-crime instruction), but avoid store metadata like 'steal' or 'rob' that a reviewer might read literally; expect a 9+ age rating for mild cartoon crime themes.",
+   "REWARDS: Loot cards and grace days are earned, not purchased, so loot-box odds disclosure (3.1.1) does not apply; keep it that way. If you ever sell randomized rewards you must publish odds.",
+   "ENVATO ASSETS: Envato Elements font and UI-kit licenses generally permit app use, but some font items require a separate app-embedding license and Elements' music license restricts music that is the primary value of a product. Since Suno supplies the score you are fine on music; verify each font's embedding terms before shipping it in the binary.",
+   "CATEGORY REVIEW RISK (4.2 / 4.3): the app is clearly more than a timer, but App Review has flagged 'copycat' focus apps; make the script library, blueprint Live Activity and stem-mixing visible in the review notes and screenshots so it is not judged as another Pomodoro skin."
+  ],
+  "sharpening_suggestion": "Survives, but not as pitched. The whole is unique (no heist-framed task app exists anywhere I could find, and no iOS app does choice-driven stem layering tied to a task's emotional arc), yet every stated problem already has a credible incumbent, and Focus Friend owns the free 'character does it with you' timer. To be unmistakable: (1) Rename, and drop every 'focus timer' word from store copy; position as 'the app for the one thing you've been avoiding'. Onboarding should ask 'what have you been putting off?' and the first caper should be pre-scripted for the five archetypes nobody owns as a staged event: the call, the form, the inbox, the physical mess, and the email you owe someone. Focus Friend/Beside/focus.music are generic focus, dubbii is chores-on-video, Goblin Tools/BrightMind are planning, Confident Caller is calls only; the gap is 'dreaded admin as a two-minute-to-start, scored, finishable event'. (2) Make crew-as-mix undeniable before Go: a 'Soundcheck' screen where tapping each specialist audibly punches their stem in and out over the base groove. That thirty seconds is your App Preview video and your TikTok, and it is the one thing no iOS competitor (Omix is desktop and activity-driven) can show. (3) Convert theme into help so it is not 'Pomodoro in a costume': Sloane ships a hand-written, offline, fill-in-the-blank script library for calls and emails (better than Goblin's generic AI steps and Confident Caller's API-dependent scripts); Ledger ships form-and-money checklists; Pockets ships an authored 'first move' for each archetype. (4) Name and market the bail rule ('Abort: crew regroups, job shrinks one size, streak untouched'); Unforgetful proves shame-free sells, nobody has tied it to a session mechanic. (5) Price as the loud counterpoint, but honestly: one-time $9.99 against dubbii $4.99/mo, Numo $7.99/mo, focus.music $4.99/mo, Finch Plus $9.99/mo, Focusmate $10/mo is a real pitch, yet Focus Friend and Beside are free, so the paid unlock must rest on script depth and audible music variety, not on being a timer. (6) De-risk the score legally and creatively: arrange Suno stems by hand in a DAW, write every crew line yourself and consider recording crew call-outs with human voice actors, which also fixes comedy timing, the thing that decides whether the banter still lands in month two."
+ },
+ "judges": [
+  {
+   "judge": "indie-publisher: veteran publisher of 30 paid iOS apps judging commercial reality only — will people pay a one-time price, will it retain past week three, can one local-first developer ship it in under a year, and will App Review (4.3(b), 5.2.1, 1.4.1, 1.2) pass. Name collisions that only require a rename are noted in rationales; the fatal_flaws list holds only concept-killers as pitched. Two concepts share the name Dead Air and are labeled by premise.",
+   "score": {
+    "concept_name": "Caper",
+    "uniqueness": 7,
+    "problem_severity": 7,
+    "daily_pull": 5,
+    "broad_appeal": 7,
+    "willingness_to_pay": 7,
+    "ip_safety": 4,
+    "buildability": 6,
+    "vibrancy": 8,
+    "total": 51,
+    "rationale": "This is the productivity-category bet with the clearest purchase trigger in the dossier: 'this made me finally call the dentist' is the review that converts a one-time $9.99, and positioning outside Games and Health improves monetization and dodges parental game-time caps. No heist-framed task app exists and choice-driven stem layering is unique on iOS. It is buildable local-first, but the content load (hundreds of crew lines, a real call-and-email script library, 18 stems, 12 grooves) is the schedule risk, and Focus Friend at $0 owns the 'character does it with you' shelf, so the script utility has to carry the paid unlock and clear 4.3 copycat scrutiny. 'Caper' is Instacart's software brand and several crew names are marks; rename before buying assets. Daily pull is capped because one-off dreads do not arrive every day. It overlaps almost entirely with Dreadlines and Pull It Off; of the three, Dreadlines is the cheaper, sharper build."
+   }
+  },
+  {
+   "judge": "everyday-user: a panel of five ordinary people (a nurse on rotating shifts, a college student, a parent of three, a retiree living with a spouse, a barista with 5am opens). We judged each concept on whether we would actually download it, open it every day without being nagged, tell a friend about it unprompted, and pay for it once. We were deliberately hard on anything that felt like a utility wearing a costume, anything that only works if other people install it, and anything that adds a new ritual to a day instead of hijacking time we already spend. Ties in total were broken by who on the panel could use the app alone, today, with zero setup.",
+   "score": {
+    "concept_name": "Caper",
+    "uniqueness": 7,
+    "problem_severity": 7,
+    "daily_pull": 5,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 4,
+    "buildability": 7,
+    "vibrancy": 7,
+    "total": 50,
+    "rationale": "Every one of us named the thing we are avoiding within five seconds (insurance form, bank call, an email that is nine days old), so the problem is real and universal. The piece that made the nurse say 'I would pay for that' was not the heist framing, it was the fill-in-the-blank scripts for awkward calls; the theme is fun, the script is useful. The three-act score sounds cool but we could not tell whether we would notice the crew-mix difference or just hear 'music'. Daily pull is honestly a few times a week, not every day, because most of us do not have a dread every single morning. 'Bail shrinks the job' is a kind rule we have never seen and it made the student relax. Name collides with a big grocery brand so it needs a rename, and the character names sound like other products."
+   }
+  },
+  {
+   "judge": "Comedy-showrunner lens. I read each concept as a pilot pitch: is there an ensemble with distinct wants that a small writers' room could write for years, does the comedy come from character rather than from a skin, is there warmth (the cast never blames the user), is there a daily 'everyone shows up' beat, and can the world add institutions, seasons and guest stars without touching Bob's Burgers, South Park, American Dad or Marvel. I scored the eight criteria on the dossier's own evidence (competitor hunts, red flags), so live name collisions and Apple 4.3(b) exposure hit ip_safety and buildability hard, and 'the pieces all exist elsewhere' capped uniqueness. Two cross-cutting rulings. First, the register must be Bob's Burgers warmth at a 9+ rating, not South Park edge, or the 'anyone can use it' promise and any family editorial die; every cast below is scored on the assumption that the satire stays on invented institutions. Second, three concepts (Dreadlines, Pull It Off, Caper) share one logline, 'an original crew shows up for the thing you have been avoiding'. A showrunner does not greenlight three pilots with the same premise, so I treat them as one show and did not hand the avoidance lane all three top slots even though they hold the three highest totals. My top 3 is therefore one greenlight per lane: Dreadlines (absorbing Pull It Off's bar-quantised score and Caper's script library and bail rule), Split Level (the best sitcom cast in the dossier, once its homage stack is fixed), and Launch Window (the highest-pain daily problem attached to a real mission-control ensemble). Every concept needs a rename; that is the price of admission, not a tiebreaker. Music was judged on whether it does structural work a writer would miss if it were gone: Pull It Off, Dreadlines, Launch Window, Houseband and Crew Call pass that test cleanly.",
+   "score": {
+    "concept_name": "Caper",
+    "uniqueness": 7,
+    "problem_severity": 8,
+    "daily_pull": 7,
+    "broad_appeal": 8,
+    "willingness_to_pay": 7,
+    "ip_safety": 5,
+    "buildability": 7,
+    "vibrancy": 8,
+    "total": 57,
+    "rationale": "A six-specialist crew with a clear job each and a villain institution (the Bureau of Later) is proper ensemble construction, and 'bail means the crew regroups and the job shrinks' is the warmest rule in the dossier. Crew-as-mix gives the music a structural role, and Sloane's hand-written script library for calls and forms converts the theme into real help, which is the difference between a show and a costume. The 'everyone shows up for your dentist call' beat is the brief's blockbuster energy pointed correctly at the mundane, and the banter can sustain a season. But this is the same logline as Pull It Off and Dreadlines, and of the three it has the most name trouble (Instacart's CAPER mark, plus Wheelman, Kaboom, Ledger and Whisper all colliding) and the least distinctive visual signature. I would fold its script library and bail rule into the single avoidance greenlight rather than run it as its own pilot."
+   }
+  },
+  {
+   "judge": "product-strategist (defensibility-first: post-hunt uniqueness, clarity of the problem set, habit and network effects, and whether music is a mechanic or a gimmick)",
+   "score": {
+    "concept_name": "Caper",
+    "uniqueness": 6,
+    "problem_severity": 7,
+    "daily_pull": 6,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 4,
+    "buildability": 7,
+    "vibrancy": 8,
+    "total": 51,
+    "rationale": "The avoidance lane is the clearest problem statement in the dossier ('the one thing you have been putting off') and it is emotionally severe for everyone, but the hunt shows it is no longer virgin: Onzy, FOCO, Thawly, BrightMind and Goblin Tools sell 'can't start' as subscription coaches, SideQuest already ships task plus timer plus recurring cast plus shareable card on iOS, and Focus Friend owns the free character timer shelf. What survives is the crew-as-mix (no iOS app does choice-driven stem layering tied to a task arc) and, more importantly for defensibility, Sloane's hand-written call and email scripts, which convert theme into utility that a timer skin cannot fake. Music is a real mechanic here, audibly different per crew choice, though legally unprotectable. Habit is moderate: 'a job a day, any size' works, but dread is not daily for everyone. The name is Instacart's CAPER software brand and must go, and the client should recognise that Caper, Pull It Off and Dreadlines are three drafts of one product; the strongest synthesis is Dreadlines' avoidance-age hero number plus Caper's script library plus Pull It Off's bar-quantized score."
+   }
+  }
+ ]
+}

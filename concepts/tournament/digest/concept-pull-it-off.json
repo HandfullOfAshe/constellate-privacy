@@ -1,0 +1,178 @@
+{
+ "concept": {
+  "name": "Pull It Off",
+  "type": "hybrid",
+  "one_liner": "A daily heist movie about the one thing you have been avoiding: name the dreaded task, assemble an original crew of motivational specialists, and pull it off in one sitting while a phase-locked score builds from 'assemble' to 'getaway'.",
+  "problems_solved": [
+   "The dreaded small task (the call, the form, the email, the mail pile) that hangs over a whole day and gets carried for weeks.",
+   "The thirty-second start problem: paralysis at the threshold of a task, which no to-do app addresses.",
+   "Task-avoidance shame: existing tools list the thing and then guilt you about it.",
+   "No one celebrates the finish: doing the dreaded thing yields silence instead of a payoff.",
+   "Body-doubling needs strangers, appointments and a server."
+  ],
+  "why_no_good_solutions_exist": "To-do apps are inventories, not interventions; the longer the list, the worse you feel. Focus timers (Forest) are silent and emotionless. Body-doubling services (Focusmate) need strangers and scheduling. Habit apps reward repetition, but the worst tasks are one-offs. No product turns the act of starting into a set piece with music, stakes and a crew, and no product records the victory with the drama it deserves.",
+  "core_daily_loop": "Each morning (or whenever the dread hits) the fixer asks 'What's the job?' and you type the thing you have been avoiding or pull one from a deck of universal dreads ('Call the dentist', 'Reply to that email', 'Open the mail pile'). You rate it on the Dread-o-meter, write one line of stakes, and the crew assembles: four of twelve specialists chosen by job type, each with a different style of motivation. A four-phase score begins: Assemble (60 seconds of crew banter, skippable), Approach (up to three minutes to get the thing in front of you), Execution (a held loop that adds an instrument each minute until you tap DONE) and Getaway (a triumphant sting and a getaway song while the crew argues about who deserves credit). The job is filed in the Vault as a Heist Card ('Job #23: Called the landlord. Time inside: 4m12s. Dread 8 to 1.') that you can share as an image or keep private. If you bail, the job is 'postponed', the card goes greyscale, and tomorrow a different lineup shows up with a different plan; days with nothing to dread are 'day off' days where the crew plays cards and a new track unlocks.",
+  "unique_mechanic": "Phase-locked scoring: the score is not background music but the structure of the intervention. BPM-locked stems are mixed live in AVAudioEngine and phase transitions happen on your taps at bar boundaries, so the music lands exactly when you start and exactly when you finish. Each job also gets a crew line-up matched to dread type (a phone call needs the Hype Man, a form needs the Cold Logician), and the app learns which crews you actually complete jobs with.",
+  "tone_link": "'Assemble the team, the stakes are everything' applied to calling the dentist. An original crew with distinct silhouettes and a workplace-comedy dynamic: a fixer who has never personally done a job; a Hype Man whose hype is mostly about himself; the Cold Logician, a retired actuary who dismantles excuses with tables; the Bribe, a pastry chef who negotiates your reward; the Clock, a former marching-band drum major; and a getaway driver who only drives a city bus. Satire targets productivity culture and invented institutions (the 'Institute of Getting Around To It'). Getaway songs are big, brassy, original trailer-parody anthems. Blueprint-blue flat color with hard shapes; roster art color-coded by specialty in team-poster grammar with no franchise trade dress.",
+  "why_worth_paying": "Free: one job a day with the starter crew of four and three scores. One-time unlock ($9.99 to $12.99): the full twelve-member crew, the whole score library, the Vault archive, 'Big Jobs' (multi-part jobs like taxes or a move), Heist Card sharing and seasonal crew drops. People pay for the feeling of finally doing the thing they avoided for a month; one successful heist sells the unlock, and 'One purchase. No ads. No subscription.' is the paywall.",
+  "vibrant_visual_hook": "A blueprint-blue planning table where colored crew tokens slide into position; each phase re-tints the whole screen (assemble blue, approach amber, execution red, getaway gold); the Vault is a wall of saturated Heist Cards with postponed jobs in greyscale that snap back to color when completed; crew roster art in the color-coded team-poster grammar, each member one bold silhouette.",
+  "music_role": "The score is the mechanic: four-phase, BPM-locked stem sets per job type (phone calls get a nervy 120 BPM, chores a 128 BPM groove, paperwork a tense 100 BPM), getaway songs with original lyrics written per crew member, Covers to render the heist motif across genres so the crew has a recognizable sound, and Custom Models to lock a house style. Music defines the phases, the pacing and the payoff.",
+  "broad_appeal_argument": "Everyone has a thing they are avoiding; the deck of universal dreads means zero setup; the heist frame is understood everywhere. ADHD users are a strong seed audience and word-of-mouth engine, but the product is for anyone with a dentist and an inbox.",
+  "solo_dev_buildability_1to5": 3,
+  "biggest_risk": "The ceremony can outweigh the task: if a two-minute chore takes six minutes of heist, the app becomes its own procrastination. Assemble must be skippable, the whole flow must fit under five minutes, and the live stem mixing needs careful gapless engineering (PCM or CAF, bar-boundary trims) or the signature moments will glitch.",
+  "lens": "wellbeing-first: start from the emotional weather of a normal day (morning dread, the 3pm slump, the one avoided thing, the empty evening, the Sunday scaries) and build something fun rather than clinical that measurably changes how the day feels, with original characters and Suno music doing structural work."
+ },
+ "refutation": {
+  "concept_name": "Pull It Off",
+  "existing_competitors": [
+   {
+    "name": "SideQuest: ADHD Focus RPG (iOS, Mar 2026)",
+    "url": "https://apps.apple.com/us/app/sidequest-adhd-focus-rpg/id6759470375",
+    "how_close": "Closest structural match. One real task becomes a timed quest; finishing triggers a full reward ceremony: victory splash, a serialized story episode with 5 recurring NPCs (Mentor, Rival, Trickster, Villain, Mysterious figure), a choice, loot reveal, cliffhanger; shareable quest cards; SharePlay co-op. Solo dev, 10 months, $9.99/mo or $79.99/yr, 7 ratings.",
+    "why_it_falls_short_or_not": "Fantasy/anime RPG frame, built for 25-120 minute study/work sessions, XP and loot grind, subscription, LLM-generated stories. Music is only an Apple Music integration, not a mechanic. There is no pre-start intervention (the threshold problem), no matching of characters to the type of dread, no satire of productivity culture, and no 'one-off, no streak' philosophy. But it proves a solo dev can ship 'task + timer + cast + shareable card' on iOS, so Pull It Off cannot claim that combination is new."
+   },
+   {
+    "name": "Onzy (iOS/web ADHD to-do + AI coach)",
+    "url": "https://onzy.app/",
+    "how_close": "Closest problem-framing match. Marketing copy is literally 'start what you're dreading': shrinks the scary task to a 2-minute first step, picks it for you, 'Spotters' quietly cheer when you finish, a finish celebration, Focus Together body-doubling, momentum-not-streaks. Free tier plus $14.99/mo Pro and $27.99/mo Pro+.",
+    "why_it_falls_short_or_not": "It is a to-do list with an LLM chat coach: server-dependent, subscription, generic voice, no characters, no story, no music, no set piece. Its Spotters are real friends, not a cast. It confirms the 'dreaded task / starting problem' positioning is already being sold with almost identical language, so the heist ceremony and score must carry the differentiation, not the problem statement."
+   },
+   {
+    "name": "Focus Friend, by Hank Green",
+    "url": "https://apps.apple.com/us/app/focus-friend-by-hank-green/id6742278016",
+    "how_close": "The dominant character-led focus app: hit #1 on the US App Store in Aug 2025, Editors' Choice, 7.5K ratings at 4.8, 1M+ Android installs. One bean character knits while you focus, pleasant music, room decorating, Deep Focus app-blocking, free with $15/yr or $30 lifetime Pro. Reviewers call it 'almost a body double' and say guilt about interrupting the bean gets them through chores.",
+    "why_it_falls_short_or_not": "It is a stay-off-your-phone timer, not a start-the-avoided-thing intervention; a single cozy character, no stakes, no finish drama, music is decoration, and users report running out of content in days. It owns the 'cozy' quadrant and the mass audience, which means Pull It Off must own the opposite quadrant (loud, comedic, stakes, pick UP the phone to make the call) rather than compete on cute."
+   },
+   {
+    "name": "FOCO",
+    "url": "https://www.tryfoco.com/",
+    "how_close": "Positions itself as 'for the part Goblin Tools can't do: starting'. Puts one step in front of you, starts a short timer, and 'keeps you company' with an AI focus companion. Free with paid Pro.",
+    "why_it_falls_short_or_not": "Generic AI companion, no cast, no music, no ceremony, no record of the win. Another sign the 'threshold' problem is now a recognized sub-genre with several entrants."
+   },
+   {
+    "name": "Thawly (web/PWA) and BrightMind (iOS/Android)",
+    "url": "https://thawly.ai/compare/goblin-tools-alternatives",
+    "how_close": "Thawly: breaks a task down then walks you through it one step at a time with a 2-minute timer, Brain Dump picks a random task for you, Coach Mode; $9/mo. BrightMind: an AI voice companion you talk to when frozen before starting; it calms you then hands you one tiny next step; $12.99/mo.",
+    "why_it_falls_short_or_not": "Both are LLM-driven, server-bound subscriptions with no characters, no music, no payoff moment. They compete on the same 'can't even start' pain but with a clinical/coaching tone rather than entertainment."
+   },
+   {
+    "name": "Doppel - AI Focus Companion, dubbii, Fomi (AI and recorded body doubles)",
+    "url": "https://apps.apple.com/jp/app/doppel-ai-focus-companion/id6755030867?l=en-US",
+    "how_close": "Doppel: AI companions that 'feel present' so you never need a stranger on Focusmate. dubbii: pre-recorded hosts do chores alongside you (300K+ users, ~$4.99/mo). Fomi: desktop 'AI body double' that throws a virtual tomato when you drift. These already answer the concept's 'body-doubling needs strangers and a server' problem statement.",
+    "why_it_falls_short_or_not": "None turn the moment of starting into a scripted set piece with an ensemble; none use music structurally; dubbii is video-led routines for chores, not one-off dreads. The body-doubling-without-strangers claim is therefore no longer unique on its own."
+   },
+   {
+    "name": "Omix (adaptive focus music, Mac/Windows) and Endel",
+    "url": "https://www.omix.app/",
+    "how_close": "Omix's whole pitch is 'music that grows with your focus': starts ambient, then basslines and rhythms fade in as you work, layering instruments as momentum builds, with intensity levels. Endel adapts generative soundscapes to time, weather and heart rate on Apple devices.",
+    "why_it_falls_short_or_not": "Omix reads keyboard/app activity, is desktop-only, and never 'lands' on a task start or finish; Endel is ambient and continuous. Neither has phases, stakes, a crew, or a finish sting. But 'music that builds as you work' is a claim already on the market, so the concept should stress bar-locked transitions on YOUR taps, not 'adaptive music'."
+   },
+   {
+    "name": "Dialed: Mindset & Inspiration (plus Pepped, hype, Pep)",
+    "url": "https://apps.apple.com/us/app/dialed-ai-pep-talks/id6478706376",
+    "how_close": "Dialed generates a personalized pep speech layered over 'neuroscience-backed focus music' to 'shatter procrastination on work, study & chores' in 60 seconds; 4.9 rating, $9.99/mo. Pepped, hype and Pep offer AI hype voices with named personas (e.g. 'Vince, stadium-sized energy; Knox, no-excuses tough love') and shareable pep cards.",
+    "why_it_falls_short_or_not": "One-shot speeches, no structure across start/execute/finish, no record of the job, AI-generated, subscription. The 'named motivational personas' idea and 'shareable cards' already exist, which erodes the novelty of a Hype Man plus Heist Card unless the crew is written as real comedy characters with running gags."
+   },
+   {
+    "name": "Zombies, Run! / The Walk (Six to Start, now Naomi Alderman)",
+    "url": "https://www.motera.app/zombie-run-app",
+    "how_close": "The canonical 'narrative + music as the structure of a chore' product: audio missions, characters, chases as intervals, supplies and base-building as the record, 500+ missions, subscription. Launched at a premium $7.99 in 2012 and became a category.",
+    "why_it_falls_short_or_not": "Fitness only; nobody has ported this structure to the two-minute dreaded admin task. It is the strongest proof that people pay for story-and-score as motivation, and the model Pull It Off should cite in its own pitch."
+   },
+   {
+    "name": "Sukha (web) and Llama Life (iOS)",
+    "url": "https://www.thesukha.co/for/adhd",
+    "how_close": "Sukha: AI coaches with named voices welcome you to a session, nudge you when you drift and congratulate you at the end, 1000+ hours of BPM-curated flow music, one-click start; ~$10/mo. Llama Life: single-task countdown, confetti and chimes on completion, ADHD-focused, subscription.",
+    "why_it_falls_short_or_not": "Sukha is desktop knowledge-work; Llama Life is a list-and-timer. Both prove 'voice + music + celebration' sells, neither has stakes, cast, or a one-off-dread frame."
+   },
+   {
+    "name": "Habitica, MainQuest, TaskHero, Habit Hunter, BeeDone, Taskoria (RPG to-do apps)",
+    "url": "https://www.mainquest.net/best-gamified-to-do-list-apps",
+    "how_close": "A crowded category of 'turn tasks into quests' apps with avatars, XP, loot, parties and boss fights; several explicitly target ADHD users.",
+    "why_it_falls_short_or_not": "All are list-based habit grinders that reward repetition and punish misses; none address the single avoided one-off or the threshold moment, and none use music as mechanic. The heist genre is unused: an iTunes Search for 'heist' returns 170 apps, all in the Games category, and no productivity/lifestyle app surfaced for 'heist', 'secret agent' or 'mission' framing."
+   }
+  ],
+  "underserved_verdict": "partially_served",
+  "uniqueness_after_search_1to10": 7,
+  "ip_or_guideline_red_flags": [
+   "SUNO COMMERCIAL RIGHTS ARE NOW GATED BY DOWNLOADS, NOT GENERATION. Since Suno's Sept 3, 2026 Terms, only songs officially downloaded on a paid plan carry commercial rights; Pro is capped at 20 downloads/month, Premier at 60/month (Premier users working inside Suno Studio are described as unlimited); free/trial downloads are personal-use only. Suno's own post does not say whether each stem, MIDI or Studio export counts against the cap. A 'full library of stems for every occasion' can blow through caps fast; confirm stem-export counting in writing with Suno, keep receipts proving the paid-subscription window for every download, and archive WAVs locally.",
+   "STEMS REQUIRE A PAID TIER AND THE CLEAN MODE IS PREMIER-ONLY. Auto Split (12 stems) and Split from Mix work on Pro and Premier; Advanced Split (regenerated, artifact-free stems from ~100 instruments) is Premier-only and costs credits per split. Suno warns requests for instruments not present may still be charged. Set a Manual BPM in Suno before extracting so stems sit on a bar grid (needed for bar-boundary phase changes).",
+   "NO COPYRIGHT MEANS NO EXCLUSIVITY. Suno expressly makes 'no representation or warranty that any copyright will vest in any Output', and the US Copyright Office has not registered purely AI-generated music. The score is the product's signature yet is likely uncopyrightable and clonable; anyone could rip and reuse it. Mitigate by adding human-authored layers (lyrics, arrangement edits, re-recorded parts) and by making the crew characters and writing (copyrightable) the brand moat.",
+   "SUNO REMIX/COVER LIMITS. Remixes involving other users' content are non-commercial regardless of tier; Covers must only be run on your own original motif, never on any third-party song (no 'heist movie theme in 12 genres' shortcuts). Any uploaded audio must be 100% yours. Outputs carry Suno's fingerprint/watermark metadata; do not strip it.",
+   "MARVEL 'AVENGERS ASSEMBLE' IS A LIVE REGISTERED MARK, INCLUDING CLASS 9 (computer/video game software). Do not name a phase, feature, or tagline 'Assemble' / 'Assemble the team', avoid 'Endgame', 'Infinity', 'Earth's mightiest', the circled-A, six-hero circle poses, or purple-glove/stone iconography. Rename the phase (e.g. 'Crew Up', 'The Line-Up').",
+   "HEIST-GENRE TRADE DRESS TO AVOID. Netflix owns MONEY HEIST / LA CASA DE PAPEL marks; the Dali mask + red jumpsuit + city-name codenames + 'Bella Ciao' combination is that show's identity. Also avoid the 'your mission, should you choose to accept it' self-destruct gag and the 5/4 Mission: Impossible rhythm, 'Ocean's' naming, and any Bob's Burgers / South Park / American Dad likeness, catchphrase or character-name echo (e.g. no 'Tina', 'Cartman', 'Roger' style names or silhouettes).",
+   "APP STORE GUIDELINE 5.1.2(i) (Nov 2025): if ANY crew dialogue, plan text or 'learning' is generated at runtime by a third-party AI using the user's typed task/stakes, Apple requires a contextual, named-provider consent screen before the first call, and AI-generated content must be disclosed. Keeping all crew writing pre-authored and on-device (as the local-first brief implies) avoids this entirely; state 'no AI at runtime' plainly in the listing.",
+   "HEALTH/ADHD CLAIMS. Do not market the app as treating or managing ADHD, anxiety or 'task-avoidance shame' (Guideline 1.4.1 / 5.1.1 style scrutiny and FTC exposure). Position as productivity/entertainment; Onzy and others carry explicit 'not medical care' disclaimers for this reason. Age-rating questionnaire: a comedic crime theme is fine but keep it cartoonish, no weapons, and answer the 'crime/mature themes' descriptor honestly.",
+   "BACKGROUND AUDIO AND THE PHONE-CALL CASE. The score must keep playing when the user leaves the app to make the call or open Mail (needs the audio UIBackgroundModes entitlement, which Apple accepts when audio is core). But an actual phone call interrupts AVAudioSession, so the 'Execution' loop will stop during the dentist call; design the Execution phase to resume on the next bar after interruption rather than glitch, or the signature moment breaks exactly on the flagship use case.",
+   "NAME CLEARANCE. No app named 'Pull It Off' surfaced in App Store search and no productivity mark appeared in web searches, but this was not a USPTO/state/common-law clearance. 'Pull It Off' is a common phrase (a crypto game 'HEISTED' uses 'Pull off the perfect heist' as its tagline) and may be judged descriptive/suggestive; run a Class 9/42 clearance and file intent-to-use before announcing. ASO note: 'heist' is a games keyword (170 game results); rely on 'procrastination', 'start', 'avoid', 'dreaded task' keywords instead.",
+   "ENVATO ELEMENTS. Stock illustrations, fonts and UI kits are fine for reference and UI, but do not use stock characters or stock-derived silhouettes as the crew or app icon: stock licenses generally exclude use as a trademark/logo and you cannot protect a character you do not own. Verify each font's app-embedding permission and register each asset to this project's license."
+  ],
+  "sharpening_suggestion": "The problem statement ('I can't start the thing I'm dreading') is no longer underserved: Onzy, FOCO, Thawly, BrightMind, Doppel, neurolist and Goblin Tools all sell it, mostly as $9-15/month LLM coaches, and SideQuest already ships 'real task + timer + recurring cast + story episode + shareable card' on iOS. What nobody ships is the THRESHOLD SET PIECE with MUSIC AS THE CLOCK. Reposition around three unmistakable claims. (1) 'The tap is the downbeat': every phase change is quantized to the bar, the DONE tap fires the sting on the next bar, and the Heist Card records the job in bars, not minutes ('Inside: 47 bars at 120'). Omix/Endel react to typing; SideQuest's music is decor; Dialed is a one-shot speech. Music-as-unit-of-measure is a claim no competitor can make. (2) 'A four-minute movie for a two-minute task, for one-offs only': drop anything that smells of habit tracking or XP; the Dread Deck (call, form, mail pile, awkward text, cancel the subscription, book the appointment) with dread-type crew line-ups is a curated taxonomy nobody else has, and 'no streaks, the Vault only holds one-offs' separates it from every RPG list. (3) Make the crew the brand the way Focus Friend made the bean the brand, but as an ensemble workplace comedy with running gags, wrong plans, bickering end credits and a day-off card game; pre-written, on-device, no AI, which also sidesteps Apple's 5.1.2(i) and lets you print 'No AI. No server. No subscription. One purchase.' as the paywall, a real 2026 differentiator against Onzy ($14.99/mo), SideQuest ($9.99/mo), BrightMind ($12.99/mo) and Dialed ($9.99/mo). Draw the contrast explicitly in marketing: 'Focus Friend helps you put the phone down. Pull It Off helps you pick it up and make the call.' Rename phases to avoid Marvel (Crew Up / The Approach / Inside / Getaway). Address the biggest risk head-on with a 'Quick Job' 90-second variant when the Dread-o-meter is low, and treat the phone-call audio interruption as a designed beat (the score resumes on the next bar when you hang up). Finally, plan the Suno pipeline as a finite asset budget: one or two Premier months, Manual BPM locked before Advanced Split, WAV stems bar-trimmed in a DAW and shipped as CAF, with download receipts archived, and add human-authored lyrics and arrangement edits so the getaway anthems have a copyrightable human layer."
+ },
+ "judges": [
+  {
+   "judge": "indie-publisher: veteran publisher of 30 paid iOS apps judging commercial reality only — will people pay a one-time price, will it retain past week three, can one local-first developer ship it in under a year, and will App Review (4.3(b), 5.2.1, 1.4.1, 1.2) pass. Name collisions that only require a rename are noted in rationales; the fatal_flaws list holds only concept-killers as pitched. Two concepts share the name Dead Air and are labeled by premise.",
+   "score": {
+    "concept_name": "Pull It Off",
+    "uniqueness": 7,
+    "problem_severity": 7,
+    "daily_pull": 5,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 5,
+    "buildability": 5,
+    "vibrancy": 8,
+    "total": 50,
+    "rationale": "Same bet as Caper with a cleaner name situation (no Instacart collision, though 'Assemble' as a phase name must go for Marvel) and the sharper 'the tap is the downbeat' claim, but lower buildability (twelve specialists, bar-quantized live stem mixing, and an audio session that gets interrupted by the very phone call the app exists to trigger) and a paid unlock resting on crew depth rather than a concrete script library. Onzy, FOCO, Thawly and BrightMind all sell 'start the thing you're dreading' at $9-15 a month, so 'one purchase, no AI, no server' is a real 2026 pitch, and SideQuest proves a solo dev can ship task-plus-cast-plus-card. The ceremony-outweighs-the-task risk is real and needs the 90-second Quick Job on day one. If the client wants the heist, merge Caper's script utility onto this phase-locked score and build one product."
+   }
+  },
+  {
+   "judge": "everyday-user: a panel of five ordinary people (a nurse on rotating shifts, a college student, a parent of three, a retiree living with a spouse, a barista with 5am opens). We judged each concept on whether we would actually download it, open it every day without being nagged, tell a friend about it unprompted, and pay for it once. We were deliberately hard on anything that felt like a utility wearing a costume, anything that only works if other people install it, and anything that adds a new ritual to a day instead of hijacking time we already spend. Ties in total were broken by who on the panel could use the app alone, today, with zero setup.",
+   "score": {
+    "concept_name": "Pull It Off",
+    "uniqueness": 6,
+    "problem_severity": 7,
+    "daily_pull": 5,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 6,
+    "buildability": 5,
+    "vibrancy": 7,
+    "total": 49,
+    "rationale": "Same universal problem as Caper and Dreadlines, and the crew is fun (the getaway driver who only drives a city bus got a laugh). What everyday users care about is 'did it get me to make the call', and the four-minute movie for a two-minute chore made the nurse nervous that the ceremony is its own way to procrastinate. 'The tap is the downbeat' is a lovely technical idea that none of us would notice or describe to a friend. Without the script library Caper has, the payoff after the anthem is a card. The Heist Card and the Vault of greyscale postponed jobs are shareable and satisfying. The name seems mostly clean, which is rare here, and the no-server, no-subscription pitch is exactly what we like to see on a paywall. Solid, but Dreadlines says the same thing simpler."
+   }
+  },
+  {
+   "judge": "Comedy-showrunner lens. I read each concept as a pilot pitch: is there an ensemble with distinct wants that a small writers' room could write for years, does the comedy come from character rather than from a skin, is there warmth (the cast never blames the user), is there a daily 'everyone shows up' beat, and can the world add institutions, seasons and guest stars without touching Bob's Burgers, South Park, American Dad or Marvel. I scored the eight criteria on the dossier's own evidence (competitor hunts, red flags), so live name collisions and Apple 4.3(b) exposure hit ip_safety and buildability hard, and 'the pieces all exist elsewhere' capped uniqueness. Two cross-cutting rulings. First, the register must be Bob's Burgers warmth at a 9+ rating, not South Park edge, or the 'anyone can use it' promise and any family editorial die; every cast below is scored on the assumption that the satire stays on invented institutions. Second, three concepts (Dreadlines, Pull It Off, Caper) share one logline, 'an original crew shows up for the thing you have been avoiding'. A showrunner does not greenlight three pilots with the same premise, so I treat them as one show and did not hand the avoidance lane all three top slots even though they hold the three highest totals. My top 3 is therefore one greenlight per lane: Dreadlines (absorbing Pull It Off's bar-quantised score and Caper's script library and bail rule), Split Level (the best sitcom cast in the dossier, once its homage stack is fixed), and Launch Window (the highest-pain daily problem attached to a real mission-control ensemble). Every concept needs a rename; that is the price of admission, not a tiebreaker. Music was judged on whether it does structural work a writer would miss if it were gone: Pull It Off, Dreadlines, Launch Window, Houseband and Crew Call pass that test cleanly.",
+   "score": {
+    "concept_name": "Pull It Off",
+    "uniqueness": 7,
+    "problem_severity": 8,
+    "daily_pull": 7,
+    "broad_appeal": 8,
+    "willingness_to_pay": 7,
+    "ip_safety": 7,
+    "buildability": 6,
+    "vibrancy": 8,
+    "total": 58,
+    "rationale": "The crew is funnier than Caper's: a fixer who has never personally done a job, a Hype Man whose hype is mostly about himself, a retired actuary who dismantles excuses with tables, a pastry chef who negotiates your reward, a marching-band drum major on the clock, and a getaway driver who only drives a city bus. That is a workplace comedy with running gags, bickering end credits over who deserves the credit, and a day-off card game, and 'the tap is the downbeat' is the strongest music mechanic in the entire dossier: every phase change quantised to the bar, the DONE tap firing the sting, the Heist Card measuring the job in bars. The Institute of Getting Around To It gives the satire an institution. It has the cleanest IP sheet of the three avoidance concepts (only the 'Assemble' phase needs renaming) and the 'everyone shows up' beat is the crew lining up for your dentist call. Risks: the ceremony can outweigh a two-minute chore, live stem mixing plus a phone call interrupting the audio session is real engineering, and it shares its logline with Dreadlines and Caper. Merge candidate rather than a separate pilot."
+   }
+  },
+  {
+   "judge": "product-strategist (defensibility-first: post-hunt uniqueness, clarity of the problem set, habit and network effects, and whether music is a mechanic or a gimmick)",
+   "score": {
+    "concept_name": "Pull It Off",
+    "uniqueness": 6,
+    "problem_severity": 7,
+    "daily_pull": 6,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 6,
+    "buildability": 5,
+    "vibrancy": 8,
+    "total": 51,
+    "rationale": "A near-duplicate of Caper with a cleaner name and a sharper music claim. The problem is real and severe but now contested by subscription LLM coaches (Onzy, FOCO, Thawly, BrightMind, Doppel) and by SideQuest, which already ships task plus timer plus recurring cast plus story plus shareable card on iOS. What nobody ships is the threshold set piece with music as the clock, and 'the tap is the downbeat' (phase changes quantized to the bar, the job recorded in bars) is the single most defensible music claim in the avoidance lane because Omix and Endel react to typing while SideQuest's music is decoration. One-time $9.99 against four $9-15/month competitors is a real pitch. Defensibility beyond audio is weaker than Dreadlines: the Dread Deck taxonomy is good but the hero artifact (a Heist Card) is not as screenshot-able as a monster with a day count. Engineering risk is the highest of the three avoidance drafts (gapless bar-boundary stem mixing, and the flagship phone-call use case interrupts AVAudioSession mid-score). 'Assemble' as a phase name must go. Merge into the Dreadlines/Caper synthesis rather than ship as a fourth heist app."
+   }
+  }
+ ]
+}

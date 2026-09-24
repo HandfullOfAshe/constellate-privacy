@@ -1,0 +1,186 @@
+{
+ "concept": {
+  "name": "Dreadlines",
+  "type": "hybrid",
+  "one_liner": "A to-do app only for the things you are avoiding: each dread becomes a cartoon monster that grows a little every day you dodge it, and you defeat it by simply starting before a three-minute battle anthem ends.",
+  "problems_solved": [
+   "The dentist call, the insurance email, the package return and the 'we need to talk' conversation linger for weeks not because they take time but because they are scary, and no app treats avoidance itself as the problem.",
+   "Normal to-do apps bury avoided tasks among groceries and turn them into a wall of guilt; the avoided item becomes invisible in the list and enormous in your head.",
+   "Starting is the hard part (the first 20 seconds of dialing), and nothing scaffolds that exact moment with the energy it needs.",
+   "Reply debt: messages left on read for nine days that you now feel too awkward to answer; there is no honest tool for 'I owe them a reply'.",
+   "'I'll send you that link/recipe/photo' micro-promises evaporate, and the shame of forgetting makes you avoid the person too.",
+   "Partners and roommates end up being the nag for the avoided thing; people want to handle it themselves before a human has to remind them."
+  ],
+  "why_no_good_solutions_exist": "Productivity software is built by people who like lists, so it models tasks as inventory with due dates, when avoidance is emotional and time-agnostic. Anti-procrastination apps are blockers and pomodoro timers aimed at focus, not fear; coaching and habit apps are earnest and gentle, which makes the shame worse for grown-ups. Nobody has built a comedy about avoidance because it sounds embarrassing to pitch, yet every adult has three to ten of these sitting in their chest right now.",
+  "core_daily_loop": "Morning Roll Call (60 seconds): your dreads line up as flat-colour monsters with a day counter, and the app says one honest line ('The dentist call is 23 days old and has grown a mustache. It is still a four-minute call.'). You pick exactly one for today; the others go back to sleep with no penalty. Tap CHARGE: a three-minute anthem starts, a Live Activity counts down in the Dynamic Island, and the only rule is that you start before the final chorus, with a giant 'I'M DIALING' / 'I'M TYPING' button that kicks in the intense stem layer the moment you commit. When you tap 'Started', the monster drops to greyscale and shuffles into the Boneyard with a victory sting; if the task spawned a follow-up ('call back Tuesday'), it becomes a smaller monster. At night a one-line Sitrep records the kill; on Sundays a Roster poster shows the week with slain dreads in colour and survivors in greyscale, shareable to a friend who needs no app. New dreads take one sentence to add, or you forward the email or text you are avoiding via the share sheet and it hatches as a monster.",
+  "unique_mechanic": "Monsters grow with days-avoided, not due dates, and growth is visual and funny (a mustache at day 10, a tiny hat at 20, a briefcase at 30) rather than red badges; you only ever choose ONE per day; and the CHARGE contract says you merely have to start before the song ends, with the anthem's stems escalating the second you commit. The Boneyard keeps every defeated monster as a greyscale trophy, so your history becomes a museum of things that turned out to be four-minute calls.",
+  "tone_link": "Blockbuster 'assemble the team, whatever it takes' energy: every Charge is a trailer-cut boss fight with a condensed all-caps wordmark whose colour shifts with the genre, and your crew is an original band of hype misfits: Coach Delphine Marrow, a retired stunt coordinator who treats every phone call like a car chase; Barnaby, a pigeon who claims to be a licensed therapist and is not; Yusuf, sixteen, who narrates your life as a movie trailer; and Nana Oreste, who is unimpressed by everything including the Boneyard. Satire is aimed at invented bureaucracies (the Department of Being Placed On Hold, a Return Desk that opens only in leap years) and at the universal talent for making a small thing enormous; the crew is a workplace found-family, not a nuclear family or a kid gang, so it maps to no existing roster and the humour never targets real companies or groups.",
+  "why_worth_paying": "The first time it gets you to make a call you have dodged for a month, it has paid for itself, and that is the review users will write. Free: three live monsters and one anthem genre, complete in itself. $9.99 one-time unlock: unlimited monsters, all anthem genres and the full crew, the Boneyard history, Sunday posters and share-sheet capture. No ads, no energy, and no lost streaks because there are no streaks, only a roster.",
+  "vibrant_visual_hook": "Monsters are flat paper-cutout shapes with one strong silhouette each (a wobbly envelope with teeth, a cardboard box that grew legs, a phone receiver with eyebrows) in saturated primaries against sun-bleached poster backgrounds; the Charge screen goes full trailer poster (red and gold, black letterbox bars, halftone bursts), and the Boneyard is a bright red-and-gold museum where every defeated dread hangs in greyscale. The app icon is a single flat monster silhouette that reads cleanly in iOS 27 tinted mode.",
+  "music_role": "The anthem is a timer, a contract and a reward. Charge tracks are generated on Suno Premier to exactly three minutes in eight genres (trailer orchestral, thrash, disco, marching band, sea shanty, gospel, drum-and-bass, and lounge for the 'passive-aggressive email' dread), with developer-written lyrics that literally coach the first 20 seconds; Auto Split stems ship as calm/medium/intense layers so the mix swells the second you tap 'I'm dialing'. Each monster species has a Sounds-mode leitmotif that gains instruments as it ages, the Roll Call has a 20-second jingle, slaying gets one of a dozen victory stings, and the Sunday poster plays a credits song; a Custom Model built from the first six tracks locks the house sound so the library feels like one composer.",
+  "broad_appeal_argument": "Avoidance is universal and ageless: teenagers dodge replying, adults dodge the insurance company, retirees dodge the bank, so there is no niche here, only a shared embarrassment people love confessing ('my dentist monster is 41 days old' is a TikTok in itself). It is single-player-first, needs nobody else to install anything, and one dread per day is a bar anyone can clear.",
+  "solo_dev_buildability_1to5": 4,
+  "biggest_risk": "Tone tuning: if monster growth reads as shame instead of comedy it becomes the guilt machine users flee, so growth must cap, monsters must be lovable, and every line must be honest-kind rather than honest-mean; this needs a real writing pass and playtests with people who actually avoid things. Second, the writing must keep its satire on invented institutions and never drift onto real companies or groups (Apple 1.1).",
+  "lens": "contrarian"
+ },
+ "refutation": {
+  "concept_name": "Dreadlines",
+  "existing_competitors": [
+   {
+    "name": "CARROT To-Do (Grailr LLC, $2.99)",
+    "url": "https://apps.apple.com/us/app/carrot-to-do/id591840203",
+    "how_close": "Closest in tone. A to-do list with a sadistic AI personality that gets progressively angrier the longer you slack, rewards/insults you, is a 'virtual pet', and gamifies with levels and unlockables. 1.1K ratings, 4.7 stars, still charting (#87 Productivity). This is the incumbent for 'comedy taskmaster to-do'.",
+    "why_it_falls_short_or_not": "It is a generic single list, not an avoidance-only list; the escalation is about you (CARROT's mood), not about each task growing; no per-task creatures, no music, no one-per-day rule, no history museum. Reviews show its failure mode: 'effective but tiresome after a year' because the nagging is shame-based. It has not had a meaningful update since 2017 and lacks Live Activities/widgets. It proves the market for personality-driven task apps but leaves the 'lovable monster that ages' lane empty."
+   },
+   {
+    "name": "Dawdle AI (Dr. Anusha Garg / UCSB, free)",
+    "url": "https://apps.apple.com/us/app/dawdle-ai/id6742461709",
+    "how_close": "Most direct problem overlap. Built specifically for 'the tasks you've been avoiding' and 'the starting line problem': affect labeling, tiny task steps, a focus timer to 'start with just a few minutes', a reward picker, an AI buddy (Pebbles), streaks, gentle nudges. Backed by a published BMC Psychology study and university PR (Nov 2025).",
+    "why_it_falls_short_or_not": "Earnest, clinical, chat-based and cloud/AI-dependent; no comedy, no monsters, no music, uses streaks (which the brief explicitly rejects). Only 14 ratings a year after launch, so it has not captured the space. It validates the science (aversion + reward) that Dreadlines' anthem-contract mechanic operationalizes, but it does not compete on experience."
+   },
+   {
+    "name": "Eat The Frog - One thing a day (Kinobo Studios) and the eat-the-frog cluster (Eat. The. Frog. Daily Focus, Frog It, Frog - Eat That Frog, Eat Frog with server-enforced one frog per day)",
+    "url": "https://apps.apple.com/ca/app/frog-it-habits-to-do-list/id6753146536",
+    "how_close": "The 'pick exactly one hard task per day' rule already exists as a whole sub-genre (38 App Store results for 'eat the frog'). Weekend Apps' 'Eat the Frog' even croaks at you at increasing frequency until you eat it, an escalating-pressure mechanic.",
+    "why_it_falls_short_or_not": "All model the frog as the most important task, not the most avoided; none model avoidance age, none have characters, comedy, music, or a trophy history. They are minimalist utilities with no world. One-per-day is therefore not a unique selling point on its own; Dreadlines must sell the monster and the anthem, not the rule."
+   },
+   {
+    "name": "Habitica, Habit Hunter, BattleTask, Taskoria, Chorebound, MainQuest, MagicTask, Habit Quest (monster-battle to-do RPGs)",
+    "url": "https://apps.apple.com/us/app/battletask-gamified-to-do-rpg/id6504790750",
+    "how_close": "'Turn tasks into monster battles' is a crowded, well-funded lane; BattleTask's tagline is literally 'Turn tasks into monster battles'. Habitica has millions of users; Habit Hunter has 795 ratings at 4.6.",
+    "why_it_falls_short_or_not": "In every one of these the monster is an external enemy you damage by completing tasks; the task itself never becomes the monster and nothing grows with days avoided. They are fantasy pixel-art RPGs with XP, HP loss, loot and streaks, aimed at habit-building for gamers/ADHD, not at adult avoidance comedy. App Store reviewers may still see 'to-do + monsters' as derivative, so the visual language must clearly not be pixel RPG."
+   },
+   {
+    "name": "Arise (iOS, paid) - 'procrastination demons'",
+    "url": "https://bossasaservice.com/blog/apps-for-procrastination/",
+    "how_close": "Names nine 'procrastination demons' (Intimidator, Gigantic, Dead Boring, Last-Minute Junkie) that sit on your back, then gives advice. Same core metaphor: avoidance personified as a creature.",
+    "why_it_falls_short_or_not": "Demons are diagnostic categories, not per-task creatures that age; it is a static advice booklet with no daily loop, no timer, no music. Shows the metaphor resonates but nobody has made it live."
+   },
+   {
+    "name": "KallyConfidence: Call Anxiety (Kally Intelligence, free + IAP) and KallyAI",
+    "url": "https://apps.apple.com/us/app/kallyconfidence-call-anxiety/id6757984478",
+    "how_close": "Targets the single most common dread in the brief (the phone call): AI mock calls, 12-level exposure ladder, daily quests, XP, streaks. Business Insider (June 2026) tested it as the only app that 'got me to make the call'. KallyAI will make the call for you.",
+    "why_it_falls_short_or_not": "Phone calls only, practice rather than the real call, AI/cloud and subscription-based, therapy framing. It does not touch emails, returns, reply debt or micro-promises. It is a real competitor for the 'dentist call' use case in ASO and press, so Dreadlines should not lead with anxiety language."
+   },
+   {
+    "name": "RPLY (Mac, 'text debt' iMessage assistant) and Reply Lab / Reply Assist AI keyboards",
+    "url": "https://techcrunch.com/2025/02/06/rply-is-a-new-ai-assistant-that-responds-to-missed-texts/",
+    "how_close": "RPLY was built explicitly for 'text debt' with an unanswered-message filter, 'Those You Like to Ghost' stats and an inbox-zero streak; 1,000 paid users at launch. Reply Lab and Reply Assist AI are iOS keyboards that write the reply for you.",
+    "why_it_falls_short_or_not": "RPLY is Mac-only because iOS apps cannot read Messages, and it uses AI to answer for you rather than getting you to answer. On iOS the App Store search for reply/text-debt tracking returns nothing relevant (only debt-money trackers and AI reply keyboards). The share-sheet 'forward the text and it hatches a monster' path is the only legitimate iOS route and is currently unoccupied."
+   },
+   {
+    "name": "Initiation: Procrastination (Jarrett Siwiec), Just Five, FiveMinStart, 5 Seconds Rule Timer (Mel Robbins)",
+    "url": "https://apps.apple.com/us/app/5-seconds-rule-timer/id6760125839",
+    "how_close": "Micro-commitment 'just start' starters: Initiation 'identifies blockers, delivers interventions in ninety seconds'; Just Five/FiveMinStart give you a 5-minute permission-to-stop timer; the 5 Seconds Rule app counts 5-4-3-2-1 with Siri/Back Tap/Action Button launch and tracks 'action rate'.",
+    "why_it_falls_short_or_not": "They scaffold the starting moment with a countdown, which is the same job as CHARGE, but with no task memory, no creature, no comedy, no music. Their low-friction launch tricks (Action Button, Back Tap, Siri) are worth stealing for CHARGE."
+   },
+   {
+    "name": "Music Timer: Perfect Song Time (Ryota Kando), My Music Timer (nowApp), Brain.fm Motivation mode",
+    "url": "https://apps.apple.com/us/app/music-timer-perfect-song-time/id6773217154",
+    "how_close": "The 'do it in one song' behaviour is already productised: Music Timer picks Apple Music tracks whose length matches your timer ('1 song for breaks, chores'); My Music Timer plays a random song as a Pomodoro timer; Brain.fm sells 'Motivation mode' music to kickstart starting.",
+    "why_it_falls_short_or_not": "None ties the song to a commitment ('start before the final chorus'), none has stems that swell when you commit, none owns its music. They are utilities on top of streaming subscriptions. This confirms the anthem-as-contract mechanic is unclaimed."
+   },
+   {
+    "name": "Real Stake, Beeminder, Forfeit-style stakes apps",
+    "url": "https://www.reddit.com/r/ProductivityApps/comments/1mucvkc/i_got_tired_of_my_own_procrastination_so_i_built/",
+    "how_close": "Same target user (serial procrastinators) with escalating consequences: lose money, have an embarrassing text sent, public failure posts, AI evidence verification.",
+    "why_it_falls_short_or_not": "Punishment and shame instead of comedy; the brief's stated biggest risk is exactly this failure mode. Useful mainly as a contrast in positioning."
+   },
+   {
+    "name": "Tody (Dusty the dust-bunny, 'dueness' meter), Due (relentless auto-snooze reminders), Finch / Focus Dog / Kindred (companions that grow with follow-through or get sad when ghosted)",
+    "url": "https://todyapp.com/",
+    "how_close": "Partial mechanics exist in pieces: Tody's per-chore 'dueness' grows from green to red over time and you can 'race Dusty'; Due nags on repeat until you act or postpone; Finch/Focus Dog/Kindred tie a creature's state to your follow-through.",
+    "why_it_falls_short_or_not": "Tody is cleaning-only and the growth is a colour bar, not a character; Due is a pure reminder; Finch-style companions punish neglect of the pet, not neglect of a specific task. Nobody combines a per-task creature with a visible avoidance age."
+   },
+   {
+    "name": "'Dreadlines' by Zimt Games (Steam/itch.io, satirical monster office dating sim, Steam page live Aug 2026, release TBA) plus 'Dreadline' horror news app (Google Play), 'Dreadline Express' (Steam, Oct 2026), 'Dreadline: Net Quota' (Steam)",
+    "url": "https://store.steampowered.com/app/5146570/Dreadlines/",
+    "how_close": "Not a functional competitor but a direct name collision: an in-development comedy game about monsters and 'surviving corporate deadlines' already uses the exact name 'Dreadlines' with a press kit, Steam page, itch demo and Instagram, and three other 'Dreadline' titles exist. The iTunes Search API returns no 'Dreadlines' app yet, but 'dread' searches return only horror games.",
+    "why_it_falls_short_or_not": "The name is effectively taken in the games press and Steam search, the tone overlap (satire + monsters + deadlines) maximises confusion, and 'dread' as an App Store keyword buries you among horror titles. This is the single biggest practical risk to the concept as written."
+   }
+  ],
+  "underserved_verdict": "partially_served",
+  "uniqueness_after_search_1to10": 7,
+  "ip_or_guideline_red_flags": [
+   "NAME COLLISION: 'Dreadlines' is already an in-development satirical monster comedy game by Zimt Games (Steam app 5146570, itch.io demo, press kit, Instagram) and 'Dreadline'/'Dreadline Express'/'Dreadline: Net Quota' exist on Steam/Google Play. Rename before building the brand, and clear the new name on App Store search, USPTO TESS and EUIPO (the Zimt developer is German).",
+   "ASO/CATEGORY: App Store searches for 'dread' and 'dreadlines' return only horror games; any dread-based name or keyword set will be surfaced next to 'The Boiled One' and 'Undead Dread'. Choose a name and keywords that read as productivity/comedy.",
+   "SUNO RIGHTS ARE CONDITIONAL: under the Terms effective 3 Sept 2026, commercial rights attach only to Output generated on a paid tier AND obtained via a permitted Download within the tier's monthly allotment (Premier: 60 downloads/month; Studio stem workflow is exempt). Keep receipts, generation and download timestamps for every track; songs made on a free/trial account can never be retroactively licensed.",
+   "SUNO GIVES NO COPYRIGHT WARRANTY: the ToS states 'Suno makes no representation or warranty to you that any copyright will vest in any Output', and US practice (Thaler v. Perlmutter; Copyright Office guidance) denies copyright to fully AI-generated music. You can ship the music, but you cannot stop others from lifting it. Write and register the lyrics/melodic ideas as human-authored, and treat the library as a feature, not a defensible asset.",
+   "SUNO INDEMNITY RUNS THE WRONG WAY: you indemnify Suno; Suno does not indemnify you. If a generated anthem resembles an existing recording, the App Store Guideline 5.2 (intellectual property) exposure is entirely yours. Avoid genre prompts that name real artists/songs, and never use the Remix feature for shipped tracks (Remixes are joint works restricted to non-commercial use regardless of tier).",
+   "SUNO MAY LABEL YOUR OUTPUT: Suno reserves the right to publicly identify that Output was generated via its service; the Warner-licensed 2026 models may carry different terms. Lock the library on current terms and archive masters and stems off-platform.",
+   "APPLE 1.1.1 / 1.1.2: satire is fine only if aimed at invented institutions; 'enemies' in a game 'cannot solely target a specific... corporation, or any other real entity'. Monsters must never be dressed as real insurers, carriers, dentists' brands or agencies, and Sitrep/Roll Call copy must not name real companies. The 'professional humorists' exemption will not be extended to an indie productivity app.",
+   "APPLE 5.1.1 / SHARE EXTENSION: hatching monsters from forwarded emails/texts means ingesting third-party message content; keep it strictly on-device, declare 'Data Not Collected', and do not attempt to read Messages (RPLY had to be Mac-only for this reason). If any AI-generated lines are added later, keep them on-device or the privacy label changes.",
+   "MEDICAL/THERAPY FRAMING (Apple 1.4.1, 5.1.1(ix), and marketing): do not market the app for 'anxiety' or 'telephobia'; Barnaby 'who claims to be a licensed therapist and is not' is a joke but the App Store copy must not read as mental-health treatment. Position as comedy productivity.",
+   "BLOCKBUSTER TONE: 'Assemble' phrasing is Marvel-adjacent ('Avengers Assemble' is a Marvel mark); do not use 'Assemble' as the wordmark or button verb, and keep the red/gold letterbox trailer style generic rather than mimicking a specific studio's title treatment.",
+   "ENVATO ELEMENTS: fonts and UI kits from Elements are licensed per registered project, and several Elements fonts prohibit app embedding; check each font's embedding rights before shipping it in the binary, and register the app as the end product.",
+   "LIVE ACTIVITY / BACKGROUND AUDIO: a 3-minute Live Activity timer and background anthem playback are legitimate uses, but reviewers reject Live Activities used as glorified banners; make sure the countdown and the 'I'M DIALING' state actually update the activity."
+  ],
+  "sharpening_suggestion": "The concept survives, but only two pieces of it are genuinely unclaimed, and the pitch should be rebuilt around those two while dropping the parts competitors already own. (1) Own 'avoidance age', not 'to-do'. No app surfaces how many days you have dodged a thing; every competitor models due dates, streaks or XP. Make the age the hero number everywhere: the home-screen and lock-screen widget shows your oldest monster and its age ('Dentist call, day 41, has a briefcase now'), the Sunday poster is a wanted-poster of ages, and the share line is 'my dentist monster is 41 days old'. This is the TikTok unit and it is unique. (2) Own 'the song is the contract'. Music-timer apps exist (Music Timer: Perfect Song Time, My Music Timer, Brain.fm Motivation) but none ties a song to a commitment or reacts when you commit. Build the whole App Store preview around the one moment nobody has: you tap I'M DIALING and the intense stem drops in. Ship CHARGE as an Action Button/Back Tap/Siri launch (steal this from 5 Seconds Rule Timer) so the anthem can start with the phone still in your pocket. (3) Deliberately position against the two incumbents: 'not a taskmaster, not a therapist'. CARROT's reviews show shame-driven personality apps get tiresome within a year, and Dawdle/KallyConfidence own the earnest clinical lane. Cap monster growth at day 30, make growth accessories affectionate (hat, briefcase, reading glasses) never grotesque, and add an 'amnesty' verb: you can declare a dread dead of natural causes ('turns out I never needed to return it') and it still goes to the Boneyard in greyscale. That single mechanic separates you from every punishment app (Real Stake, Beeminder, CARROT). (4) Claim reply debt on iOS, where there is literally nothing: because iOS cannot read Messages (RPLY had to be Mac-only), your share-sheet capture is the only legitimate route; let a screenshot or forwarded text hatch a monster whose species is 'Left On Read' with the day counter starting from the message date. (5) Cut the eat-the-frog framing from marketing (38 apps already sell 'one thing a day'); keep one-per-day as a rule, not a headline. (6) Rename. 'Dreadlines' belongs to an upcoming satirical monster game and 'dread' keywords land you among horror titles; pick a name that says the mechanic (working candidates to clear: 'Overdue Monsters', 'Boneyard', 'Day 41', 'Ugh: a list for the things you're avoiding') and check App Store, USPTO and EUIPO before designing the wordmark. (7) For music, treat Suno output as a shippable feature you cannot defend: write the lyrics yourself, log every generation and download, never use Remix, and keep the eight anthems plus stems archived off Suno so a future model or terms change cannot touch the launch library."
+ },
+ "judges": [
+  {
+   "judge": "indie-publisher: veteran publisher of 30 paid iOS apps judging commercial reality only — will people pay a one-time price, will it retain past week three, can one local-first developer ship it in under a year, and will App Review (4.3(b), 5.2.1, 1.4.1, 1.2) pass. Name collisions that only require a rename are noted in rationales; the fatal_flaws list holds only concept-killers as pitched. Two concepts share the name Dead Air and are labeled by premise.",
+   "score": {
+    "concept_name": "Dreadlines",
+    "uniqueness": 7,
+    "problem_severity": 7,
+    "daily_pull": 6,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 4,
+    "buildability": 7,
+    "vibrancy": 9,
+    "total": 53,
+    "rationale": "The best single mechanic in the dossier for a solo paid app: 'avoidance age' ('my dentist monster is 41 days old and has a briefcase') is a share line nobody else can make, the anthem-as-contract with stems that swell the second you tap I'M DIALING is unclaimed, and it needs no partner, no sync, no server and no runtime AI. CARROT To-Do proves people pay one-time for a personality task app and its reviews show exactly the shame failure mode to design against, while Dawdle and KallyConfidence occupy the earnest clinical lane you should not enter. The share-sheet 'hatch a monster from the text you're avoiding' is the only legitimate reply-debt route on iOS. Rename is mandatory (Zimt Games' Dreadlines, horror-keyword ASO) and growth must stay affectionate and capped. Daily pull softens once the list is clear, so the widget, the Boneyard and the amnesty verb have to carry quiet days; monsters and anthems are a smaller content budget than any household concept."
+   }
+  },
+  {
+   "judge": "everyday-user: a panel of five ordinary people (a nurse on rotating shifts, a college student, a parent of three, a retiree living with a spouse, a barista with 5am opens). We judged each concept on whether we would actually download it, open it every day without being nagged, tell a friend about it unprompted, and pay for it once. We were deliberately hard on anything that felt like a utility wearing a costume, anything that only works if other people install it, and anything that adds a new ritual to a day instead of hijacking time we already spend. Ties in total were broken by who on the panel could use the app alone, today, with zero setup.",
+   "score": {
+    "concept_name": "Dreadlines",
+    "uniqueness": 7,
+    "problem_severity": 7,
+    "daily_pull": 6,
+    "broad_appeal": 8,
+    "willingness_to_pay": 6,
+    "ip_safety": 4,
+    "buildability": 7,
+    "vibrancy": 8,
+    "total": 53,
+    "rationale": "'My dentist monster is 41 days old and has a briefcase now' was the line the whole panel repeated back, and the student immediately wanted a 'Left On Read' monster for the text he has been dodging. Every one of the five of us has three to ten of these right now, it needs nobody else to install anything, and the rule is just 'start before the song ends', which is a bar the retiree said he could clear. Forwarding the scary email so it hatches a monster is a real trick. We liked that bailing costs nothing and that you can declare a dread dead of natural causes. Our only tone worry is that a growing monster could tip into shame if the writing is mean, but a mustache at day ten felt affectionate. Name belongs to an upcoming game and 'dread' keywords will land it among horror titles, so rename. Second on the panel because it works for all five of us, alone, today."
+   }
+  },
+  {
+   "judge": "Comedy-showrunner lens. I read each concept as a pilot pitch: is there an ensemble with distinct wants that a small writers' room could write for years, does the comedy come from character rather than from a skin, is there warmth (the cast never blames the user), is there a daily 'everyone shows up' beat, and can the world add institutions, seasons and guest stars without touching Bob's Burgers, South Park, American Dad or Marvel. I scored the eight criteria on the dossier's own evidence (competitor hunts, red flags), so live name collisions and Apple 4.3(b) exposure hit ip_safety and buildability hard, and 'the pieces all exist elsewhere' capped uniqueness. Two cross-cutting rulings. First, the register must be Bob's Burgers warmth at a 9+ rating, not South Park edge, or the 'anyone can use it' promise and any family editorial die; every cast below is scored on the assumption that the satire stays on invented institutions. Second, three concepts (Dreadlines, Pull It Off, Caper) share one logline, 'an original crew shows up for the thing you have been avoiding'. A showrunner does not greenlight three pilots with the same premise, so I treat them as one show and did not hand the avoidance lane all three top slots even though they hold the three highest totals. My top 3 is therefore one greenlight per lane: Dreadlines (absorbing Pull It Off's bar-quantised score and Caper's script library and bail rule), Split Level (the best sitcom cast in the dossier, once its homage stack is fixed), and Launch Window (the highest-pain daily problem attached to a real mission-control ensemble). Every concept needs a rename; that is the price of admission, not a tiebreaker. Music was judged on whether it does structural work a writer would miss if it were gone: Pull It Off, Dreadlines, Launch Window, Houseband and Crew Call pass that test cleanly.",
+   "score": {
+    "concept_name": "Dreadlines",
+    "uniqueness": 7,
+    "problem_severity": 8,
+    "daily_pull": 8,
+    "broad_appeal": 8,
+    "willingness_to_pay": 7,
+    "ip_safety": 5,
+    "buildability": 7,
+    "vibrancy": 9,
+    "total": 59,
+    "rationale": "The monsters are the stars, and that is the trick: every avoided task hatches its own guest character (an envelope with teeth, a cardboard box that grew legs, a phone receiver with eyebrows) that ages visibly (a moustache at day 10, a tiny hat at 20, a briefcase at 30), so the show generates cast from the user's own life without a writer typing a line. 'My dentist monster is 41 days old' is the best shareable sentence anyone pitched, the Boneyard museum of things that turned out to be four-minute calls is warm and true, and the crew (a retired stunt coordinator who treats phone calls like car chases, a pigeon who claims to be a licensed therapist, a sixteen-year-old narrating your life as a trailer, an unimpressed Nana) is a real chorus with an invented bureaucracy, the Department of Being Placed On Hold, to mock for years. CHARGE is the assemble beat pointed at a phone call, and the anthem-as-contract with stems that swell the second you tap I'M DIALING is a music mechanic no competitor has. The name belongs to an in-development satirical monster game and 'dread' keywords bury it among horror titles, so rename; growth must cap at day 30 and stay affectionate so it never reads as shame; add the 'amnesty' verb. This is the one avoidance pilot to greenlight, absorbing Pull It Off's bar-quantised score and Caper's script library."
+   }
+  },
+  {
+   "judge": "product-strategist (defensibility-first: post-hunt uniqueness, clarity of the problem set, habit and network effects, and whether music is a mechanic or a gimmick)",
+   "score": {
+    "concept_name": "Dreadlines",
+    "uniqueness": 7,
+    "problem_severity": 7,
+    "daily_pull": 6,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 3,
+    "buildability": 7,
+    "vibrancy": 9,
+    "total": 52,
+    "rationale": "Of the three avoidance drafts this is the one with a defensible hook that does not depend on the (uncopyrightable) audio: no app on the store surfaces how many days you have dodged a thing, every competitor models due dates, streaks or XP, and 'my dentist monster is 41 days old, it has a briefcase now' is a widget, a poster and a TikTok unit in one line. The problem set is the clearest in the dossier (a list only for the things you are avoiding, including reply debt, where iOS literally has nothing because RPLY had to be Mac-only), and the amnesty verb separates it from every punishment app (CARROT, Beeminder, Real Stake). The song-as-contract mechanic (start before the final chorus, intense stem drops the second you tap I'm Dialing) is music as a real mechanic that Music Timer and Brain.fm cannot claim, and the Action Button launch borrowed from 5 Seconds Rule makes it usable with the phone in a pocket. Habit is one dread a day, which most adults can supply. The risks are tone (monster growth must read as affectionate, capped at day 30) and the name: an in-development satirical monster comedy game already owns 'Dreadlines' on Steam and 'dread' keywords bury you among horror titles. Rename, absorb Caper's script library and Pull It Off's bar-quantized score, and this is the avoidance product to ship."
+   }
+  }
+ ]
+}

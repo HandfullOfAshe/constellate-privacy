@@ -1,0 +1,171 @@
+{
+ "concept": {
+  "name": "Cold Open",
+  "type": "hybrid",
+  "one_liner": "Your household is a sitcom: every day gets an episode title in the morning, chore anthems in the afternoon, a dinner segment at five, and end credits at night where top billing goes to whoever actually carried the day.",
+  "problems_solved": [
+   "Mental load is invisible: the person who remembers the dentist, the permission slip and the cat food gets no credit, and no app makes that labor visible without turning into a scoreboard.",
+   "Partners and roommates will not adopt tool-shaped chore apps (FairPlay, Cozi, Nipto), so the organized person ends up doing the app too.",
+   "'What's for dinner' is a nightly decision-fatigue fight with no lightweight, fun, offline answer that also preserves the household's go-to recipes.",
+   "Chores have no start trigger: people know what to do but never begin, and cleaning-playlist hacks are DIY and unstructured.",
+   "Habit and household apps punish daily use with subscriptions, guilt notifications and unrecoverable streaks, and none let you fix yesterday.",
+   "Household life has no shared, low-effort record: nobody remembers the funny small stuff, and journaling apps are blank pages people abandon."
+  ],
+  "why_no_good_solutions_exist": "Every household product is built as a tool (charts, task lists, split-the-work calculators) so it fails on adoption cost and partner apathy: FairPlay is called 'a glorified chore chart,' Cozi's surprise paywall dropped it to a 2.1 Trustpilot score, Paired goes stale by month three, and Nipto's points board breeds resentment. None frame the day as entertainment, none use music, none measure invisible planning labor separately from visible chores, and none treat dinner as a nightly ritual with a keepsake. The only apps that stick daily (Finch, Streaks) are single-player and have no household layer at all.",
+  "core_daily_loop": "7:40 a.m., the Cold Open: a 60-second bit where Delphine Okonkwo-Reyes, the showrunner one espresso from a breakdown, pitches tonight's episode title from what is on the house board ('Episode 214: The One Where the Recycling Goes Out or So Help Me'); you tap the two or three things you are carrying today (invisible items like 'remember school photo money' count double) and any chores you are taking, and a Suno cold-open sting punctuates it. Afternoon, Power Scenes: tap a chore and Pim the overqualified intern 'directs' a 10- or 20-minute tempo-locked chore anthem with a Live Activity countdown on the Lock Screen; finishing gets a two-second 'that's a wrap' sting. 5 p.m., Craft Services: Ludmila, who runs the studio canteen, spins the House Menu (your 10-15 go-to meals), the cast argues about it for eight seconds, you pick or veto, and the recipe card is stamped into the keepsake archive. 9 p.m., Credits: a 90-second animated end-credits roll over one of two dozen original credits songs, with billing order computed from load carried; you share the credits card into the household iMessage thread, and anyone with the app can log their own scenes so the credits merge via CloudKit share. Missed days are 'clip shows' (the season continues, streak intact), and 'reshoots' let you edit yesterday. Solo users are a one-person show and the cast simply treats them as the star, the crew and the audience.",
+  "unique_mechanic": "Top Billing: the end-credits order is computed from invisible labor (remembering, planning, coordinating, weighted 2x) plus visible chores, so the household member who carried the mental load gets the star credit and the person who did one visible chore is 'special guest star.' The cast delivers the result as a joke about show business, not about the people, so the partner sees a funny credits card in the group chat instead of a nag. Paired with Reshoots (edit any day within the last week) and Clip Shows (a missed day is a rerun, never a broken streak), the show gets 'renewed' each week for showing up 5 of 7 days, never cancelled.",
+  "tone_link": "Ensemble workplace comedy set in the writers' room of a struggling cable sitcom about your house: warm family-restaurant-show energy in the way the cast bickers but clearly loves the show, and adult-animation bite in the satire, which is aimed only at invented institutions (the network, the laugh-track union, the critic from a newspaper that folded in 2009). Fully original cast with distinct silhouettes on a shared cutout body template: Del the showrunner (tall, clipboard, hair in a pencil), Bartholomew Quill the 80-year-old laugh-track operator who refuses to laugh below a 7/10, Pim the intern, Ludmila from craft services, and Ignatius Marrow the critic. No family-of-four-plus-pet roster, no snowy-town kids, no likenesses.",
+  "why_worth_paying": "Free tier: the daily episode, one chore anthem, the credits roll and the house menu, complete in itself so free users become word of mouth. One-time unlock ($9.99-$12.99, optional $4.99/year for people who prefer small payments): the full anthem library (60+ tracks), all 24 credits songs and season themes, the season archive and Clip Show library, recipe keepsake export as a printable PDF cookbook, household sync for up to eight people, and widgets. The paywall literally says 'One purchase. No subscription. No ads. No lost streaks.' No server costs, so lifetime margins hold. Nothing else offers a household ritual you would screenshot and send to your sister.",
+  "vibrant_visual_hook": "A paper-cutout TV studio in bold flat color: the house board is a bulletin wall of saturated index cards, each chore card color-coded to the person who took it, and the nightly credits roll in fat white type over a single saturated color that shifts per season (teal season one, tangerine season two) behind a fixed wordmark. Characters are hard geometric cutouts with a scanned paper-grain texture and short squash-and-stretch loops; the Liquid Glass tab bar sits over a content layer that is nothing but color and cardboard. The shareable credits card is a vertical poster with the day's episode title in condensed all-caps display type and a classical serif for the logline.",
+  "music_role": "The ritual is structured like a TV episode and the Suno library provides every structural beat: a 30-second opening theme rendered through Covers into 12 genres so each 'season' of your household gets a new arrangement of the same original melody; two-second cold-open and 'that's a wrap' stings from Sounds mode; BPM-locked 10- and 20-minute chore anthems built on the 20/10 cleaning rule, split into calm/medium/intense stems so the track thickens in the last two minutes; a leitmotif per cast member via Personas so Del always enters on the same brass figure; the Craft Services jingle; and 24 original end-credits songs with developer-written lyrics about domestic life ('Somebody Bought the Cat Food', 'The Dishwasher Was Clean the Whole Time'). Because the credits song plays, people know it is credits time; the music is the clock of the day, not decoration.",
+  "broad_appeal_argument": "Everybody lives somewhere with someone or with themselves, everybody eats dinner, and everybody has a running list in their head nobody else sees. The entry action is a 60-second morning bit, not setup: no account, no household configuration, value in the first session. Sitcom framing is universal across ages and genders, works for couples, roommates, single parents, empty nesters and students, and the shareable credits card gives the app a built-in reason to spread to the other people in the house.",
+  "solo_dev_buildability_1to5": 4,
+  "biggest_risk": "Tone drift into scorekeeping: if the credits card ever reads as passive-aggressive, the lower-billed partner disengages and it becomes another resentment machine. The writing must give the 'guest star' the funniest bit every night, and the household layer must stay optional. Second risk is content volume: keeping the cast fresh daily requires a few hundred lines of jokes and 100+ tracks before launch, which is authoring time, not engineering time.",
+  "lens": "household-social-first: families, roommates, couples, friend groups. Each concept is fully rewarding for one person, gets funnier when a real household or friend group joins, runs local-first (SwiftData + optional CloudKit share or an iMessage extension, no server), and treats Suno music as the skeleton of a daily ritual rather than a soundtrack. All three names are coined phrases; run a USPTO knock-out search and an App Store search in every localization before committing (web-search budget was exhausted in this session, so no collision check was possible here)."
+ },
+ "refutation": {
+  "concept_name": "Cold Open",
+  "existing_competitors": [
+   {
+    "name": "PairCalm (free, iOS/Android, released Apr 2026)",
+    "url": "https://apps.apple.com/us/app/paircalm/id6761573152",
+    "how_close": "Very close on the core problem. Tracks 'invisible work' and emotional labour by voice/text, a 'Care Radar' that auto-detects when one partner is carrying more, gentle nudges instead of nagging, explicitly 'no scorekeeping', and a weekly AI-generated 'Your Story' card that is shareable to Instagram. That is the mental-load-made-visible-without-a-scoreboard promise plus a shareable weekly artifact.",
+    "why_it_falls_short_or_not": "It is a couples wellness tool, not entertainment: no characters, no jokes, no daily episode structure, no music, no chore start trigger, no dinner ritual, and it requires both partners to log. Only 2 US ratings, so it has not proven adoption. But it proves the 'invisible labor + shareable card' idea is no longer novel."
+   },
+   {
+    "name": "FairShare: Couples Mental Load (released May 2026, updated Sep 21 2026)",
+    "url": "https://apps.apple.com/us/app/fairshare-couples-mental-load/id6765473407",
+    "how_close": "Very close to the Top Billing mechanic. Its signature 'Noticing Score' measures who notices tasks vs who does them (i.e., invisible labor weighted separately), it has a 'Perception Gap' reveal with a shareable poster 'for your partner or the group chat', and a one-tap Rebalance simulator.",
+    "why_it_falls_short_or_not": "Built on Eve Rodsky's Fair Play card-sort, so it is a tool (100+ ownership cards, onboarding, subscription with 7-day trial), and it is earnest, not funny. No music, no daily ritual, no dinner, no solo mode. 0 ratings. It does not frame the result as a joke, which is the concept's only real gap left to own."
+   },
+   {
+    "name": "Briskly: Quick Clean Timer (released Aug 2 2026, v1.0.1 Sep 20 2026)",
+    "url": "https://apps.apple.com/us/app/briskly-quick-clean-timer/id6762098622",
+    "how_close": "Almost exactly the Power Scenes mechanic: timed cleaning micro-sprints, Lock Screen Live Activity countdown, Apple Watch, 'Spotify and Apple Music: a fresh track for every task', streaks and levels with 'no guilt-tripping', no account, on-device only. Even the copy is jokey ('your kitchen looks like a crime scene from a cooking show nobody watched').",
+    "why_it_falls_short_or_not": "Single-player, chores only, uses the user's streaming catalog rather than original tempo-locked stems, no household layer, no story, and it is a weekly/monthly subscription. 0 ratings. It shows that 'timed chore sprint + music + Live Activity' is already shipped on iOS as of last month."
+   },
+   {
+    "name": "dubbii: the body doubling app (ADHD Love; 500k+ users, 4.8 stars / 719 ratings)",
+    "url": "https://apps.apple.com/us/app/dubbii-the-body-doubling-app/id6450302677",
+    "how_close": "Solves the 'chores have no start trigger' problem with follow-along host videos (Rich & Rox), a music-only mode, task micro-steps, nudges, badges, and explicitly 'Missed a day? No worries - streaks never reset', which is the Clip Show forgiveness idea. Users say it 'turned doing the dishes from a dreaded chore into something I look forward to.'",
+    "why_it_falls_short_or_not": "Hosts are real creators, not a fictional cast; it is ADHD-niche, single-player, subscription-only for full access, and has no household, dinner or daily-episode layer. Its popularity confirms demand for 'someone gets you started' but leaves the comedy-ensemble space open."
+   },
+   {
+    "name": "Unlo (Cassa LLC; released Mar 2026, updated Sep 3 2026)",
+    "url": "https://apps.apple.com/us/app/unlo/id6741460530",
+    "how_close": "A spinning-wheel that matches household tasks to the time you have, built-in timer, streaks, and 'add friends and share the load'. Close to the Craft Services spinner idea applied to chores and to the Unlo/no-start-trigger problem.",
+    "why_it_falls_short_or_not": "Chores only, no dinner or recipe keepsake, no characters, no music, no invisible-labor accounting. Tiny (5 ratings)."
+   },
+   {
+    "name": "Nipto: Split Chores (4.70 stars / 879 ratings) and Sweepy (4.72 / 10.6k)",
+    "url": "https://nipto.app/",
+    "how_close": "The established gamified-household incumbents: Nipto runs chores as a weekly points competition with a reward for the winner; Sweepy has effort-weighted tasks and a leaderboard. Both target families, couples and roommates.",
+    "why_it_falls_short_or_not": "Both are scoreboards, and the resentment problem the brief describes is real: a Reddit user says 'my husband always had an excuse as to why his score was lower', and reviewers call Nipto 'the same mechanism as a fairness bar with the scoreboard turned up'. Neither measures invisible labor, neither is funny, neither uses music."
+   },
+   {
+    "name": "Character App (charactr; iOS + web, plans from $19.99/mo)",
+    "url": "https://www.character.app/",
+    "how_close": "Its landing page literally says 'Your own sitcom series. One candid photo of you and your cat. We build the set, the Cast and the episodes. You direct.' Persistent Cast, series Bible, episode-by-episode Stories, 2D cartoon comedy look.",
+    "why_it_falls_short_or_not": "It is an AI video-production studio for creators, not a household ritual: no chores, no dinner, no credits computed from real life, credit-based costs, and heavy generative-AI dependence. It does mean 'your life as a sitcom with a cast' is an occupied marketing phrase on the App Store."
+   },
+   {
+    "name": "Daily Cliff (web, $9/mo)",
+    "url": "https://daily-cliff.madethis.app/",
+    "how_close": "'Turn your day into a 90-second episode' narrated in your own voice, ending on a cliffhanger, with an episode archive and 'seasons'. Direct hit on the day-as-episode framing.",
+    "why_it_falls_short_or_not": "A social/creator product (followers unlock the next episode), web-only (not found in the App Store), no household, no chores, no credits. Confirms the framing exists but not the use case."
+   },
+   {
+    "name": "Showrunner (Fable, Amazon-backed) and Roomsy",
+    "url": "https://www.showrunner.xyz/",
+    "how_close": "Showrunner generates whole animated TV episodes from a prompt (iOS app 'coming soon'); Roomsy (Product Hunt, Jul 2026) puts a virtual pet in a tiny version of your home to make chores fun.",
+    "why_it_falls_short_or_not": "Showrunner is a generative-TV platform, not a life tracker; it is relevant mainly as an IP warning: it built its business on unauthorized South Park test episodes and its 'Exit Valley' show was widely described as looking like South Park. Roomsy is a cozy pet-chores tracker with no household accounting or narrative."
+   },
+   {
+    "name": "Tell me what to eat (4.36 / 22 ratings) plus the wider mental-load cluster (RemindHer, Tidywell, DuoDo, Balance, Tether, Skift, KinSync, Labor of Love)",
+    "url": "https://apps.apple.com/us/app/tell-me-what-to-eat/id1500434440",
+    "how_close": "'Tell me what to eat' stores your own recipes and randomly suggests from them (the House Menu spin). The 2026 mental-load cluster (at least nine shipped iOS apps found) all promise to make invisible labor visible and 'stop the nagging'; Labor of Love (2019) even turned it into a points game.",
+    "why_it_falls_short_or_not": "None combine dinner + chores + invisible labor + a nightly narrative artifact, none use original music, and none are written as comedy. But the category is crowded enough that 'mental load' as a keyword will be contested."
+   }
+  ],
+  "underserved_verdict": "partially_served",
+  "uniqueness_after_search_1to10": 6,
+  "ip_or_guideline_red_flags": [
+   "NAME COLLISION (high): 'COLD OPEN' is a live USPTO registration, Reg. 6540425 / Serial 88740315 (Nastassia Lopez LLC, filed Dec 2019, registered Oct 2021) in Class 41 'karaoke lounge services' and Class 43 restaurant/bar services. Separately, 'CO COLD OPEN' Reg. 5747604 / Serial 88054510 is live in Classes 35 and 42, owned by Cold Open Inc., a 46-person Venice, CA entertainment advertising agency (est. 1999) that owns coldopen.com and designs key art for Netflix/Hulu/FOX shows; it also holds a dead Class 42 'COLD OPEN' mark. An entertainment/comedy app in Class 9 (and Class 41 if you claim entertainment content) is squarely in the confusion zone of a Class 41 entertainment mark and an entertainment-industry company with the .com. No app named 'Cold Open' exists in US/GB/CA/AU App Store search today, but the name should be changed or cleared by counsel before any filing or launch.",
+   "LICENSED-IP LEAK IN THE PITCH: the sample episode title 'The One Where the Recycling Goes Out' copies Friends' signature 'The One Where/With...' naming convention (Warner Bros. Television). Using it as the daily title template violates the brief's own hard constraint (no quotes or signatures from licensed IP) and is the kind of thing WB polices in merchandise. Invent an original title device.",
+   "APP STORE METADATA (Guidelines 2.3.7, 2.3.8, 5.2.1): never mention Bob's Burgers, South Park, American Dad, Avengers, Marvel or Disney in the app name, subtitle, keywords, description, screenshots or ASO ('in the spirit of...'). Apple rejects metadata that references other brands, and Paramount/Disney file takedowns. Also avoid South Park's specific construction-paper character anatomy (round heads, mitten hands, snowy town) even though a generic paper-cutout studio look is fine; Showrunner's 'Exit Valley' drew 'looks like South Park' coverage.",
+   "SUNO TERMS ARE NOW MATERIAL TO THE BUSINESS MODEL (verified Sep 2026): (a) commercial rights exist only on Pro/Premier AND only attach to a track once it is downloaded through an approved channel; undownloaded generations have no commercial rights. (b) Since Sep 3 2026 downloads are capped: Free 7 lifetime (non-commercial), Pro 20/month, Premier 60/month, unlimited only via Suno Studio exports on Premier; extra downloads $2.99 each. A 100+ track launch library (60 anthems, 24 credits songs, 12 theme covers, stings, leitmotifs) is roughly 2-3 months of Premier+Studio, so budget it and keep records (song link, plan, download date). (c) Suno 'makes no representation that any copyright will vest in any Output' and the US Copyright Office does not register purely AI-generated audio, so a competitor could lawfully copy your soundtrack; only human-written lyrics and any human arrangement are protectable, so write and register the lyrics yourself. (d) No indemnification: if a track resembles an existing song you carry the risk; UMG/Sony v. Suno is still live (Warner settled Nov 2025; V6 is trained on licensed catalogs). (e) You must own 100% of lyrics and may not imply a real artist made a track. (f) Every pre-V6 model was retired Sep 9 2026 and 'Personas are now Voices', so the leitmotif-per-character and Covers workflow must be built on V6 Voices/Custom Models; stems ship with the single download.",
+   "APPLE AI RULES: Guideline 5.1.2(i) (Nov 13 2025) requires clear disclosure and explicit consent before sharing personal data with third-party AI. The concept is safe only if it stays local-first with pre-written jokes and pre-generated music; do not add a server-side LLM that ingests household logs without a consent flow. Several 2026 submission guides also report Apple asking for user-facing disclosure of AI-generated content; a 'Music generated with Suno' line in About/credits is cheap insurance. If you ever distribute the soundtrack to Apple Music, its AI Transparency Tags apply.",
+   "MONETIZATION (3.1.1 / 3.1.2): one-time unlock plus an optional $4.99/year auto-renewable subscription is allowed, but the subscription must be a real auto-renewing product with terms, price and cancellation shown before purchase; do not present it as a cheaper lifetime. Recipe PDF export and household sync must be unlocked only through IAP, never a web link.",
+   "PRIVACY (5.1.1/5.1.2): CloudKit-shared credits mean one household member's 'invisible labor' logs become another member's personal data; the privacy label, deletion path and the 'leave household' flow must be honest, and the shareable card should never expose a member who has not opted in.",
+   "BACKGROUND AUDIO / LIVE ACTIVITIES (2.5.4): background-audio entitlement is only acceptable while an anthem is actually playing; do not keep the session alive silently to hold the Live Activity.",
+   "AGE RATING / ADOPTION: 'adult-animation bite' pushes toward a 12+/17+ rating that hurts family adoption; keep profanity out of the default script and aim satire only at invented institutions, as the concept already states."
+  ],
+  "sharpening_suggestion": "Every individual mechanic now has a shipped competitor (PairCalm and FairShare on invisible-labor cards for the group chat; Briskly and dubbii on timed chore sprints with music and forgiving streaks; Unlo and 'Tell me what to eat' on spinners; Daily Cliff and Character App on 'your day as an episode'), but nobody combines them into a nightly household ritual and nobody delivers the result as comedy. So stop pitching it as a household app with characters and pitch it as the only app that produces a nightly artifact people screenshot: the credits roll. Concretely: (1) Rename it now; 'Cold Open' is taken in Class 41 and by an entertainment agency at coldopen.com. Pick a coined two-word name, run a USPTO knock-out in Classes 9, 41 and 42 plus App Store search in every storefront, and buy the domain before you commit. (2) Make Top Billing the entire identity: lead the App Store page with the 9 p.m. credits roll, compute billing from 'noticing' (FairShare's exact insight) but never display a number, percentage, radar or leaderboard anywhere in the app; the only output is billing order plus one written joke, and the guest star always gets the best line. That single rule is what PairCalm, FairShare, Nipto and Sweepy cannot copy without breaking their products. (3) Ship it one-player-complete: the cast treats the solo user as star, crew and audience, so you never need the partner to adopt anything (the failure mode of every couples app found). (4) Beat Briskly on music, not on timers: original tempo-locked stems that thicken in the last two minutes, a two-second 'that's a wrap' sting, and release the anthem album on Apple Music with AI transparency tags as marketing; Briskly can only play the user's Spotify. (5) Replace the Friends-style title template with an original device, e.g. every episode title is a fake TV-guide log line written by the critic character, so the joke corpus is yours and unmistakable in screenshots. (6) Keep the keepsake nobody has: a printable 'Season DVD' export (episode titles, credits, recipe cards) at season end, which also justifies the one-time price. (7) Budget Suno Premier + Studio for two to three months to legally download the 100+ tracks, write and register every lyric yourself, and keep it local-first with no runtime AI so Apple's 5.1.2(i) never applies."
+ },
+ "judges": [
+  {
+   "judge": "indie-publisher: veteran publisher of 30 paid iOS apps judging commercial reality only — will people pay a one-time price, will it retain past week three, can one local-first developer ship it in under a year, and will App Review (4.3(b), 5.2.1, 1.4.1, 1.2) pass. Name collisions that only require a rename are noted in rationales; the fatal_flaws list holds only concept-killers as pitched. Two concepts share the name Dead Air and are labeled by premise.",
+   "score": {
+    "concept_name": "Cold Open",
+    "uniqueness": 6,
+    "problem_severity": 6,
+    "daily_pull": 7,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 3,
+    "buildability": 5,
+    "vibrancy": 8,
+    "total": 48,
+    "rationale": "The 9 p.m. credits roll with top billing computed from invisible labor is one of the best shareable artifacts in the household cluster, and the four-beat day gives it more touchpoints than any competitor. But 'Cold Open' is a live Class 41 registration and the name of a Venice entertainment agency that owns the .com, the sample episode title copies the Friends 'The One Where' convention, and the paper-cutout studio look will draw South Park comparisons that Showrunner already suffered. PairCalm and FairShare ship invisible-labor share cards, Briskly ships chore sprints with Live Activity and music. The content budget (100-plus tracks, hundreds of jokes, animated credits) is heavy for one person and CloudKit household merge is optional but expected. Survives as a renamed, single-player-first show, but it is the expensive way to build what Split Level builds more cheaply."
+   }
+  },
+  {
+   "judge": "everyday-user: a panel of five ordinary people (a nurse on rotating shifts, a college student, a parent of three, a retiree living with a spouse, a barista with 5am opens). We judged each concept on whether we would actually download it, open it every day without being nagged, tell a friend about it unprompted, and pay for it once. We were deliberately hard on anything that felt like a utility wearing a costume, anything that only works if other people install it, and anything that adds a new ritual to a day instead of hijacking time we already spend. Ties in total were broken by who on the panel could use the app alone, today, with zero setup.",
+   "score": {
+    "concept_name": "Cold Open",
+    "uniqueness": 6,
+    "problem_severity": 7,
+    "daily_pull": 7,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 3,
+    "buildability": 6,
+    "vibrancy": 8,
+    "total": 50,
+    "rationale": "The end credits with top billing for whoever carried the day is the single most emotionally accurate idea in the pile; the parent said she would screenshot the first one and send it to her sister, and the nurse, who lives alone, liked being told she was star, crew and audience. Four touchpoints a day (morning bit, chore anthem, dinner, credits) is more than we would reliably do, but the 9pm credits alone would keep us coming back. The gag that the guest star always gets the best line is what stops it feeling like a report card. Two things hurt it: the name is a registered entertainment mark owned by an agency with the .com, and the sample episode title copies a famous sitcom's naming trick, which even we noticed. Fix those and this and Split Level are the same very good idea."
+   }
+  },
+  {
+   "judge": "Comedy-showrunner lens. I read each concept as a pilot pitch: is there an ensemble with distinct wants that a small writers' room could write for years, does the comedy come from character rather than from a skin, is there warmth (the cast never blames the user), is there a daily 'everyone shows up' beat, and can the world add institutions, seasons and guest stars without touching Bob's Burgers, South Park, American Dad or Marvel. I scored the eight criteria on the dossier's own evidence (competitor hunts, red flags), so live name collisions and Apple 4.3(b) exposure hit ip_safety and buildability hard, and 'the pieces all exist elsewhere' capped uniqueness. Two cross-cutting rulings. First, the register must be Bob's Burgers warmth at a 9+ rating, not South Park edge, or the 'anyone can use it' promise and any family editorial die; every cast below is scored on the assumption that the satire stays on invented institutions. Second, three concepts (Dreadlines, Pull It Off, Caper) share one logline, 'an original crew shows up for the thing you have been avoiding'. A showrunner does not greenlight three pilots with the same premise, so I treat them as one show and did not hand the avoidance lane all three top slots even though they hold the three highest totals. My top 3 is therefore one greenlight per lane: Dreadlines (absorbing Pull It Off's bar-quantised score and Caper's script library and bail rule), Split Level (the best sitcom cast in the dossier, once its homage stack is fixed), and Launch Window (the highest-pain daily problem attached to a real mission-control ensemble). Every concept needs a rename; that is the price of admission, not a tiebreaker. Music was judged on whether it does structural work a writer would miss if it were gone: Pull It Off, Dreadlines, Launch Window, Houseband and Crew Call pass that test cleanly.",
+   "score": {
+    "concept_name": "Cold Open",
+    "uniqueness": 6,
+    "problem_severity": 7,
+    "daily_pull": 8,
+    "broad_appeal": 8,
+    "willingness_to_pay": 6,
+    "ip_safety": 5,
+    "buildability": 6,
+    "vibrancy": 8,
+    "total": 54,
+    "rationale": "A writers' room making a struggling cable sitcom about your house is meta-comedy with a superb bench: Bartholomew Quill, the 80-year-old laugh-track operator who refuses to laugh below a 7, and Ignatius Marrow, the critic from a newspaper that folded in 2009, are characters that earn their own episodes. Top Billing is the anti-shame thesis delivered as show business (the guest star always gets the best line), the 9 p.m. credits roll is a shareable artifact, and the world renews for years (seasons recolour the credits, sweeps week, network notes, renewals). Weaknesses: four daily touchpoints is ritual fatigue, the sample episode title copies the Friends 'The One Where' device (a direct breach of the brief's constraint, trivially fixed), the name is a live Class 41 mark plus a Venice entertainment agency, and PairCalm and FairShare already sell invisible-labour cards. It is a close cousin of Split Level; pick one, and Split Level's cast is funnier."
+   }
+  },
+  {
+   "judge": "product-strategist (defensibility-first: post-hunt uniqueness, clarity of the problem set, habit and network effects, and whether music is a mechanic or a gimmick)",
+   "score": {
+    "concept_name": "Cold Open",
+    "uniqueness": 6,
+    "problem_severity": 6,
+    "daily_pull": 7,
+    "broad_appeal": 7,
+    "willingness_to_pay": 6,
+    "ip_safety": 3,
+    "buildability": 5,
+    "vibrancy": 8,
+    "total": 48,
+    "rationale": "Every mechanic has a shipped competitor (PairCalm and FairShare on invisible-labor cards, Briskly and dubbii on timed chore sprints with music, Unlo on spinners, Daily Cliff and Character App on 'your day as an episode'), but nobody produces the nightly artifact this concept buries in paragraph four: an end-credits roll whose billing order is computed from noticing and delivered as a joke rather than a number. That single rule (no percentages, no radar, no leaderboard, only billing order plus one written line with the guest star getting the best joke) is what PairCalm, FairShare, Nipto and Sweepy cannot copy without breaking their products, and it is single-player complete. The problem set is broad to the point of diffuse (six problems), and four daily touchpoints is a lot of ritual to sustain. Music is structural (the credits song is the clock of the evening) but the leitmotif-per-character workflow is fragile on Suno v6. The name is a live Class 41 registration plus an entertainment agency at coldopen.com, and the sample episode title copies Friends' naming convention, which violates the brief's own hard constraint."
+   }
+  }
+ ]
+}

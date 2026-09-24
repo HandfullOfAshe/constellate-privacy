@@ -70,25 +70,25 @@ Timings assume the default 12-minute launch, a 7:40 a.m. door time and 8:35 p.m.
 **What each person does.** Nothing until the bridge, when the parent may glance at the manifest and crew members (unlock) tap their patch. Whoever crosses the threshold first taps Door; if nobody does, the launch completes at T-0 anyway.
 
 **Failure paths.**
-- *Scrub.* Anyone taps Scrub (launch screen, Live Activity, Shortcut). Klaxon on the next bar, Scrub declares "weather", the track ends within a bar, the entry is logged as a scrub. That evening the Hangar offers the next-shorter duration (12 to 10 to 8) with one tap. No penalty.
+- *Scrub.* Anyone taps Scrub (launch screen, Live Activity, Shortcut). Klaxon on the next bar, Scrub declares "weather", the track ends within a bar, the entry is logged as a scrub, and that evening the Hangar offers the next-shorter duration (section 7). No penalty.
 - *Phone not on the counter.* Pocket start applies. If a speaker was chosen at onboarding, the track goes to the speaker wherever the phone is.
-- *Speaker missing.* If the AirPlay route is unreachable at T-12:30, playback falls back to the phone and Lionel says "CAPCOM. Speaker not found. Going local." The next Hangar screen shows a "Choose speaker" button.
-- *Someone late.* A patch tapped after T-0 punches in over the post-launch tail (the screen stays live ten minutes) and is logged late by N bars; a Door tap after T-0 logs the launch late by N bars. Augustine reads it as "Door confirmed. Late. Noted." in her usual voice.
-- *Nobody starts it.* If the alarm was stopped and nothing tapped by door time, the entry is "no launch" and excluded from the rating.
+- *Speaker missing.* If the AirPlay route is unreachable at T-12:30, playback falls back to the phone and Lionel says "CAPCOM. Speaker not found. Going local."
+- *Someone late.* A patch or Door tapped after T-0, during the ten-minute post-launch tail, is logged late by N bars; Augustine reads it as "Door confirmed. Late. Noted." in her usual voice.
+- *Nobody starts it.* Alarm stopped and nothing tapped by door time: logged "no launch", excluded from the rating.
 
 **Logged.** One MissionLogEntry: date, door time, track and arrangement seed, duration, start mode, audio route, phases as bars, Door bar, outcome (on time, late by N bars, scrubbed, no launch), manifest items sung, Hold age, crew punch-in bars, delay permit flag.
 
 ### 4.2 The Request Line
 
-**Trigger.** A tile in the app, the Request Line widget, an App Intent from Shortcuts, a Control on the Action Button, or an NFC tag that runs a Shortcut. Each names one song: "Teeth 2:00", "Microwave 1:30", "Kettle 3:00", and with the unlock "1:00", "Shower 5:00", "10:00" and the rest.
+**Trigger.** A tile in the app, the Request Line widget, an App Intent from Shortcuts, a Control on the Action Button, or an NFC tag that runs a Shortcut. Each names one song from the tier's library (section 13).
 
-**Flow (Teeth 2:00).** 0:00 ON AIR sting, song starts on beat; Dynamic Island shows the ON AIR bulb and a vinyl record that shrinks as the song plays, no digits. 0:30 "top right" sung into the lyric. 1:00 "bottom left"; Farrago gets eight bars to forecast a dental catastrophe. 1:30 "bottom right, last quarter." 2:00 the song ends on the downbeat with a rinse sting; the bulb goes out. The shower song carries a sung rinse bridge at 4:30; the microwave song ends on a ding in the arrangement. A rotation rule ensures no song repeats within seven days where a length has more than one flavour; the free tier's single flavours are exempt and the tiles say so.
+**Flow (Teeth 2:00).** 0:00 ON AIR sting, song starts on beat; Dynamic Island shows the ON AIR bulb and a vinyl record that shrinks as the song plays, no digits. 0:30 "top right" sung into the lyric. 1:00 "bottom left"; Farrago gets eight bars to forecast a dental catastrophe. 1:30 "bottom right, last quarter." 2:00 the song ends on the downbeat with a rinse sting; the bulb goes out. The shower song carries a sung rinse bridge at 4:30. A rotation rule ensures no song repeats within seven days where a length has more than one flavour; the free tier's single flavours are exempt and the tiles say so.
 
 **Screen versus audio.** The phone can be face-down. Only the bulb, the vinyl and a Stop button exist on screen.
 
 **What each person does.** One tap.
 
-**Failure paths.** Scrub does not apply; Stop ends the song on the next bar and logs "stopped early". The song plays wherever the phone is, or on the speaker if that route is on; a missing speaker falls back silently. Someone late is not applicable. A song started during a launch nests: the launch ducks 12 dB and nothing shifts; in v1 only the teeth song nests, and it is already part of WAKE.
+**Failure paths.** Scrub does not apply; Stop ends the song on the next bar and logs "stopped early". The song plays wherever the phone is, or on the speaker if that route is on; a missing speaker falls back silently. Someone late is not applicable. In v1 no song can be started during a launch; the teeth song is already part of WAKE.
 
 **Logged.** Song, flavour, start time, route, completed or stopped early, and the entry point (tag, Shortcut, widget, Action Button, app).
 
@@ -109,7 +109,7 @@ Timings assume the default 12-minute launch, a 7:40 a.m. door time and 8:35 p.m.
 
 **Screen versus audio.** Audio carries the phases; the screen exists for the adult editing tomorrow's manifest during BOOK and for the credits afterwards.
 
-**What each person does.** Children follow by ear. The adult edits tomorrow's manifest (thirty seconds) and accepts or declines a shorter launch if a scrub offered one.
+**What each person does.** Children follow by ear; the adult edits tomorrow's manifest and answers any shorter-launch offer.
 
 **Failure paths.** Scrub works at night: the buzzer plays early and a scrubbed Re-entry is logged; there is no shorter offer because Re-entry is one length in v1. Phone not on the counter: pocket start. Speaker missing: fallback with no spoken line after 8 p.m. Someone late: Re-entry does not track people.
 
@@ -119,7 +119,7 @@ Timings assume the default 12-minute launch, a 7:40 a.m. door time and 8:35 p.m.
 
 ## 5. The Manifest with memory and the single Hold item
 
-**Editing flow.** One list, edited on the counter phone from the Hangar, the Re-entry BOOK phase, the post-launch screen or a widget. Adding an item is a text field with autocomplete against a catalogue of pre-sung items (lunchbox, library book, water bottle, gym bag, permission slip, keys, wallet, badge, laptop, charger, umbrella, instrument, homework folder, and more; catalogue size is open question 16.1). An item has a name, an optional "last seen" place, an optional due weekday, and a recurrence (every launch, weekdays, one weekday, once). Items are ticked as they go into the bag; unticked items are what Gus sings; "once" items vanish after they are sung.
+**Editing flow.** One list, edited on the counter phone from the Hangar, the Re-entry BOOK phase, the post-launch screen or a widget. Adding an item is a text field with autocomplete against a catalogue of pre-sung items (lunchbox, library book, water bottle, gym bag, permission slip, keys, wallet, badge, laptop, charger, and more; size is open question 16.1). An item has a name, an optional "last seen" place, an optional due weekday, and a recurrence (every launch, weekdays, one weekday, once). Items are ticked as they go into the bag; unticked items are what Gus sings; "once" items vanish after they are sung.
 
 **"Last seen" memory.** Every item can carry a place from a short pre-sung list (kitchen counter, by the door, in the car, in the bag, on the hook, bathroom, bedroom, the other coat, unknown). It is set by typing, by tapping the item during Re-entry ("keys, where?"), or by a single prompt later in the day when the launch completed with keys unticked: "Keys: where did they end up?" Gus sings "keys, last seen kitchen counter" until someone changes it. There is no location tracking; "last seen" is what a person typed.
 
@@ -137,14 +137,14 @@ This is the v1.2 feature set, included in the unlock.
 
 **Crew patches.** A member has a name, a role (Pilot, Navigator, Cargo, Ground Crew), a colour, a five-second walk-up cue and a stem. Patches are bold circular badges in the member's colour. A solo household is automatically Pilot, Ground Crew and audience and never sees a roll call. A Guest Star patch lasts one launch and, when End Credits ship, always gets the best line.
 
-**Walk-up cues.** Each member picks a five-second cue (mariachi, surf, marching band, and more as flavours ship). It fires in the bridge, on the next bar after their patch is tapped. This is the reluctant partner's on-ramp: "I want the mariachi one" is the whole onboarding.
+**Walk-up cues.** Each member picks a five-second cue (mariachi, surf, marching band, more as flavours ship) that fires in the bridge on the bar after their patch is tapped. The reluctant partner's on-ramp is "I want the mariachi one".
 
 **Stems.** Every launch track ships as four role stems (drums, bass, brass, choir) plus calm, medium and intense layers, all bar-trimmed so any combination plays in time. Pilot owns drums, Navigator bass, Cargo brass, Ground Crew choir. Before the bridge the shared bed plays alone; during the bridge a stem is silent until its owner punches in; from the final chorus on, everyone who punched in is audible, and T-0 is the first time all stems play together. Silence is audible: a missing stem is the only feedback a no-show gets.
 
 **Pass-the-phone, no sync.** The counter phone is the only device with state.
 1. At T-4:30 the launch screen shows every patch large in a grid; Augustine: "Roll call."
 2. Whoever is nearest taps their patch; the walk-up cue plays on the next bar and the stem punches in on the bar after. The patch fills solid.
-3. The phone is passed, or left on the counter, and the next person taps. A parent may tap a small child's patch; the app does not care who tapped.
+3. The phone is passed, or left on the counter, and the next person taps. A parent may tap a small child's patch.
 4. At T-1:30 the horns enter regardless. At T-0 the fanfare plays with every punched-in stem; untapped patches stay hollow on the post-launch screen and are logged absent, not late.
 
 Nothing is synchronised between phones. A second phone running the app is an independent installation; per-phone roles wait for the Season Two CloudKit share.
@@ -155,7 +155,7 @@ Nothing is synchronised between phones. A second phone running the app is an ind
 
 **Scrub.** A toddler-sized abort robot with one big button, on the launch screen, the Live Activity and as an App Intent so a household can put a tag by the door. Pressing it: klaxon on the next bar, "weather", the track ends within a bar, and the launch is logged scrubbed with reason "weather". There is no other reason field. That evening the Hangar offers tomorrow at the next-shorter duration ("Shorter tomorrow: 10 minutes"); a second scrub in a row offers the one below, down to 8; after an on-time launch the offer stops.
 
-**The Mission Log.** A rating, not a streak: "On time 42 of 50 launches", computed over the most recent 50 launches whose outcome was on time, late or scrubbed. No-launch and paused days count in neither number. It dips and never resets. Each entry is a card: date, duration, outcome, Door bar, Hold read, crew punch-ins. Yesterday is always editable to any of the four outcomes with no reason asked; older entries are locked except that any entry can become "no launch". Free shows the rating and 14 days of cards; the unlock shows 90. Nothing is deleted at either boundary.
+**The Mission Log.** A rating, not a streak: "On time 42 of 50 launches", computed over the most recent 50 launches whose outcome was on time, late or scrubbed. No-launch and paused days count in neither number. It dips and never resets. Yesterday is always editable to any of the four outcomes with no reason asked; older entries are locked except that any entry can become "no launch". Free shows the rating and 14 days of cards; the unlock shows 90. Nothing is deleted at either boundary.
 
 **The Sunday Flight Review (unlock).** On the first no-launch morning of the week, opening the app or tapping the widget plays a two-minute review: Augustine reads the week's launches and outcomes, Farrago reports her forecasts and how each was wrong, Bunny counts the Re-entries, Gus reads the Hold item's age and anything cleared. On screen, launches in colour and scrubs in greyscale, with the crew's notes (one line per launch, written on the post-launch screen). Audio-first, skippable, and it never contains a percentage.
 
@@ -195,7 +195,7 @@ No account, no household setup, no permission prompt before the person has heard
 
 **Action Button.** Controls for Start Request Line (last-used song), Scrub and Start Launch can be assigned to the Action Button or Control Center; Settings explains how in two lines.
 
-**NFC tags.** No NFC code is in the app. The household sticks a tag on the microwave and creates a Shortcuts automation ("When NFC tag is detected, run Start Request Line: Microwave 1:30"). A "Tags" page in Settings gives three recipes and opens the Shortcuts app.
+**NFC tags.** No NFC code is in the app. The household sticks a tag on the microwave and creates a Shortcuts automation ("When NFC tag is detected, run Start Request Line: Microwave 1:30"). Settings has a "Tags" page with three recipes.
 
 ---
 
@@ -209,7 +209,7 @@ No account, no household setup, no permission prompt before the person has heard
 
 **Visual-cue mode.** For anyone who cannot rely on audio, the phone is the cue. Each phase change shows a full-screen phase card (name, colour band, pictogram: toothbrush, shirt, list, door) on the launch screen, StandBy and the Live Activity, with a distinct haptic per phase; the horn entry is a long double haptic and the screen turning hot orange. The manifest appears as large text, one item per card, advancing on the bars Gus sings. Request Line songs show a quadrant diagram for teeth and a filling bar otherwise. It runs with or without audio and is a v1 feature, because for a deaf household it is the product.
 
-**Quiet mode.** Spoken cues and stings only: Augustine's phase calls, Gus reading the manifest in the spoken lane, the horn sting at DOOR, the fanfare at T-0. Still real audio, never a silent session. Because an app may use background modes only "for their intended purposes: VoIP, audio playback, location, task completion, local notifications" (guideline 2.5.4, https://developer.apple.com/app-store/review/guidelines/), quiet mode keeps the app in the foreground with the screen on; if the person leaves the app, remaining cues arrive as local notifications carrying the same short sounds.
+**Quiet mode.** Spoken cues and stings only: Augustine's phase calls, Gus reading the manifest in the spoken lane, the horn sting at DOOR, the fanfare at T-0. Still real audio, never a silent session. Because guideline 2.5.4 limits background modes to "their intended purposes" such as audio playback (https://developer.apple.com/app-store/review/guidelines/), quiet mode keeps the app in the foreground with the screen on; if the person leaves the app, remaining cues arrive as local notifications carrying the same short sounds.
 
 ---
 
@@ -219,7 +219,7 @@ No account, no household setup, no permission prompt before the person has heard
 
 **Holidays.** The app reads no calendar. "No launch tomorrow" is one tap on the Hangar, the BOOK screen or a Shortcut; it cancels the alarm and logs an excluded no-launch day. A date range is available in Settings. Optional calendar access is open question 16.5.
 
-**Travel and time zones.** Door times are local wall-clock. On the first open after a zone change the app asks once: "You're three hours from home. Launch here at 7:28 local, or pause until you're back?" The default when nobody answers is pause, so nothing fires in a hotel at the wrong hour. Paused days are excluded; returning home lifts the pause.
+**Travel and time zones.** Door times are local wall-clock. On the first open after a zone change the app asks once: "You're three hours from home. Launch here at 7:28 local, or pause until you're back?" Unanswered, it pauses, so nothing fires in a hotel at the wrong hour. Paused days are excluded; returning home lifts the pause.
 
 **Guests.** A Guest Star patch is added from the roll-call screen with a name and no role, lasts one launch, gets a walk-up cue and, when credits ship, the best line. Guests are not stored unless the household taps "keep".
 
@@ -227,9 +227,9 @@ No account, no household setup, no permission prompt before the person has heard
 
 **Snooze pressure.** There is no snooze; the alert has Stop and "Open the launch". Inside a launch two blameless instruments exist, both voiced by the Department of Five More Minutes. A *hold* pauses the countdown for up to five minutes, once, before the bridge, without moving the door; the app re-arranges the remainder to the next-shorter arrangement that fits and fills the gap with hold music. A *delay permit* moves today's door by 5, 10 or 15 minutes from the Live Activity and flags the entry. Neither touches the rating; the Flight Review shows permits in a lighter shade. The Board of Snooze Appeals is a running joke in Farrago's forecasts, not a mechanic.
 
-**Phone volume and Do Not Disturb.** The station ID breaks through silent mode and Focus (WWDC25 source above). The track plays through the app's media session, unaffected by the ring/silent switch but subject to the volume slider, which the app cannot raise. The Hangar and the post-Re-entry screen show "Volume low for tomorrow" under a floor, and the Live Activity repeats it at T-12:30. A speaker route sidesteps phone volume entirely.
+**Phone volume and Do Not Disturb.** The station ID breaks through silent mode and Focus (WWDC25 source above). The track plays through the app's media session, unaffected by the ring/silent switch but subject to the volume slider, which the app cannot raise. The Hangar shows "Volume low for tomorrow" under a floor; a speaker route sidesteps phone volume entirely.
 
-**The app killed in the background.** The alarm and Live Activity are scheduled with the system when door time is saved and after every launch, so a later force-quit does not remove tomorrow's alarm; pocket start applies. If the app is killed mid-track, playback stops, the Live Activity ends, and the entry is logged "interrupted" and offered for editing on next open. The app holds its audio session only while audio plays.
+**The app killed in the background.** The alarm and Live Activity are scheduled with the system when door time is saved and after every launch, so a later force-quit does not remove tomorrow's alarm; pocket start applies. If the app is killed mid-track, playback stops, the Live Activity ends, and the entry is logged "interrupted" for editing on next open.
 
 ---
 
@@ -314,8 +314,7 @@ Ship when the first morning proves the feel, not when the world is complete. Eve
 
 **Re-entry.**
 - With lights-out 8:35, the track starts at 8:15 and the buzzer sounds at 8:35 within one second.
-- The final bar's tempo is at least 15 BPM below the first bar's.
-- The screen is at 20% during LIGHTS and dark after the buzzer until touched.
+- The final bar's tempo is at least 15 BPM below the first bar's; the screen is at 20% during LIGHTS and dark after the buzzer until touched.
 - Scrub during Re-entry plays the buzzer early and logs a scrubbed Re-entry.
 
 **Request Line.**
@@ -328,9 +327,7 @@ Ship when the first morning proves the feel, not when the world is complete. Eve
 - No permission prompt appears before the Test Fire has played; declining alarm permission leaves every launch startable from the widget.
 
 **Settings, widgets, Shortcuts.**
-- Every setting in section 9 persists across a force-quit.
-- The three v1 widgets show correct data within one refresh of a change.
-- All ten App Intents appear in Shortcuts and behave as described.
+- Every setting in section 9 persists across a force-quit; the three v1 widgets show correct data within one refresh of a change; all ten App Intents appear in Shortcuts and behave as described.
 
 **Accessibility.**
 - With VoiceOver on, every screen is navigable and the score reads its phases in order.
@@ -340,9 +337,7 @@ Ship when the first morning proves the feel, not when the world is complete. Eve
 - In quiet mode every phase and the horn are audible as spoken cues and stings, with no silent audio between them.
 
 **Privacy and store.**
-- A network monitor shows no outbound connections in a full day of use apart from StoreKit.
-- The privacy questionnaire is answered "Data Not Collected".
-- The first screenshot and the first screen are the annotated score.
+- A network monitor shows no outbound connections in a full day of use apart from StoreKit; the privacy questionnaire is answered "Data Not Collected"; the first screenshot and first screen are the annotated score.
 
 ### v1.1: the full Request Line and End Credits
 Full library with weekly rotation; End Credits built from the day's manifest and log with billing order computed from carried load; the shareable card; the clothesline widget; the lounge track, Flight Review and Hangar. Criteria written at v1 ship.
@@ -357,9 +352,9 @@ CloudKit household share (shared manifest, per-phone roles); the 5 p.m. "Fuel" s
 
 ## 15. What the developer can measure without analytics, and what success looks like
 
-**On-device counters the person can see.** Settings carries a Station Log: install date; launches scheduled, on time, late, scrubbed, no-launch, interrupted; docked versus pocket starts; routes used; Request Line plays by song, completed versus stopped; manifest items sung and the five most-sung; "last seen" answers; Hold items cleared, amnestied and the oldest age reached; Re-entries completed; Test Fires; quiet-mode and visual-cue days; unlock date. "Copy station log" puts it on the clipboard as plain text. Nothing is sent anywhere; the developer sees it only if a person pastes it into a review, an email or a TestFlight note.
+**On-device counters the person can see.** Settings carries a Station Log: install date; launches scheduled, on time, late, scrubbed, no-launch, interrupted; docked versus pocket starts; routes used; Request Line plays by song, completed versus stopped; manifest items sung; Hold items cleared, amnestied and the oldest age reached; Re-entries completed; Test Fires; quiet-mode and visual-cue days; unlock date. "Copy station log" puts it on the clipboard as plain text. Nothing is sent anywhere; the developer sees it only if a person pastes it somewhere.
 
-**What the developer sees without any SDK.** App Store Connect's aggregated figures (impressions, downloads, proceeds, unlock conversions, retention by cohort), ratings and reviews, TestFlight feedback, and crash reports from people who opted in through the system setting. That is the whole measurement stack.
+**What the developer sees without any SDK.** App Store Connect's aggregated figures (downloads, proceeds, unlock conversions, retention by cohort), ratings and reviews, TestFlight feedback, and opt-in crash reports. That is the whole stack.
 
 **Success at 30 days.**
 - Day-30 retention above the 3.5% to 4% health-and-fitness benchmark (https://uxcam.com/blog/mobile-app-retention-benchmarks/).
@@ -371,9 +366,9 @@ CloudKit household share (shared manifest, per-phone roles); the 5 p.m. "Fuel" s
 **Success at 90 days.**
 - Day-90 retention no lower than half of day 30: the shape of a structural habit, not a novelty.
 - Reviews or pasted logs from at least three household types other than families.
-- v1.1 shipped and the End Credits card visibly shared in reviews or on channels the developer already watches.
+- v1.1 shipped and the End Credits card visibly shared.
 - Refunds under 2% of unlocks.
-- Proceeds covering the Suno subscription and developer account with margin, on Apple's 33-to-45-day payout lag. Only 17.3% of new apps reach $1K in monthly revenue within two years (https://www.revenuecat.com/state-of-subscription-apps), so the 90-day bar is trajectory, not income.
+- Proceeds covering the Suno subscription and developer account with margin. Only 17.3% of new apps reach $1K in monthly revenue within two years (https://www.revenuecat.com/state-of-subscription-apps), so the 90-day bar is trajectory, not income.
 
 ---
 
@@ -386,8 +381,6 @@ CloudKit household share (shared manifest, per-phone roles); the 5 p.m. "Fuel" s
 5. **Calendar access.** Never, or an optional read-only permission in v1.1 to pre-mark school holidays?
 6. **Family Sharing on the unlock.** Enable it so a household pays once (recommended), or require a second purchase per phone?
 7. **Rating window.** 50 launches is ten weeks for a five-day household and longer for a shift worker. Keep 50, or use 30 days?
-8. **Re-entry length.** A 10-minute variant in v1.1 for small children or late nights?
-9. **Quiet mode's foreground requirement.** Confirm the screen-on approach and whether the notification fallback ships in v1.
-10. **Interrupted entries.** Default to "no launch" or to "interrupted" awaiting an edit?
-11. **The name.** Every candidate in WINNER.md is unverified in trademark classes 9, 41 and 42 and App Store Connect. Clear a name before any asset is drawn.
-12. **Human re-recording timing.** Before v1, so the alarm sound and fanfare are defensible from day one, or within year one as WINNER.md allows?
+8. **Quiet mode's foreground requirement.** Confirm the screen-on approach and whether the notification fallback ships in v1.
+9. **The name.** Every candidate in WINNER.md is unverified in trademark classes 9, 41 and 42 and App Store Connect. Clear a name before any asset is drawn.
+10. **Human re-recording timing.** Before v1, so the alarm sound and fanfare are defensible from day one, or within year one as WINNER.md allows?
