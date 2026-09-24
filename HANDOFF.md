@@ -51,10 +51,10 @@ connector/creative-bridge/                  Creative Bridge MCP connector (DONE,
 | 04-visual-design-system.md | written and committed |
 | 05-monetization-and-app-store.md | written and committed |
 | suno-library/ (README.md, suno-library.md, suno-library.json) | written and committed (57 entries, JSON validated) |
-| 06-technical-architecture-and-build-plan.md | writer was still running |
+| 06-technical-architecture-and-build-plan.md | written and committed |
 | 07-legal-ip-and-rights-checklist.md | written and committed |
 
-**Check the file list.** Any document above that is missing on disk was not finished before the previous session ended; regenerate it from its brief in `concepts/doorhorn/_briefs/` (the briefs reference only files that exist in this repo). None of the documents has had a cross-document consistency review yet; that review is the first open task after the package is complete (section 6).
+All eight documents were written and committed. If any needs a rewrite, its brief is in `concepts/doorhorn/_briefs/` (the briefs reference only files that exist in this repo). None of the documents has had a cross-document consistency review yet; that review is the first open task (section 6).
 
 ## 4. Things that live outside the repo
 
@@ -76,7 +76,7 @@ Never ask the owner to paste tokens, keys or passwords into chat; they go into N
 
 ## 6. Open tasks, in order
 
-1. **Finish the package.** For each missing document, run its brief (`concepts/doorhorn/_briefs/`) with a subagent; regenerate `concepts/tournament/digest/` first if it is missing (`node concepts/tournament/extract-digests.mjs`).
+1. **The package is complete.** Nothing needs generating. If a document must be rewritten, use its brief in `concepts/doorhorn/_briefs/`; the research digests it reads are in `concepts/tournament/digest/` (regenerable with `node concepts/tournament/extract-digests.mjs`).
 2. **Consistency review across all documents.** Check: cast names and phases match WINNER.md; the section-map schema in 03 and 06 is identical; tempos and durations agree between 03, 06 and the Suno library; the free/paid boundary matches between 01 and 05; the name shortlist in 05 respects 07's clearance results; every factual claim has a source URL. Known items already flagged by the writers:
    - 02 proposes a musical lane for Lionel that WINNER.md does not define, and its syllables-per-bar table assumes tempos; 03 owns the tempos, so reconcile 02 to 03.
    - 04 reserves red for Scrub and defines the crew colors without red; the prototype (`prototype/index.html`) still uses red for Pilot and different fonts (Bungee, Nunito, IBM Plex Mono) from 04's picks (Anton, Fredoka, Space Mono). Align the prototype to 04 or record the deviation.
@@ -86,6 +86,7 @@ Never ask the owner to paste tokens, keys or passwords into chat; they go into N
    - 07's live name check (24 Sep 2026): Doorhorn clean everywhere with doorhorn.com and .app available; Liftoff Choir medium risk (LIFTOFF marks in classes 41/42); Hornline low-medium; Gantry, Go Horns and Splashdown high. Official trademark databases could not be queried, so a knock-out search by a person or lawyer is still required. Copyright Office fees are expected to rise in fall 2026, so lyric and script registrations should be filed before then.
    - 03 specifies one 208-bar (6:30) launch master per flavor and Re-entry as six segments 80→60 BPM; the Suno library specifies a 128-bar (4:00) launch master with a 60-second Test Fire, and Re-entry as four five-minute segments 80→72→64→56 BPM. Both share the 128 BPM grid and G major. Pick one plan (the library is what gets pasted into Suno; 03 is what the engine assumes) and make 03, 06 and the library agree.
    - The Suno library's markdown and JSON are generated from `concepts/doorhorn/suno-library/src/` with `node src/build.js`; edit the entry files, never the outputs.
+   - 06 adopts 03's section-map schema verbatim (128 BPM, 48 kHz, 90,000 samples per bar, 208-bar master, eight stems) and sends three contract changes back to 03: Apple-Hosted Background Assets instead of On-Demand Resources (ODR is deprecated as of iOS 27 per App Store Connect Help), a per-duration horn-offset field, and an AAC decoded-length gate with an ALAC fallback. 06 also lists ten platform facts it could not verify (zero-tap audio start from an AlarmKit intent, the 30-second alarm-sound cap, alarms after force-quit, scheduled Live Activities after termination, Focus suppression, simultaneous Live Activity limits, AirPlay route-change behaviour, AAC priming, NFC automation confirmation, Liquid Glass opt-out in iOS 27); its week-2 spikes are designed to settle them before anything else is built.
    - 01 proposes a "docked start versus pocket start" model to reconcile the 30-second alarm-sound cap with "you don't need to open the app", plus a 14-day free mission-log window; 06 must confirm both against verified platform facts.
    Fix and commit.
 3. **Owner review of the concept.** Confirm the name, the tone (4+/9+, warm, never blaming the household), the price, and the v1 scope (launches, Re-entry, manifest and Hold item, Scrub, mission log, three Request Line songs, Test Fire, paywall). Specific owner calls the writers surfaced: whether the App Store description names Suno (05 does, following WINNER.md's disclosure rule; the alternative is naming it only in About); Family Sharing on the unlock (05 sets it ON, which Apple treats as irreversible); "Gantry" was dropped as a name because an app with that name already exists; the revenue scenarios in 05 rest on assumed conversion rates, not data.
@@ -104,4 +105,4 @@ Never ask the owner to paste tokens, keys or passwords into chat; they go into N
 1. Tournament workflow run (35 agents, ~2 hours); results saved to `concepts/tournament/`.
 2. Creative Bridge connector built, tested locally (20/20), deployed to Netlify, login wall removed, live endpoints verified, committed.
 3. Prototype built and checked headlessly through a full launch, roll call, Scrub, Re-entry, credits and a request-line song; published as an artifact; committed.
-4. Eight writer agents launched for the package documents; the status table in section 3 records which landed before the session ended.
+4. Eight writer agents produced the package documents; all eight landed and were committed, and this handoff was finalized afterwards.
