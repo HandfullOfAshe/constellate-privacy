@@ -26,7 +26,7 @@ Do not paste entry 4 (the shared launch lyric and slot map); it exists for the a
 Each character has a genre lane, not a voice lock, because Suno Personas preserve an essence rather than an exact voice, and lanes make drift invisible. Voices (the voice-model feature) are for your own voice only and are not used here (Terms of Service; release notes, https://suno.com/release-notes). The workflow is:
 
 1. Generate the five **persona source** entries first, with extra takes: entry 1 (Augustine Pell), entry 32 (Gus Marchetti), entry 30 (Dr. Ines Farrago), entry 16 (Bunny Kowalczyk) and entry 36 (Scrub). Each is a single-voice song, which gives the cleanest persona.
-2. On the accepted take, create a Persona and name it after the character. Personas were introduced in October 2024; the exact menu wording changes, so follow the current UI.
+2. On the accepted take, create a Persona and name it after the character; follow the current UI, since the menu wording changes.
 3. Select that Persona whenever the entry's `vocal_lane` names it. Lionel Abara has no lane of his own; he is a low spoken "copy" inside other entries and a ten-line bank (entry 52).
 
 Only after the personas exist, generate the marching band launch master (entry 5) and accept it. Then make the other five flavors (entries 6 to 10) as **Covers** of that master with each flavor's style prompt and the byte-identical lyric, so the six share one melody. Covers exist (September 2024) but the digest does not confirm they preserve tempo or key; check both on every cover.
@@ -45,7 +45,7 @@ v6 generates up to eight minutes in one pass and has no reliable duration contro
 
 Each entry's `generation_tips` state the number of generations (two songs per 10-credit generation): two for stings and cues, three for beds and most songs, four for launches and banks, five or six for persona sources and the day-count bank. Listen, in order, for tempo lock, cue placement, lane match (is this the same person as the persona source), intelligible spoken lines at low volume, and a hard ending with no fade. Keep the take with the best timing over the best mix; timing cannot be fixed later, mix can. Use Replace Section (10 to 30 s, Pro and Premier) for a single wrong phrase before regenerating a whole song. Never use Remix: remixed output is non-commercial on every tier (Terms of Service).
 
-Budget: the 56 generated entries at roughly three generations each is about 1,700 credits, plus Advanced Split at 20 credits a stem for the six launches and Auto Split at 50 credits for the credits template and banks, about 3,000 credits in total, inside one Premier month's 10,000. Downloads: one per accepted song through Studio, well inside the concept's plan of about 45 for a beta and 110 by launch.
+Budget: about 1,700 credits for the generations plus about 1,300 for Advanced Split (20 credits a stem) and Auto Split (50 credits a song), inside one Premier month's 10,000. One Studio download per accepted song sits well inside the concept's plan of about 45 for a beta and 110 by launch.
 
 ## 6. Naming scheme
 
